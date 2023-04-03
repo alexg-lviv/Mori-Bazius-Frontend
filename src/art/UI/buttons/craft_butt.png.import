@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5rao3mfripoy"
-path="res://.godot/imported/craft_butt.png-43c11da7a25bac7a22c080b4b76c74dd.ctex"
+uid="uid://jd7spylko0e8"
+path="res://.godot/imported/craft_butt.png-eaf5f085d50c64ec945bd0533772ab6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/craft_butt.png"
-dest_files=["res://.godot/imported/craft_butt.png-43c11da7a25bac7a22c080b4b76c74dd.ctex"]
+source_file="res://art/UI/buttons/craft_butt.png"
+dest_files=["res://.godot/imported/craft_butt.png-eaf5f085d50c64ec945bd0533772ab6d.ctex"]
 
 [params]
 
