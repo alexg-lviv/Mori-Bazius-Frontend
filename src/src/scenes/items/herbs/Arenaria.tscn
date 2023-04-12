@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dey7o3kyb0ngq"]
-
-[ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_pxufx"]
-[ext_resource type="Texture2D" uid="uid://dvfjmd5ejyfe3" path="res://art/items/clickable/herbs/arenaria.png" id="2_0gt1n"]
-
-[node name="Arenaria" instance=ExtResource("1_pxufx")]
-texture = ExtResource("2_0gt1n")

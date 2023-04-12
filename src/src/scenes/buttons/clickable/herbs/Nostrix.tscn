@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xvrpfg5p5x0a"]
-
-[ext_resource type="PackedScene" uid="uid://dcr4jexn1te80" path="res://src/scenes/buttons/clickable/Clickable.tscn" id="1_2nvhx"]
-
-[node name="Nostrix" instance=ExtResource("1_2nvhx")]
-_name = "nostrix"

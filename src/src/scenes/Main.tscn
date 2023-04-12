@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://856gt2srm51g"]
+[gd_scene load_steps=5 format=3 uid="uid://856gt2srm51g"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1_ffidp"]
 [ext_resource type="PackedScene" uid="uid://cbog86ioeumba" path="res://src/scenes/UI/HUD.tscn" id="1_lvsag"]
-[ext_resource type="PackedScene" uid="uid://drobr7qbpsydj" path="res://src/scenes/buttons/clickable/herbs/Arenaria.tscn" id="3_ryayw"]
-[ext_resource type="PackedScene" uid="uid://xvrpfg5p5x0a" path="res://src/scenes/buttons/clickable/herbs/Nostrix.tscn" id="4_efj4v"]
-[ext_resource type="PackedScene" uid="uid://d0d2yyxajlqqd" path="res://src/scenes/buttons/clickable/herbs/Wolfsbane.tscn" id="5_mhjde"]
-[ext_resource type="PackedScene" uid="uid://bkoviaquik3u6" path="res://src/scenes/buttons/craftable/potions/SwallowPotion.tscn" id="6_f54wq"]
+[ext_resource type="PackedScene" uid="uid://dcr4jexn1te80" path="res://src/scenes/buttons/clickable/Clickable.tscn" id="3_1pax5"]
+[ext_resource type="PackedScene" uid="uid://c8nry6kat8a84" path="res://src/scenes/buttons/craftable/Craftable.tscn" id="4_g1d0j"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -26,58 +24,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Arenaria" parent="Clickables" instance=ExtResource("3_ryayw")]
+[node name="Arenaria" parent="Clickables" instance=ExtResource("3_1pax5")]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 272.0
-offset_right = 331.0
-offset_bottom = 352.0
+offset_left = 210.0
+offset_top = 138.0
+offset_right = 290.0
+offset_bottom = 218.0
+_name = "arenaria"
 
-[node name="Nostrix" parent="Clickables" instance=ExtResource("4_efj4v")]
+[node name="Nostrix" parent="Clickables" instance=ExtResource("3_1pax5")]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 167.0
-offset_right = 331.0
-offset_bottom = 247.0
+offset_left = 322.0
+offset_top = 137.0
+offset_right = 402.0
+offset_bottom = 217.0
+_name = "nostrix"
 
-[node name="Wolfsbane" parent="Clickables" instance=ExtResource("5_mhjde")]
+[node name="Wolfsbane" parent="Clickables" instance=ExtResource("3_1pax5")]
 layout_mode = 0
-offset_left = 348.0
-offset_top = 221.0
-offset_right = 428.0
-offset_bottom = 301.0
+offset_left = 433.0
+offset_top = 137.0
+offset_right = 513.0
+offset_bottom = 217.0
+_name = "wolfsbane"
 
 [node name="Craftables" type="Control" parent="."]
 anchors_preset = 0
 
-[node name="SwallowPotion" parent="Craftables" instance=ExtResource("6_f54wq")]
+[node name="SwallowPotion" parent="Craftables" instance=ExtResource("4_g1d0j")]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 213.0
-offset_right = 200.0
-offset_bottom = 313.0
-
-[node name="GET" type="HTTPRequest" parent="."]
-
-[node name="POST" type="HTTPRequest" parent="."]
-
-[node name="SaveButt" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_left = 480.0
-offset_top = 161.0
-offset_right = 488.0
-offset_bottom = 169.0
-text = "Save"
-
-[node name="LoadButt" type="Button" parent="."]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_left = 480.0
-offset_top = 290.0
-offset_right = 580.0
-offset_bottom = 390.0
-text = "Load"
+offset_left = 311.0
+offset_top = 267.0
+offset_right = 411.0
+offset_bottom = 367.0
+_name = "swallow_potion"
 
 [node name="ItemsText" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(500, 100)
@@ -91,7 +71,4 @@ offset_bottom = 937.0
 wait_time = 30.0
 autostart = true
 
-[connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]
-[connection signal="request_completed" from="POST" to="." method="_on_post_request_completed"]
-[connection signal="pressed" from="SaveButt" to="." method="_on_save_butt_pressed"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

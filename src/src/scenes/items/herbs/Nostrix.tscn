@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://btsnthmpuegex"]
-
-[ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_atlk0"]
-
-[node name="Nostrix" instance=ExtResource("1_atlk0")]

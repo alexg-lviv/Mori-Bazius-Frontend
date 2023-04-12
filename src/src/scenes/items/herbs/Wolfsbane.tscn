@@ -1,7 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcy6sgdswilqs"]
-
-[ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_7jwvl"]
-[ext_resource type="Texture2D" uid="uid://ivrdkuook6o4" path="res://art/items/clickable/herbs/wolfsbane.png" id="2_mobt1"]
-
-[node name="Wolfsbane" instance=ExtResource("1_7jwvl")]
-texture = ExtResource("2_mobt1")

@@ -3,11 +3,8 @@ extends "res://src/scenes/buttons/clickable/Clickable.gd"
 var _requirements: Dictionary
 
 func _ready():
-	_item = Items.items[_name].instantiate()
-	add_child(_item)
-	_center_item()
-	
-	_requirements = Items.requirements[_name]
+	_item.item_name = _name
+	_requirements = Items.data[_name]["requirements"]
 	validate()
 
 func validate():

@@ -18,9 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Items="*res://src/singletons/Items.gd"
-Events="*res://src/singletons/Events.gd"
 Stats="*res://src/singletons/Stats.gd"
-Hunters="*res://src/singletons/Hunters.gd"
+Events="*res://src/singletons/Events.gd"
 
 [display]
 
