@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbog86ioeumba"]
+
+[ext_resource type="Texture2D" uid="uid://dvfjmd5ejyfe3" path="res://art/items/clickable/herbs/arenaria.png" id="1_gcksu"]
+
+[sub_resource type="Gradient" id="Gradient_xvfya"]
+colors = PackedColorArray(0.329412, 0.807843, 0.596078, 1, 1, 0.517647, 0.513726, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghjdk"]
+gradient = SubResource("Gradient_xvfya")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 0)
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpperPanel" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_ghjdk")
+expand_mode = 1
+
+[node name="Power" type="HBoxContainer" parent="UpperPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UpperPanel/Power"]
+layout_mode = 2
+texture = ExtResource("1_gcksu")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UpperPanel/Power"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "666"

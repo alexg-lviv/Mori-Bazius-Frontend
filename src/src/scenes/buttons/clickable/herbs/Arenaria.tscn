@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drobr7qbpsydj"]
+
+[ext_resource type="PackedScene" uid="uid://dcr4jexn1te80" path="res://src/scenes/buttons/clickable/Clickable.tscn" id="1_8dtk4"]
+
+[node name="Arenaria" instance=ExtResource("1_8dtk4")]
+_name = "arenaria"

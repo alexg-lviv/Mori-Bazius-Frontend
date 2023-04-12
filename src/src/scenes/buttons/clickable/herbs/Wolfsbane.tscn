@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0d2yyxajlqqd"]
+
+[ext_resource type="PackedScene" uid="uid://dcr4jexn1te80" path="res://src/scenes/buttons/clickable/Clickable.tscn" id="1_1rqrm"]
+
+[node name="Wolfsbane" instance=ExtResource("1_1rqrm")]
+_name = "wolfsbane"

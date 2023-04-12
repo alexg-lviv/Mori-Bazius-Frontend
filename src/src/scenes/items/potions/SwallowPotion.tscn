@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmsoa48g0p3ce"]
+
+[ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_e7a6f"]
+[ext_resource type="Texture2D" uid="uid://b313xt6e8clyr" path="res://art/items/craftable/potions/swallow.png" id="2_eiu8t"]
+
+[node name="SwallowPotion" instance=ExtResource("1_e7a6f")]
+texture = ExtResource("2_eiu8t")

@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="WithcerClicker"
-run/main_scene="res://src/scenes/WelcomeScene.tscn"
+run/main_scene="res://src/scenes/Main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Items="*res://src/singletons/Items.gd"
+Events="*res://src/singletons/Events.gd"
+Stats="*res://src/singletons/Stats.gd"
+Hunters="*res://src/singletons/Hunters.gd"
 
 [display]
 
@@ -25,3 +32,4 @@ window/stretch/mode="canvas_items"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0

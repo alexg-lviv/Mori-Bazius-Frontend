@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcr4jexn1te80"]
+
+[ext_resource type="Texture2D" uid="uid://bw2kssw3itt3s" path="res://art/UI/buttons/click_butt.png" id="1_xr21a"]
+[ext_resource type="Script" path="res://src/scenes/buttons/clickable/Clickable.gd" id="2_i2drv"]
+
+[node name="Clickable" type="TextureButton"]
+custom_minimum_size = Vector2(80, 80)
+texture_normal = ExtResource("1_xr21a")
+stretch_mode = 5
+script = ExtResource("2_i2drv")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
