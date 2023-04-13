@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djgh56bh2yqt3"
-path="res://.godot/imported/steel_kingslayers_sword.png-605d7652f383ca8128ee4b4d03141974.ctex"
+uid="uid://imu7d5his2v7"
+path="res://.godot/imported/white_box.png-20934f977d5788dd27c7c8a7c367f004.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/items/upgrades/swords/steel_kingslayers_sword.png"
-dest_files=["res://.godot/imported/steel_kingslayers_sword.png-605d7652f383ca8128ee4b4d03141974.ctex"]
+source_file="res://art/UI/rects/white_box.png"
+dest_files=["res://.godot/imported/white_box.png-20934f977d5788dd27c7c8a7c367f004.ctex"]
 
 [params]
 
