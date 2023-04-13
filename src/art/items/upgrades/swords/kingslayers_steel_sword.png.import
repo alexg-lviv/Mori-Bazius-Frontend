@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djgh56bh2yqt3"
-path="res://.godot/imported/steel_kingslayers_sword.png-605d7652f383ca8128ee4b4d03141974.ctex"
+path="res://.godot/imported/kingslayers_steel_sword.png-26b16a22059df9a9f720af0dca7ec52c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/items/upgrades/swords/steel_kingslayers_sword.png"
-dest_files=["res://.godot/imported/steel_kingslayers_sword.png-605d7652f383ca8128ee4b4d03141974.ctex"]
+source_file="res://art/items/upgrades/swords/kingslayers_steel_sword.png"
+dest_files=["res://.godot/imported/kingslayers_steel_sword.png-26b16a22059df9a9f720af0dca7ec52c.ctex"]
 
 [params]
 

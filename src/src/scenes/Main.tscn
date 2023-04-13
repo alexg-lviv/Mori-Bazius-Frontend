@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://856gt2srm51g"]
+[gd_scene load_steps=3 format=3 uid="uid://856gt2srm51g"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1_ffidp"]
 [ext_resource type="PackedScene" uid="uid://cbog86ioeumba" path="res://src/scenes/UI/HUD.tscn" id="1_lvsag"]
-[ext_resource type="PackedScene" uid="uid://dcr4jexn1te80" path="res://src/scenes/buttons/clickable/Clickable.tscn" id="3_1pax5"]
-[ext_resource type="PackedScene" uid="uid://c8nry6kat8a84" path="res://src/scenes/buttons/craftable/Craftable.tscn" id="4_g1d0j"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -24,40 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Arenaria" parent="Clickables" instance=ExtResource("3_1pax5")]
-layout_mode = 0
-offset_left = 210.0
-offset_top = 138.0
-offset_right = 290.0
-offset_bottom = 218.0
-_name = "arenaria"
-
-[node name="Nostrix" parent="Clickables" instance=ExtResource("3_1pax5")]
-layout_mode = 0
-offset_left = 322.0
-offset_top = 137.0
-offset_right = 402.0
-offset_bottom = 217.0
-_name = "nostrix"
-
-[node name="Wolfsbane" parent="Clickables" instance=ExtResource("3_1pax5")]
-layout_mode = 0
-offset_left = 433.0
-offset_top = 137.0
-offset_right = 513.0
-offset_bottom = 217.0
-_name = "wolfsbane"
-
 [node name="Craftables" type="Control" parent="."]
 anchors_preset = 0
-
-[node name="SwallowPotion" parent="Craftables" instance=ExtResource("4_g1d0j")]
-layout_mode = 0
-offset_left = 311.0
-offset_top = 267.0
-offset_right = 411.0
-offset_bottom = 367.0
-_name = "swallow_potion"
 
 [node name="ItemsText" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(500, 100)

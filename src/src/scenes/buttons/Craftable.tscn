@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce2attkcv2r11"]
+
+[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_8q1hi"]
+[ext_resource type="Texture2D" uid="uid://jd7spylko0e8" path="res://art/UI/buttons/craft_butt.png" id="1_dd0jc"]
+[ext_resource type="Texture2D" uid="uid://i5tppfsk6djp" path="res://art/UI/buttons/disabeled_craft_butt.png" id="2_nydha"]
+[ext_resource type="Script" path="res://src/scenes/buttons/Craftable.gd" id="3_dh0d2"]
+
+[node name="Craftable" instance=ExtResource("1_8q1hi")]
+custom_minimum_size = Vector2(120, 120)
+texture_normal = ExtResource("1_dd0jc")
+texture_disabled = ExtResource("2_nydha")
+script = ExtResource("3_dh0d2")

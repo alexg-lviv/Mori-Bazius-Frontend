@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cl4wpxt8kb3ce"]
+
+[ext_resource type="Texture2D" uid="uid://bw2kssw3itt3s" path="res://art/UI/buttons/click_butt.png" id="1_pfhbm"]
+[ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
+[ext_resource type="Script" path="res://src/scenes/items/Item.gd" id="3_afkf3"]
+
+[node name="Clickable" type="TextureButton"]
+custom_minimum_size = Vector2(80, 80)
+texture_normal = ExtResource("1_pfhbm")
+stretch_mode = 5
+script = ExtResource("2_mfgya")
+
+[node name="Item" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_afkf3")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

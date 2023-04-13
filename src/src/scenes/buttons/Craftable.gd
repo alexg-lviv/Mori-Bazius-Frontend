@@ -1,4 +1,4 @@
-extends "res://src/scenes/buttons/clickable/Clickable.gd"
+extends "res://src/scenes/buttons/Clickable.gd"
 
 var _requirements: Dictionary
 
