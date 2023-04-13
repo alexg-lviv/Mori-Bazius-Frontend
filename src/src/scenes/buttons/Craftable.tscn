@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/scenes/buttons/Craftable.gd" id="3_dh0d2"]
 
 [node name="Craftable" instance=ExtResource("1_8q1hi")]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(100, 100)
 texture_normal = ExtResource("1_dd0jc")
 texture_disabled = ExtResource("2_nydha")
 script = ExtResource("3_dh0d2")

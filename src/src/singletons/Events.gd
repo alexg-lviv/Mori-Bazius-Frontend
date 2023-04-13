@@ -30,21 +30,21 @@ func _update_qty(item: String, qty_delta: int):
 
 func _on_save():
 	print("Save emitted")
-	var err = _POST.request(
-		#TODO: player id
-		_url,
-		["Content-Type: application/json"],
-		HTTPClient.METHOD_POST,
-		JSON.stringify(Items.qty)
-	)
+#	var err = _POST.request(
+#		#TODO: player id
+#		_url,
+#		["Content-Type: application/json"],
+#		HTTPClient.METHOD_POST,
+#		JSON.stringify(Items.qty)
+#	)
 	# TODO: error checks
 
 func _on_pull():
 	print("Load emitted")
-	var err = _GET.request(
-		#TODO: player id
-		_url,
-	)
+#	var err = _GET.request(
+#		#TODO: player id
+#		_url,
+#	)
 	# TODO: error checks
 
 func _on_post_request_completed(result, response_code, headers, body):

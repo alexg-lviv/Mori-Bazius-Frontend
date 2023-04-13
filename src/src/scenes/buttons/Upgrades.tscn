@@ -5,6 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://d3xo8rppdq8hu" path="res://art/UI/buttons/upgrade_disabled_butt.png" id="3_ki8ss"]
 
 [node name="Upgrades" instance=ExtResource("1_2btxo")]
-custom_minimum_size = Vector2(150, 150)
+custom_minimum_size = Vector2(120, 120)
 texture_normal = ExtResource("2_4y7c0")
 texture_disabled = ExtResource("3_ki8ss")
