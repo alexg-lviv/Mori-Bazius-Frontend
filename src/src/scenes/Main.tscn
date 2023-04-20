@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://src/scenes/TabContainer.gd" id="3_ksal1"]
 [ext_resource type="PackedScene" uid="uid://b35b5p803o2dw" path="res://src/scenes/LeaderBoard.tscn" id="4_nbvxq"]
 [ext_resource type="PackedScene" uid="uid://c35tuwngjom8j" path="res://src/scenes/MyGuild.tscn" id="5_0aalu"]
-[ext_resource type="PackedScene" uid="uid://e315pwt5ukrk" path="res://src/scenes/Inventory.tscn" id="6_j82mu"]
+[ext_resource type="PackedScene" uid="uid://be1euo5oh2t12" path="res://src/scenes/Inventory.tscn" id="6_j82mu"]
 [ext_resource type="PackedScene" uid="uid://dqjlspcnkeumw" path="res://src/scenes/Witchers.tscn" id="7_hlyxv"]
 
 [node name="Main" type="Control"]

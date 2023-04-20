@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bd7b8jyh38w5k"]
+[gd_scene load_steps=5 format=3 uid="uid://812dv8rv3sdd"]
 
 [ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_mpc7o"]
 [ext_resource type="Script" path="res://src/scenes/Home.gd" id="1_utws0"]
@@ -102,97 +102,114 @@ anchors_preset = 0
 layout_mode = 0
 offset_left = 306.0
 offset_top = 206.0
-offset_right = 406.0
-offset_bottom = 306.0
+offset_right = 386.0
+offset_bottom = 286.0
 _name = "swallow_potion"
 
 [node name="SilverIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 108.0
 offset_top = 503.0
-offset_right = 208.0
-offset_bottom = 603.0
+offset_right = 188.0
+offset_bottom = 583.0
 _name = "meteorite_silver_ingot"
 
 [node name="SteelIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 250.0
 offset_top = 509.0
-offset_right = 350.0
-offset_bottom = 609.0
+offset_right = 330.0
+offset_bottom = 589.0
 _name = "dark_steel_ingot"
 
 [node name="GoldIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 397.0
 offset_top = 509.0
-offset_right = 497.0
-offset_bottom = 609.0
+offset_right = 477.0
+offset_bottom = 589.0
 _name = "green_gold_ingot"
 
 [node name="Diamond" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 539.0
 offset_top = 510.0
-offset_right = 639.0
-offset_bottom = 610.0
+offset_right = 619.0
+offset_bottom = 590.0
 _name = "diamond"
 
 [node name="SilverSword" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 707.0
-offset_right = 204.0
-offset_bottom = 807.0
+offset_right = 184.0
+offset_bottom = 787.0
 _name = "silver_sword"
 
 [node name="SteelSword" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 304.0
 offset_top = 704.0
-offset_right = 404.0
-offset_bottom = 804.0
+offset_right = 384.0
+offset_bottom = 784.0
 _name = "steel_sword"
 
 [node name="Armor" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 502.0
 offset_top = 713.0
-offset_right = 602.0
-offset_bottom = 813.0
+offset_right = 582.0
+offset_bottom = 793.0
 _name = "armor"
 
 [node name="KingSilverSword" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 94.0
-offset_top = 871.0
-offset_right = 214.0
-offset_bottom = 991.0
+offset_left = 103.0
+offset_top = 902.0
+offset_right = 183.0
+offset_bottom = 982.0
 _name = "kingslayers_silver_sword"
 
 [node name="KingSteelSword" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 308.0
-offset_top = 873.0
-offset_right = 428.0
-offset_bottom = 993.0
+offset_left = 309.0
+offset_top = 902.0
+offset_right = 389.0
+offset_bottom = 982.0
 _name = "kingslayers_steel_sword"
 
 [node name="MasterArmor" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 490.0
-offset_top = 873.0
-offset_right = 610.0
-offset_bottom = 993.0
+offset_left = 512.0
+offset_top = 902.0
+offset_right = 592.0
+offset_bottom = 982.0
 _name = "mastercrafted_armor"
 
+[node name="CreateHunter" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 1100.0
+offset_right = 274.0
+offset_bottom = 1180.0
+_name = "hunter"
+
+[node name="UpgradeHunter" parent="Craftables" instance=ExtResource("3_h8h33")]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 1085.0
+offset_right = 476.0
+offset_bottom = 1165.0
+_name = "master"
+
 [node name="ItemsText" type="RichTextLabel" parent="."]
+visible = false
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 0
-offset_left = 105.0
-offset_top = 1015.0
-offset_right = 605.0
-offset_bottom = 1279.0
+offset_left = 147.0
+offset_top = 525.0
+offset_right = 647.0
+offset_bottom = 789.0
 
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0

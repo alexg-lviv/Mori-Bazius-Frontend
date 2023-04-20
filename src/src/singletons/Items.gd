@@ -1,5 +1,10 @@
 extends Node
 
+var player_id: int
+
+var power := 0
+
+
 const data: Dictionary = {
 	"arenaria": {
 		"power": 1,
@@ -152,6 +157,28 @@ const data: Dictionary = {
 			"silver_sword": 1,
 		},
 	},
+	
+	"hunter": {
+		"power": 10000, # TODO,
+		"sprite": preload("res://art/hunters/hunter.png"),
+		"requirements": {
+				"swallow_potion": 10,
+				"silver_sword": 1,
+				"steel_sword": 1,
+				"armor": 1,
+		},
+	},
+
+	"master": {
+		"power": 100000, # TODO,
+		"sprite": preload("res://art/hunters/master.png"),
+		"requirements": {
+				"swallow_potion": 10,
+				"silver_sword": 1,
+				"steel_sword": 1,
+				"armor": 1,
+		},
+	},
 }
 
 
@@ -185,4 +212,7 @@ var qty: Dictionary = {
 	
 	"silver_sword": 0,
 	"kingslayers_silver_sword": 0,
+	
+	"hunter": 0,
+	"master": 0,
 }

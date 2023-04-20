@@ -2,7 +2,8 @@ extends TextureRect
 
 class_name Item
 
-var item_name: String:
+@export var item_name: String:
 	set(value):
-		item_name = value
-		set_texture(Items.data[item_name]["sprite"])
+		if not value.is_empty():
+			item_name = value
+			set_texture(Items.data[item_name]["sprite"])

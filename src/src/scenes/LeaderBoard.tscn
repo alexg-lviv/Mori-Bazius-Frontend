@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b35b5p803o2dw"]
+[gd_scene format=3 uid="uid://b4cme045vht6y"]
 
 [node name="LeaderBoard" type="Control"]
 layout_mode = 3
