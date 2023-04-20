@@ -1,18 +1,69 @@
-[gd_scene load_steps=7 format=3 uid="uid://be1euo5oh2t12"]
+[gd_scene load_steps=24 format=3 uid="uid://be1euo5oh2t12"]
 
 [ext_resource type="Texture2D" uid="uid://lfcoqc2aa68u" path="res://art/UI/inventory.png" id="1_4g4bc"]
 [ext_resource type="PackedScene" uid="uid://bxyk1gsyr8a2m" path="res://src/scenes/items/InventoryItem.tscn" id="2_bnnx8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxejn"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yawe3"]
 resource_local_to_scene = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_213i0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5mv2u"]
 resource_local_to_scene = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqvmf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tm5m0"]
 resource_local_to_scene = true
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_18g3m"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtef3"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1myg1"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2ghi"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yxau"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ca2aa"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2si6h"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ri5jm"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kpnd"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vxny"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npx80"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jqx2j"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y483l"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76c5n"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_os5nc"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_432nu"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efpw1"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6fenh"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skdvm"]
 resource_local_to_scene = true
 
 [node name="Inventory" type="Control"]
@@ -41,44 +92,206 @@ pivot_offset = Vector2(52, 76)
 texture = ExtResource("1_4g4bc")
 stretch_mode = 5
 
-[node name="Row1" type="HBoxContainer" parent="Shelf"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="Herbs&Potion" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
 offset_left = 6.0
-offset_top = 9.0
-offset_right = -6.0
-offset_bottom = -129.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_top = 8.0
+offset_right = 98.0
+offset_bottom = 24.0
 theme_override_constants/separation = 4
 alignment = 1
 
-[node name="Arenaria" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
-material = SubResource("ShaderMaterial_hxejn")
+[node name="Arenaria" parent="Shelf/Herbs&Potion" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_yawe3")
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 item_name = "arenaria"
 
-[node name="Nostrix" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
-material = SubResource("ShaderMaterial_213i0")
+[node name="Nostrix" parent="Shelf/Herbs&Potion" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_5mv2u")
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 item_name = "nostrix"
 
-[node name="Wolfsbane" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
-material = SubResource("ShaderMaterial_gqvmf")
+[node name="Wolfsbane" parent="Shelf/Herbs&Potion" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_tm5m0")
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 item_name = "wolfsbane"
 
-[node name="SwallowPotion" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
-material = SubResource("ShaderMaterial_18g3m")
+[node name="SwallowPotion" parent="Shelf/Herbs&Potion" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_wtef3")
 custom_minimum_size = Vector2(14, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 item_name = "swallow_potion"
+
+[node name="Ores" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 32.0
+offset_right = 98.0
+offset_bottom = 48.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="SilverOre" parent="Shelf/Ores" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_1myg1")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "meteorite_silver_ore"
+
+[node name="SteelOre" parent="Shelf/Ores" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_y2ghi")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "dark_steel_ore"
+
+[node name="GoldOre" parent="Shelf/Ores" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_4yxau")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "green_gold_ore"
+
+[node name="DiamondDust" parent="Shelf/Ores" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_ca2aa")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "diamond_dust"
+
+[node name="Ingots" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 56.0
+offset_right = 98.0
+offset_bottom = 72.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="SilverIngot" parent="Shelf/Ingots" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_2si6h")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "meteorite_silver_ingot"
+
+[node name="SteelIngot" parent="Shelf/Ingots" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_ri5jm")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "dark_steel_ingot"
+
+[node name="GoldIngot" parent="Shelf/Ingots" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_5kpnd")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "green_gold_ingot"
+
+[node name="Diamond" parent="Shelf/Ingots" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_8vxny")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "diamond"
+
+[node name="Other" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 9.0
+offset_top = 80.3333
+offset_right = 71.0
+offset_bottom = 96.3333
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Leather" parent="Shelf/Other" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_npx80")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+item_name = "leather_scraps"
+
+[node name="Oil" parent="Shelf/Other" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_jqx2j")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+item_name = "oil"
+
+[node name="Bone" parent="Shelf/Other" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_y483l")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+item_name = "monster_bone"
+
+[node name="Swords" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 104.0
+offset_right = 98.0
+offset_bottom = 120.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Silver" parent="Shelf/Swords" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_76c5n")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "silver_sword"
+
+[node name="Steel" parent="Shelf/Swords" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_os5nc")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "steel_sword"
+
+[node name="UpgrSilver" parent="Shelf/Swords" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_432nu")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "kingslayers_silver_sword"
+
+[node name="UpgrSteel" parent="Shelf/Swords" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_efpw1")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "kingslayers_steel_sword"
+
+[node name="Armor" type="HBoxContainer" parent="Shelf"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 6.0
+offset_top = 128.0
+offset_right = 50.0
+offset_bottom = 144.0
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Armor" parent="Shelf/Armor" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_6fenh")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "armor"
+
+[node name="UpgrArmor" parent="Shelf/Armor" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_skdvm")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "mastercrafted_armor"
