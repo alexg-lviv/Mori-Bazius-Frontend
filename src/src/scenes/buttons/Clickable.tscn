@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjct5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n1uxp"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
@@ -14,7 +14,7 @@ stretch_mode = 5
 script = ExtResource("2_mfgya")
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_cjct5")
+material = SubResource("ShaderMaterial_n1uxp")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
