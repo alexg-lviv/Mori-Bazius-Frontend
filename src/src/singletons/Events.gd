@@ -9,6 +9,8 @@ var _POST = HTTPRequest.new()
 
 signal update_qty(item: String, qty_delta: int)
 
+signal add_hunter(upgrade: int)
+
 signal save()
 
 signal pull()

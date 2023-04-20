@@ -186,13 +186,28 @@ offset_right = 592.0
 offset_bottom = 982.0
 _name = "mastercrafted_armor"
 
+[node name="CreateHunter" parent="Craftables" instance=ExtResource("2_v22mh")]
+offset_left = 194.0
+offset_top = 1100.0
+offset_right = 274.0
+offset_bottom = 1180.0
+_name = "hunter"
+
+[node name="UpgradeHunter" parent="Craftables" instance=ExtResource("3_h8h33")]
+offset_left = 396.0
+offset_top = 1085.0
+offset_right = 476.0
+offset_bottom = 1165.0
+_name = "master"
+
 [node name="ItemsText" type="RichTextLabel" parent="."]
+visible = false
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 0
-offset_left = 105.0
-offset_top = 1015.0
-offset_right = 605.0
-offset_bottom = 1279.0
+offset_left = 147.0
+offset_top = 525.0
+offset_right = 647.0
+offset_bottom = 789.0
 
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvt5lxh7gsdcv"
-path="res://.godot/imported/lizard_school.png-4389815f40d9556c608308bab51f5c82.ctex"
+path="res://.godot/imported/master.png-0a020f2f7cdda60bb732bbe44e4afc33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/witchers/lizard_school.png"
-dest_files=["res://.godot/imported/lizard_school.png-4389815f40d9556c608308bab51f5c82.ctex"]
+source_file="res://art/hunters/master.png"
+dest_files=["res://.godot/imported/master.png-0a020f2f7cdda60bb732bbe44e4afc33.ctex"]
 
 [params]
 
