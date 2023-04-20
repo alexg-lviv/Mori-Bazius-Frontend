@@ -16,11 +16,9 @@ script = ExtResource("1_utws0")
 
 [node name="Clickables" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_top = -53.0
+offset_bottom = -53.0
 
 [node name="Arenaria" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
@@ -48,55 +46,59 @@ _name = "wolfsbane"
 
 [node name="Oil" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 184.0
-offset_right = 149.0
-offset_bottom = 264.0
+offset_left = 117.0
+offset_top = 204.0
+offset_right = 197.0
+offset_bottom = 284.0
 _name = "oil"
 
 [node name="Leather" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 586.0
-offset_top = 189.0
-offset_right = 666.0
-offset_bottom = 269.0
+offset_left = 558.0
+offset_top = 214.0
+offset_right = 638.0
+offset_bottom = 294.0
 _name = "leather_scraps"
 
 [node name="SilverOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 382.0
-offset_right = 197.0
-offset_bottom = 462.0
+offset_left = 94.0
+offset_top = 385.0
+offset_right = 174.0
+offset_bottom = 465.0
 _name = "meteorite_silver_ore"
 
 [node name="SteelOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 380.0
-offset_right = 341.0
-offset_bottom = 460.0
+offset_left = 238.0
+offset_top = 383.0
+offset_right = 318.0
+offset_bottom = 463.0
 _name = "dark_steel_ore"
 
 [node name="GoldOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 380.0
-offset_right = 480.0
-offset_bottom = 460.0
+offset_left = 377.0
+offset_top = 383.0
+offset_right = 457.0
+offset_bottom = 463.0
 _name = "green_gold_ore"
 
 [node name="DiamondDust" parent="Clickables" instance=ExtResource("1_mpc7o")]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 381.0
-offset_right = 627.0
-offset_bottom = 461.0
+offset_left = 524.0
+offset_top = 384.0
+offset_right = 604.0
+offset_bottom = 464.0
 _name = "diamond_dust"
 
 [node name="Craftables" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 13.0
+offset_top = -45.0
+offset_right = 13.0
+offset_bottom = -45.0
 
 [node name="Swallow" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
@@ -108,98 +110,98 @@ _name = "swallow_potion"
 
 [node name="SilverIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 108.0
-offset_top = 503.0
-offset_right = 188.0
-offset_bottom = 583.0
+offset_left = 85.0
+offset_top = 506.0
+offset_right = 165.0
+offset_bottom = 586.0
 _name = "meteorite_silver_ingot"
 
 [node name="SteelIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 509.0
-offset_right = 330.0
-offset_bottom = 589.0
+offset_left = 227.0
+offset_top = 512.0
+offset_right = 307.0
+offset_bottom = 592.0
 _name = "dark_steel_ingot"
 
 [node name="GoldIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 397.0
-offset_top = 509.0
-offset_right = 477.0
-offset_bottom = 589.0
+offset_left = 374.0
+offset_top = 512.0
+offset_right = 454.0
+offset_bottom = 592.0
 _name = "green_gold_ingot"
 
 [node name="Diamond" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 539.0
-offset_top = 510.0
-offset_right = 619.0
-offset_bottom = 590.0
+offset_left = 516.0
+offset_top = 513.0
+offset_right = 596.0
+offset_bottom = 593.0
 _name = "diamond"
 
 [node name="SilverSword" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 104.0
-offset_top = 707.0
-offset_right = 184.0
-offset_bottom = 787.0
+offset_left = 89.0
+offset_top = 682.0
+offset_right = 169.0
+offset_bottom = 762.0
 _name = "silver_sword"
 
 [node name="SteelSword" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 304.0
-offset_top = 704.0
-offset_right = 384.0
-offset_bottom = 784.0
+offset_left = 289.0
+offset_top = 679.0
+offset_right = 369.0
+offset_bottom = 759.0
 _name = "steel_sword"
 
 [node name="Armor" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
-offset_left = 502.0
-offset_top = 713.0
-offset_right = 582.0
-offset_bottom = 793.0
+offset_left = 487.0
+offset_top = 688.0
+offset_right = 567.0
+offset_bottom = 768.0
 _name = "armor"
 
 [node name="KingSilverSword" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 103.0
-offset_top = 902.0
-offset_right = 183.0
-offset_bottom = 982.0
+offset_left = 77.0
+offset_top = 832.0
+offset_right = 157.0
+offset_bottom = 912.0
 _name = "kingslayers_silver_sword"
 
 [node name="KingSteelSword" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 309.0
-offset_top = 902.0
-offset_right = 389.0
-offset_bottom = 982.0
+offset_left = 283.0
+offset_top = 832.0
+offset_right = 363.0
+offset_bottom = 912.0
 _name = "kingslayers_steel_sword"
 
 [node name="MasterArmor" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
-offset_left = 512.0
-offset_top = 902.0
-offset_right = 592.0
-offset_bottom = 982.0
+offset_left = 486.0
+offset_top = 832.0
+offset_right = 566.0
+offset_bottom = 912.0
 _name = "mastercrafted_armor"
 
 [node name="CreateHunter" parent="Craftables" instance=ExtResource("2_v22mh")]
 layout_mode = 0
 offset_left = 194.0
-offset_top = 1100.0
+offset_top = 1053.0
 offset_right = 274.0
-offset_bottom = 1180.0
+offset_bottom = 1133.0
 _name = "hunter"
 
 [node name="UpgradeHunter" parent="Craftables" instance=ExtResource("3_h8h33")]
 layout_mode = 0
 offset_left = 396.0
-offset_top = 1085.0
+offset_top = 1038.0
 offset_right = 476.0
-offset_bottom = 1165.0
+offset_bottom = 1118.0
 _name = "master"
 
 [node name="ItemsText" type="RichTextLabel" parent="."]
