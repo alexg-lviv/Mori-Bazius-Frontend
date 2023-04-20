@@ -1,0 +1,198 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd7b8jyh38w5k"]
+
+[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_mpc7o"]
+[ext_resource type="Script" path="res://src/scenes/Home.gd" id="1_utws0"]
+[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_v22mh"]
+[ext_resource type="PackedScene" uid="uid://dfy2ac8nab5dc" path="res://src/scenes/buttons/Upgrades.tscn" id="3_h8h33"]
+
+[node name="Home" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_utws0")
+
+[node name="Clickables" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arenaria" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 78.0
+offset_right = 274.0
+offset_bottom = 158.0
+_name = "arenaria"
+
+[node name="Nostrix" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 81.0
+offset_right = 402.0
+offset_bottom = 161.0
+_name = "nostrix"
+
+[node name="Wolfsbane" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 446.0
+offset_top = 82.0
+offset_right = 526.0
+offset_bottom = 162.0
+_name = "wolfsbane"
+
+[node name="Oil" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 184.0
+offset_right = 149.0
+offset_bottom = 264.0
+_name = "oil"
+
+[node name="Leather" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 189.0
+offset_right = 666.0
+offset_bottom = 269.0
+_name = "leather_scraps"
+
+[node name="SilverOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 382.0
+offset_right = 197.0
+offset_bottom = 462.0
+_name = "meteorite_silver_ore"
+
+[node name="SteelOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 380.0
+offset_right = 341.0
+offset_bottom = 460.0
+_name = "dark_steel_ore"
+
+[node name="GoldOre" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 380.0
+offset_right = 480.0
+offset_bottom = 460.0
+_name = "green_gold_ore"
+
+[node name="DiamondDust" parent="Clickables" instance=ExtResource("1_mpc7o")]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 381.0
+offset_right = 627.0
+offset_bottom = 461.0
+_name = "diamond_dust"
+
+[node name="Craftables" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Swallow" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 206.0
+offset_right = 406.0
+offset_bottom = 306.0
+_name = "swallow_potion"
+
+[node name="SilverIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 503.0
+offset_right = 208.0
+offset_bottom = 603.0
+_name = "meteorite_silver_ingot"
+
+[node name="SteelIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 509.0
+offset_right = 350.0
+offset_bottom = 609.0
+_name = "dark_steel_ingot"
+
+[node name="GoldIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 397.0
+offset_top = 509.0
+offset_right = 497.0
+offset_bottom = 609.0
+_name = "green_gold_ingot"
+
+[node name="Diamond" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 539.0
+offset_top = 510.0
+offset_right = 639.0
+offset_bottom = 610.0
+_name = "diamond"
+
+[node name="SilverSword" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 707.0
+offset_right = 204.0
+offset_bottom = 807.0
+_name = "silver_sword"
+
+[node name="SteelSword" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 704.0
+offset_right = 404.0
+offset_bottom = 804.0
+_name = "steel_sword"
+
+[node name="Armor" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 713.0
+offset_right = 602.0
+offset_bottom = 813.0
+_name = "armor"
+
+[node name="KingSilverSword" parent="Craftables" instance=ExtResource("3_h8h33")]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 871.0
+offset_right = 214.0
+offset_bottom = 991.0
+_name = "kingslayers_silver_sword"
+
+[node name="KingSteelSword" parent="Craftables" instance=ExtResource("3_h8h33")]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 873.0
+offset_right = 428.0
+offset_bottom = 993.0
+_name = "kingslayers_steel_sword"
+
+[node name="MasterArmor" parent="Craftables" instance=ExtResource("3_h8h33")]
+layout_mode = 0
+offset_left = 490.0
+offset_top = 873.0
+offset_right = 610.0
+offset_bottom = 993.0
+_name = "mastercrafted_armor"
+
+[node name="ItemsText" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(500, 100)
+offset_left = 105.0
+offset_top = 1015.0
+offset_right = 605.0
+offset_bottom = 1279.0
+
+[node name="SaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
