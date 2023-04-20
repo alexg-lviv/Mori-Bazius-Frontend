@@ -1,4 +1,19 @@
-[gd_scene format=3 uid="uid://e315pwt5ukrk"]
+[gd_scene load_steps=7 format=3 uid="uid://be1euo5oh2t12"]
+
+[ext_resource type="Texture2D" uid="uid://lfcoqc2aa68u" path="res://art/UI/inventory.png" id="1_4g4bc"]
+[ext_resource type="PackedScene" uid="uid://bxyk1gsyr8a2m" path="res://src/scenes/items/InventoryItem.tscn" id="2_bnnx8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hxejn"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_213i0"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gqvmf"]
+resource_local_to_scene = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18g3m"]
+resource_local_to_scene = true
 
 [node name="Inventory" type="Control"]
 layout_mode = 3
@@ -7,3 +22,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Shelf" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -82.0
+offset_right = 52.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(6, 6)
+pivot_offset = Vector2(52, 76)
+texture = ExtResource("1_4g4bc")
+stretch_mode = 5
+
+[node name="Row1" type="HBoxContainer" parent="Shelf"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -6.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="Arenaria" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_hxejn")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "arenaria"
+
+[node name="Nostrix" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_213i0")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "nostrix"
+
+[node name="Wolfsbane" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_gqvmf")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "wolfsbane"
+
+[node name="SwallowPotion" parent="Shelf/Row1" instance=ExtResource("2_bnnx8")]
+material = SubResource("ShaderMaterial_18g3m")
+custom_minimum_size = Vector2(14, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+item_name = "swallow_potion"

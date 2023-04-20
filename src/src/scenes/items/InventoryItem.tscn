@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxyk1gsyr8a2m"]
+
+[ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_tft4u"]
+[ext_resource type="Script" path="res://src/scenes/items/InventoryItem.gd" id="2_qp6by"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v0dr"]
+resource_local_to_scene = true
+
+[node name="InventoryItem" instance=ExtResource("1_tft4u")]
+material = SubResource("ShaderMaterial_6v0dr")
+pivot_offset = Vector2(16, 16)
+script = ExtResource("2_qp6by")
+
+[node name="Label" type="Label" parent="." index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -16.0
+offset_top = -4.0
+offset_right = 91.0
+offset_bottom = 22.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+text = "100"
+horizontal_alignment = 1
