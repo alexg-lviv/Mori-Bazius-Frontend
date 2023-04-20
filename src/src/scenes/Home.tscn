@@ -188,6 +188,7 @@ _name = "mastercrafted_armor"
 
 [node name="ItemsText" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(500, 100)
+layout_mode = 0
 offset_left = 105.0
 offset_top = 1015.0
 offset_right = 605.0

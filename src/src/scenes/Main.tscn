@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://856gt2srm51g"]
+[gd_scene load_steps=9 format=3 uid="uid://856gt2srm51g"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1_ffidp"]
 [ext_resource type="PackedScene" uid="uid://cbog86ioeumba" path="res://src/scenes/UI/HUD.tscn" id="1_lvsag"]
 [ext_resource type="PackedScene" uid="uid://bd7b8jyh38w5k" path="res://src/scenes/Home.tscn" id="3_gk0qq"]
+[ext_resource type="Script" path="res://src/scenes/TabContainer.gd" id="3_ksal1"]
 [ext_resource type="PackedScene" uid="uid://b35b5p803o2dw" path="res://src/scenes/LeaderBoard.tscn" id="4_nbvxq"]
 [ext_resource type="PackedScene" uid="uid://c35tuwngjom8j" path="res://src/scenes/MyGuild.tscn" id="5_0aalu"]
 [ext_resource type="PackedScene" uid="uid://e315pwt5ukrk" path="res://src/scenes/Inventory.tscn" id="6_j82mu"]
@@ -23,6 +24,7 @@ mouse_filter = 2
 layout_mode = 0
 offset_right = 721.0
 offset_bottom = 1282.0
+script = ExtResource("3_ksal1")
 
 [node name="Home" parent="TabContainer" instance=ExtResource("3_gk0qq")]
 layout_mode = 2
