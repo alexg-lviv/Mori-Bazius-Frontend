@@ -1,5 +1,10 @@
 extends Node
 
+var player_id: int
+
+var power := 0
+
+
 const data: Dictionary = {
 	"arenaria": {
 		"power": 1,

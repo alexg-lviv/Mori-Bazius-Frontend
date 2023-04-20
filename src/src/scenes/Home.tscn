@@ -187,6 +187,7 @@ offset_bottom = 982.0
 _name = "mastercrafted_armor"
 
 [node name="CreateHunter" parent="Craftables" instance=ExtResource("2_v22mh")]
+layout_mode = 0
 offset_left = 194.0
 offset_top = 1100.0
 offset_right = 274.0
@@ -194,6 +195,7 @@ offset_bottom = 1180.0
 _name = "hunter"
 
 [node name="UpgradeHunter" parent="Craftables" instance=ExtResource("3_h8h33")]
+layout_mode = 0
 offset_left = 396.0
 offset_top = 1085.0
 offset_right = 476.0
