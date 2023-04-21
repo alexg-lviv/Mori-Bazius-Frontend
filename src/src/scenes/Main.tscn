@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://856gt2srm51g"]
+[gd_scene load_steps=9 format=3 uid="uid://cah1kojldjtmp"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1_ffidp"]
 [ext_resource type="PackedScene" uid="uid://cbog86ioeumba" path="res://src/scenes/UI/HUD.tscn" id="1_lvsag"]
 [ext_resource type="PackedScene" uid="uid://812dv8rv3sdd" path="res://src/scenes/Home.tscn" id="3_gk0qq"]
 [ext_resource type="PackedScene" uid="uid://b4cme045vht6y" path="res://src/scenes/LeaderBoard.tscn" id="4_nbvxq"]
-[ext_resource type="PackedScene" uid="uid://c35tuwngjom8j" path="res://src/scenes/MyGuild.tscn" id="5_0aalu"]
+[ext_resource type="PackedScene" uid="uid://c35tuwngjom8j" path="res://src/scenes/Monsters.tscn" id="5_irkkf"]
 [ext_resource type="PackedScene" uid="uid://be1euo5oh2t12" path="res://src/scenes/Inventory.tscn" id="6_j82mu"]
 
 [sub_resource type="Gradient" id="Gradient_nklhs"]
@@ -53,11 +53,11 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
-[node name="LeaderBoard" parent="TabContainer" instance=ExtResource("4_nbvxq")]
+[node name="Monsters" parent="TabContainer" instance=ExtResource("5_irkkf")]
 visible = false
 layout_mode = 2
 
-[node name="MyGuild" parent="TabContainer" instance=ExtResource("5_0aalu")]
+[node name="LeaderBoard" parent="TabContainer" instance=ExtResource("4_nbvxq")]
 visible = false
 layout_mode = 2
 

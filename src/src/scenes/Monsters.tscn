@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c35tuwngjom8j"]
 
-[node name="MyGuild" type="Control"]
+[node name="Monsters" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
