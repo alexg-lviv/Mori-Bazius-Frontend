@@ -2,6 +2,8 @@ extends "res://src/scenes/buttons/Clickable.gd"
 
 var _requirements: Dictionary
 
+@onready var _requirements_label: Label = get_node("Description/Requirements")
+
 func _ready():
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
@@ -10,11 +12,15 @@ func _ready():
 	_set_description()
 
 func _set_description():
+	_name_label.text = _name.capitalize().replace("_", " ")
+	_power_label.text = str(Items.data[_name]["power"])
+	
 	var requirements_str = ""
 	for item in _requirements.keys():
 		var qty = _requirements[item]
-		requirements_str += "\n    " + str(qty) + " x " + item.capitalize().replace("_", " ")
-	_description.text = _name.capitalize().replace("_", " ") + "\nPower: " + str(Items.data[_name]["power"]) + "\nRequirements: " + requirements_str
+		requirements_str += str(qty) + " x " + item.capitalize().replace("_", " ") + "\n"
+	
+	_requirements_label.text = requirements_str
 
 func validate():
 	var is_valid = true

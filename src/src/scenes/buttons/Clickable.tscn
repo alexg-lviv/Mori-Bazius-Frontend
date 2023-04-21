@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl4wpxt8kb3ce"]
+[gd_scene load_steps=6 format=3 uid="uid://cl4wpxt8kb3ce"]
 
 [ext_resource type="Texture2D" uid="uid://bw2kssw3itt3s" path="res://art/UI/buttons/click_butt.png" id="1_pfhbm"]
 [ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
+[ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="4_qrklc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbjp3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s2uie"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
@@ -14,7 +15,7 @@ stretch_mode = 5
 script = ExtResource("2_mfgya")
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_jbjp3")
+material = SubResource("ShaderMaterial_s2uie")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -26,15 +27,33 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Description" type="Label" parent="."]
+[node name="Description" type="VBoxContainer" parent="."]
 z_index = 1
-offset_left = 13.0
-offset_top = 80.0
-offset_right = 271.0
-offset_bottom = 158.0
-text = "Nostrix
-Power: 666
-Requirements: 1 x jshd, 2 x hwhw"
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="ItemName" type="Label" parent="Description"]
+layout_mode = 2
+text = "Nostrix"
+horizontal_alignment = 1
+
+[node name="Power" type="HBoxContainer" parent="Description"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Description/Power"]
+layout_mode = 2
+texture = ExtResource("4_qrklc")
+stretch_mode = 5
+
+[node name="ItemPower" type="Label" parent="Description/Power"]
+layout_mode = 2
+text = "666"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
