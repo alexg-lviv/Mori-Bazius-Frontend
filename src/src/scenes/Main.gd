@@ -9,6 +9,7 @@ var num_tabs = 4
 
 @onready var TabsContainer = get_node("TabContainer")
 
+
 func _ready():
 	TabsContainer.set_tab_icon(0, home_icon)
 	TabsContainer.set_tab_icon(1, leadboard_icon)
@@ -17,3 +18,9 @@ func _ready():
 	
 	for i in range(num_tabs):
 		TabsContainer.set_tab_title(i, "")
+		
+	Events.emit_signal("pull")
+
+
+func _on_save_timer_timeout():
+	Events.emit_signal("save")

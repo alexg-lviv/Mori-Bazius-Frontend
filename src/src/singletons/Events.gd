@@ -9,6 +9,8 @@ var _POST = HTTPRequest.new()
 
 signal update_qty(item: String, qty_delta: int)
 
+signal set_qty()
+
 signal add_hunter(upgrade: int)
 
 signal save()
@@ -48,6 +50,7 @@ func _on_pull():
 #		_url,
 #	)
 	# TODO: error checks
+	emit_signal("set_qty")
 
 func _on_post_request_completed(result, response_code, headers, body):
 	# TODO: error checks
