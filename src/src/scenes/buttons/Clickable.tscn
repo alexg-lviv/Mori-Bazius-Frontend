@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddocw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbjp3"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
@@ -14,7 +14,7 @@ stretch_mode = 5
 script = ExtResource("2_mfgya")
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_ddocw")
+material = SubResource("ShaderMaterial_jbjp3")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -26,4 +26,16 @@ offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Description" type="Label" parent="."]
+z_index = 1
+offset_left = 13.0
+offset_top = 80.0
+offset_right = 271.0
+offset_bottom = 158.0
+text = "Nostrix
+Power: 666
+Requirements: 1 x jshd, 2 x hwhw"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -6,6 +6,15 @@ func _ready():
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
 	validate()
+	_hide_description()
+	_set_description()
+
+func _set_description():
+	var requirements_str = ""
+	for item in _requirements.keys():
+		var qty = _requirements[item]
+		requirements_str += "\n    " + str(qty) + " x " + item.capitalize().replace("_", " ")
+	_description.text = _name.capitalize().replace("_", " ") + "\nPower: " + str(Items.data[_name]["power"]) + "\nRequirements: " + requirements_str
 
 func validate():
 	var is_valid = true
