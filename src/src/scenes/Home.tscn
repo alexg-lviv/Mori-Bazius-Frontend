@@ -216,7 +216,3 @@ offset_left = 147.0
 offset_top = 525.0
 offset_right = 647.0
 offset_bottom = 789.0
-
-[node name="SaveTimer" type="Timer" parent="."]
-wait_time = 30.0
-autostart = true

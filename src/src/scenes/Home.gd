@@ -21,7 +21,3 @@ func _update_requirements(item: String, _qty_delta: int):
 	# TODO: update only for items with dirrect requirements of item
 	for i in _craftables:
 		i.validate()
-
-
-func _on_save_timer_timeout():
-	Events.emit_signal("save")

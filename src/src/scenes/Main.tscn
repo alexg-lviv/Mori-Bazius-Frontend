@@ -60,3 +60,9 @@ layout_mode = 2
 [node name="MyGuild" parent="TabContainer" instance=ExtResource("5_0aalu")]
 visible = false
 layout_mode = 2
+
+[node name="SaveTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
