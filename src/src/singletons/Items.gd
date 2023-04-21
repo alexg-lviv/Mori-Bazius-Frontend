@@ -162,10 +162,10 @@ const data: Dictionary = {
 		"power": 10000, # TODO,
 		"sprite": preload("res://art/hunters/hunter.png"),
 		"requirements": {
-				"swallow_potion": 10,
-				"silver_sword": 1,
-				"steel_sword": 1,
-				"armor": 1,
+			"swallow_potion": 10,
+			"silver_sword": 1,
+			"steel_sword": 1,
+			"armor": 1,
 		},
 	},
 
@@ -173,10 +173,11 @@ const data: Dictionary = {
 		"power": 100000, # TODO,
 		"sprite": preload("res://art/hunters/master.png"),
 		"requirements": {
-				"swallow_potion": 10,
-				"silver_sword": 1,
-				"steel_sword": 1,
-				"armor": 1,
+			"hunter": 1,
+			"swallow_potion": 10,
+			"silver_sword": 1,
+			"steel_sword": 1,
+			"armor": 1,
 		},
 	},
 }
