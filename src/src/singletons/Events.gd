@@ -9,9 +9,9 @@ var _POST = HTTPRequest.new()
 
 signal update_qty(item: String, qty_delta: int)
 
-signal set_qty()
+signal update_exp(exp_delta: int)
 
-signal add_hunter(upgrade: int)
+signal set_qty()
 
 signal save()
 
@@ -20,15 +20,22 @@ signal pull()
 
 func _ready():
 	update_qty.connect(_update_qty)
+	update_exp.connect(_update_exp)
 	save.connect(_on_save)
 	pull.connect(_on_pull)
 	
 	_POST.request_completed.connect(_on_post_request_completed)
 	_GET.request_completed.connect(_on_get_request_completed)
 
+func _update_exp(exp_delta: int):
+	Items.exp += exp_delta
+	Items.lvl = floori(0.1 * exp_delta + 1)
 
 func _update_qty(item: String, qty_delta: int):
-	Items.qty[item] += qty_delta
+	var dict = Items.qty
+	if item == "hunter" or item == "master":
+		dict = Items.hunters
+	dict[item] += qty_delta
 	Items.power += qty_delta * Items.data[item]["power"]
 
 

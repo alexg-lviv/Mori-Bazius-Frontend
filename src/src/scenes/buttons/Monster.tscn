@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://cy66ntjihexbe"]
+
+[ext_resource type="Texture2D" uid="uid://cxbon3jki6a5w" path="res://art/UI/buttons/square_butt_1.png" id="1_1jsuk"]
+[ext_resource type="Script" path="res://src/scenes/buttons/Monster.gd" id="1_bpwp6"]
+[ext_resource type="Texture2D" uid="uid://efckgpexei66" path="res://art/monsters/wyvern.png" id="2_owrg1"]
+[ext_resource type="Texture2D" uid="uid://cb7p158quxk2u" path="res://art/UI/buttons/square_butt_2.png" id="4_rnf2b"]
+[ext_resource type="Texture2D" uid="uid://cvt5lxh7gsdcv" path="res://art/hunters/hunter.png" id="5_087na"]
+[ext_resource type="Texture2D" uid="uid://fiaxoj0cxibc" path="res://art/hunters/master.png" id="6_atth1"]
+
+[node name="Monster" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_bpwp6")
+
+[node name="Monster" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_1jsuk")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Monster"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_owrg1")
+
+[node name="Label" type="Label" parent="Monster"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "U ded"
+horizontal_alignment = 1
+
+[node name="Hunter" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = -70.0
+offset_top = -175.0
+offset_right = 50.0
+offset_bottom = -55.0
+texture_normal = ExtResource("4_rnf2b")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Hunter"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_087na")
+
+[node name="Master" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 109.0
+offset_top = -174.0
+offset_right = 229.0
+offset_bottom = -54.0
+texture_normal = ExtResource("4_rnf2b")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Master"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_atth1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="Hunter" to="." method="_on_hunter_pressed"]
+[connection signal="pressed" from="Master" to="." method="_on_master_pressed"]

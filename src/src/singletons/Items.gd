@@ -2,7 +2,9 @@ extends Node
 
 var player_id: int
 
-var power := 0
+var power: int = 100
+var exp: int = 0
+var lvl: int = 0
 
 
 const data: Dictionary = {
@@ -233,7 +235,9 @@ var qty: Dictionary = {
 	
 	"silver_sword": 0,
 	"kingslayers_silver_sword": 0,
-	
+}
+
+var hunters: Dictionary = {
 	"hunter": 5,
 	"master": 5,
 }

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c35tuwngjom8j"]
+[gd_scene load_steps=2 format=3 uid="uid://c35tuwngjom8j"]
+
+[ext_resource type="PackedScene" uid="uid://cy66ntjihexbe" path="res://src/scenes/buttons/Monster.tscn" id="1_cuh5e"]
 
 [node name="Monsters" type="Control"]
 layout_mode = 3
@@ -7,3 +9,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bruxa" parent="." instance=ExtResource("1_cuh5e")]
+offset_left = 270.0
+offset_top = 279.0
+offset_right = 270.0
+offset_bottom = 279.0
+monster_name = "bruxa"
+
+[node name="Kikimora" parent="." instance=ExtResource("1_cuh5e")]
+offset_left = 245.0
+offset_top = 716.0
+offset_right = 245.0
+offset_bottom = 716.0
+monster_name = "kikimora"
+
+[node name="Wyvern" parent="." instance=ExtResource("1_cuh5e")]
+offset_left = 256.0
+offset_top = 1085.0
+offset_right = 256.0
+offset_bottom = 1085.0
+monster_name = "wyvern"

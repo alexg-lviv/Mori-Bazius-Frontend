@@ -13,5 +13,5 @@ func _update_labels(_item: String, _qty_delta: int):
 
 func _set_labels():
 	_power_label.text = str(Items.power)
-	_hunters_label.text = str(Items.qty['hunter'])
-	_masters_label.text = str(Items.qty['master'])
+	_hunters_label.text = str(Items.hunters['hunter'])
+	_masters_label.text = str(Items.hunters['master'])
