@@ -2,11 +2,9 @@ extends Node
 
 var player_id: int
 
+# This is a power without the level multiplier. The total power is stored in stats dict instead
 var power: int = 0
-var exp: int = 0
-var lvl: int = 0
 
-var total_power: int = 0  # lvl * power
 
 const data: Dictionary = {
 	"arenaria": {
@@ -238,7 +236,10 @@ var qty: Dictionary = {
 	"kingslayers_silver_sword": 0,
 }
 
-var hunters: Dictionary = {
-	"hunter": 5,
-	"master": 5,
+var stats: Dictionary = {
+	"power": 0,
+	"level": 1,
+	"hunters": 5,
+	"masters": 5,
+	"exp": 0,
 }

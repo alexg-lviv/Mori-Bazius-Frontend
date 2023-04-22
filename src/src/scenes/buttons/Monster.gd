@@ -34,8 +34,8 @@ func _ready():
 	Events.update_qty.connect(_validate)
 
 func _validate(_item: String, _qty_delta: int):
-	_hunter.disabled = true if Items.hunters["hunter"] == 0 else false
-	_master.disabled = true if Items.hunters["master"] == 0 else false
+	_hunter.disabled = true if Items.stats["hunters"] == 0 else false
+	_master.disabled = true if Items.stats["masters"] == 0 else false
 	_monster.disabled = true if _hunter.disabled and _master.disabled else false
 	
 

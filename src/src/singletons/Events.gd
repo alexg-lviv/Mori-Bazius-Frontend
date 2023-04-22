@@ -29,18 +29,18 @@ func _ready():
 
 
 func _update_exp(exp_delta: int):
-	Items.exp += exp_delta
-	Items.lvl = floori(Items.exp / 10) + 1
-	Items.total_power = Items.power * Items.lvl
+	Items.stats["exp"] += exp_delta
+	Items.stats["level"] = floori(Items.stats["exp"] / 10) + 1
+	Items.stats["power"] = Items.power * Items.stats["level"]
 
 
 func _update_qty(item: String, qty_delta: int):
-	var dict = Items.qty
 	if item == "hunter" or item == "master":
-		dict = Items.hunters
-	dict[item] += qty_delta
+		Items.stats[item + "s"] += qty_delta
+	else:
+		Items.qty[item] += qty_delta
 	Items.power += qty_delta * Items.data[item]["power"]
-	Items.total_power = Items.power * Items.lvl
+	Items.stats["power"] = Items.power * Items.stats["level"]
 
 
 func _on_save():
@@ -64,11 +64,10 @@ func _on_pull():
 	
 	for item in Items.qty:
 		Items.power += Items.qty[item] * Items.data[item]["power"]
-	for hunter in Items.hunters:
-		Items.power += Items.hunters[hunter] * Items.data[hunter]["power"]
+	Items.power += Items.stats["hunters"] * Items.data["hunter"]["power"]
+	Items.power += Items.stats["masters"] * Items.data["master"]["power"]
 	
-	Items.lvl = 1
-	Items.total_power = Items.power * Items.lvl
+	Items.stats["power"] = Items.power * Items.stats["level"]
 	
 	emit_signal("set_qty")
 

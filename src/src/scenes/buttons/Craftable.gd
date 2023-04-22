@@ -26,9 +26,10 @@ func validate():
 	var is_valid = true
 	for item in _requirements.keys():
 		var dict = Items.qty
-		if item == "hunter":
-			dict = Items.hunters
-		if dict[item] < _requirements[item]:
+		if item == "hunter" or item == "master":
+			if Items.stats[item + "s"] < _requirements[item]:
+				is_valid = false
+		elif dict[item] < _requirements[item]:
 			is_valid = false
 	disabled = not is_valid
 

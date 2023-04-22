@@ -11,13 +11,13 @@ func _ready():
 	Events.set_qty.connect(_set_labels)
 
 func _update_power(_item: String, _qty_delta: int):
-	_power_label.text = str(Items.total_power)
-	_hunters_label.text = str(Items.hunters['hunter'])
-	_masters_label.text = str(Items.hunters['master'])
+	_power_label.text = str(Items.stats["power"])
+	_hunters_label.text = str(Items.stats["hunters"])
+	_masters_label.text = str(Items.stats["masters"])
 
 func _update_level(_exp_delta: int):
-	_power_label.text = str(Items.total_power)
-	_level_label.text = str(Items.lvl)
+	_power_label.text = str(Items.stats["power"])
+	_level_label.text = str(Items.stats["level"])
 
 func _set_labels():
 	_update_power("", 0)
