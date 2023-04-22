@@ -182,6 +182,26 @@ const data: Dictionary = {
 	},
 }
 
+const monsters: Dictionary = {
+	"bruxa": {
+		"exp": 1,
+		"sprite": preload("res://art/monsters/bruxa.png"),
+		"hunter_p": 0.1,
+		"master_p": 0.05,
+	},
+	"kikimora": {
+		"exp": 3,
+		"sprite": preload("res://art/monsters/kikimora.png"),
+		"hunter_p": 0.2,
+		"master_p": 0.1,
+	},
+	"wyvern": {
+		"exp": 15,
+		"sprite": preload("res://art/monsters/wyvern.png"),
+		"hunter_p": 0.5,
+		"master_p": 0.25,
+	},
+}
 
 var qty: Dictionary = {
 	"arenaria": 0,
@@ -214,6 +234,6 @@ var qty: Dictionary = {
 	"silver_sword": 0,
 	"kingslayers_silver_sword": 0,
 	
-	"hunter": 0,
-	"master": 0,
+	"hunter": 5,
+	"master": 5,
 }
