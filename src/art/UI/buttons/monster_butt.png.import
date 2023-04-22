@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb7p158quxk2u"
-path="res://.godot/imported/square_butt_2.png-f4f711a48cf5ba7dbecd44db3dc98d6e.ctex"
+uid="uid://cbbpc86n3ftvn"
+path="res://.godot/imported/monster_butt.png-db25ab92bd4326cac0329cb55033a98f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/buttons/square_butt_2.png"
-dest_files=["res://.godot/imported/square_butt_2.png-f4f711a48cf5ba7dbecd44db3dc98d6e.ctex"]
+source_file="res://art/UI/buttons/monster_butt.png"
+dest_files=["res://.godot/imported/monster_butt.png-db25ab92bd4326cac0329cb55033a98f.ctex"]
 
 [params]
 

@@ -57,7 +57,14 @@ func _on_pull():
 #		_url,
 #	)
 	# TODO: error checks
+	
+	for item in Items.qty:
+		Items.power += Items.qty[item] * Items.data[item]["power"]
+	for hunter in Items.hunters:
+		Items.power += Items.hunters[hunter] * Items.data[hunter]["power"]
+	
 	emit_signal("set_qty")
+
 
 func _on_post_request_completed(result, response_code, headers, body):
 	# TODO: error checks

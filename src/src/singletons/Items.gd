@@ -2,7 +2,7 @@ extends Node
 
 var player_id: int
 
-var power: int = 100
+var power: int = 0
 var exp: int = 0
 var lvl: int = 0
 
