@@ -27,9 +27,12 @@ func _ready():
 	_POST.request_completed.connect(_on_post_request_completed)
 	_GET.request_completed.connect(_on_get_request_completed)
 
+
 func _update_exp(exp_delta: int):
 	Items.exp += exp_delta
-	Items.lvl = floori(0.1 * exp_delta + 1)
+	Items.lvl = floori(Items.exp / 10) + 1
+	Items.total_power = Items.power * Items.lvl
+
 
 func _update_qty(item: String, qty_delta: int):
 	var dict = Items.qty
@@ -37,6 +40,7 @@ func _update_qty(item: String, qty_delta: int):
 		dict = Items.hunters
 	dict[item] += qty_delta
 	Items.power += qty_delta * Items.data[item]["power"]
+	Items.total_power = Items.power * Items.lvl
 
 
 func _on_save():
@@ -62,6 +66,9 @@ func _on_pull():
 		Items.power += Items.qty[item] * Items.data[item]["power"]
 	for hunter in Items.hunters:
 		Items.power += Items.hunters[hunter] * Items.data[hunter]["power"]
+	
+	Items.lvl = 1
+	Items.total_power = Items.power * Items.lvl
 	
 	emit_signal("set_qty")
 

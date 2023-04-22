@@ -9,6 +9,10 @@ extends Control
 			_hunter_p = Items.monsters[monster_name]["hunter_p"]
 			_master_p = Items.monsters[monster_name]["master_p"]
 			_exp = Items.monsters[monster_name]["exp"]
+			get_node("Description/Label").text = monster_name.capitalize()
+			get_node("Description/Stats/Exp/Label").text = str(_exp)
+			get_node("Description/Stats/Probs/VBoxContainer/Hunter/Label").text = str(_hunter_p)
+			get_node("Description/Stats/Probs/VBoxContainer/Master/Label").text = str(_master_p)
 			
 
 var _hunter_p: float
@@ -18,11 +22,15 @@ var _exp: int
 @onready var _monster = get_node("Monster") as TextureButton
 @onready var _hunter = get_node("Hunter") as TextureButton
 @onready var _master = get_node("Master") as TextureButton
+
 @onready var _hunters_logs = get_node("HuntersLogs") as VBoxContainer
 @onready var _masters_logs = get_node("MastersLogs") as VBoxContainer
 
+@onready var _description = get_node("Description") as VBoxContainer
+
 
 func _ready():
+	_description.visible = false
 	Events.update_qty.connect(_validate)
 
 func _validate(_item: String, _qty_delta: int):
@@ -63,3 +71,10 @@ func _delete_log(timer: Timer, label: Label):
 	tween.tween_property(label, "modulate", Color.TRANSPARENT, 0.5)
 	tween.tween_callback(label.queue_free)
 	timer.queue_free()
+
+
+func _on_monster_mouse_entered():
+	_description.visible = true
+
+func _on_monster_mouse_exited():
+	_description.visible = false

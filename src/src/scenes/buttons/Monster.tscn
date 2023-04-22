@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy66ntjihexbe"]
+[gd_scene load_steps=14 format=3 uid="uid://cy66ntjihexbe"]
 
 [ext_resource type="Script" path="res://src/scenes/buttons/Monster.gd" id="1_bpwp6"]
 [ext_resource type="Texture2D" uid="uid://cbbpc86n3ftvn" path="res://art/UI/buttons/monster_butt.png" id="2_ey1ow"]
@@ -8,6 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://c4ilw7lidqd00" path="res://art/UI/buttons/send_hunter_butt.png" id="5_jfgef"]
 [ext_resource type="Texture2D" uid="uid://c66mmiul53emu" path="res://art/UI/buttons/disabled_send_hunter_butt.png" id="6_5b55f"]
 [ext_resource type="Texture2D" uid="uid://fiaxoj0cxibc" path="res://art/hunters/master.png" id="6_atth1"]
+[ext_resource type="Texture2D" uid="uid://bg1iswvlvkgxy" path="res://art/UI/icons/power.png" id="9_5grvb"]
+[ext_resource type="Texture2D" uid="uid://cydffo68kgqss" path="res://art/UI/icons/hunter_icon.png" id="10_arp6a"]
+[ext_resource type="LabelSettings" uid="uid://8py0kh0cmx7j" path="res://labels/Monster.tres" id="10_c2rjd"]
+[ext_resource type="Texture2D" uid="uid://clj85rw63emq2" path="res://art/UI/icons/master_icon.png" id="11_xytps"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_68tkh"]
+font_size = 25
 
 [node name="Monster" type="Control"]
 layout_mode = 3
@@ -28,10 +35,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = -40.0
-offset_bottom = -40.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_owrg1")
@@ -90,6 +97,7 @@ offset_left = -352.0
 offset_top = -162.0
 offset_right = -80.0
 offset_bottom = -101.0
+mouse_filter = 2
 theme_override_constants/separation = -10
 
 [node name="MastersLogs" type="VBoxContainer" parent="."]
@@ -98,7 +106,90 @@ offset_left = 196.0
 offset_top = -162.0
 offset_right = 468.0
 offset_bottom = -101.0
+mouse_filter = 2
 theme_override_constants/separation = -10
 
+[node name="Description" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -183.0
+offset_right = 304.0
+offset_bottom = 168.0
+mouse_filter = 2
+
+[node name="Stats" type="HBoxContainer" parent="Description"]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 2
+
+[node name="Exp" type="HBoxContainer" parent="Description/Stats"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Description/Stats/Exp"]
+self_modulate = Color(1, 0.729412, 1, 1)
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("9_5grvb")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Description/Stats/Exp"]
+layout_mode = 2
+text = "66"
+label_settings = ExtResource("10_c2rjd")
+
+[node name="Probs" type="VBoxContainer" parent="Description/Stats"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Description/Stats/Probs"]
+layout_mode = 2
+text = "Lose probability:"
+label_settings = ExtResource("10_c2rjd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Description/Stats/Probs"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Hunter" type="HBoxContainer" parent="Description/Stats/Probs/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Description/Stats/Probs/VBoxContainer/Hunter"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10_arp6a")
+
+[node name="Label" type="Label" parent="Description/Stats/Probs/VBoxContainer/Hunter"]
+layout_mode = 2
+text = "0.4"
+label_settings = ExtResource("10_c2rjd")
+
+[node name="Master" type="HBoxContainer" parent="Description/Stats/Probs/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="Description/Stats/Probs/VBoxContainer/Master"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("11_xytps")
+
+[node name="Label" type="Label" parent="Description/Stats/Probs/VBoxContainer/Master"]
+layout_mode = 2
+text = "0.2"
+label_settings = ExtResource("10_c2rjd")
+
+[node name="Label" type="Label" parent="Description"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Wyvern"
+label_settings = SubResource("LabelSettings_68tkh")
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Monster" to="." method="_on_monster_mouse_entered"]
+[connection signal="mouse_exited" from="Monster" to="." method="_on_monster_mouse_exited"]
 [connection signal="pressed" from="Hunter" to="." method="_on_hunter_pressed"]
 [connection signal="pressed" from="Master" to="." method="_on_master_pressed"]

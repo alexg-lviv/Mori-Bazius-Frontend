@@ -6,6 +6,7 @@ var power: int = 0
 var exp: int = 0
 var lvl: int = 0
 
+var total_power: int = 0  # lvl * power
 
 const data: Dictionary = {
 	"arenaria": {
