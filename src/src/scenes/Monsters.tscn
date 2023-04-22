@@ -11,22 +11,22 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Bruxa" parent="." instance=ExtResource("1_cuh5e")]
-offset_left = 115.0
-offset_top = 392.0
-offset_right = 115.0
-offset_bottom = 392.0
+offset_left = 282.0
+offset_top = 263.0
+offset_right = 282.0
+offset_bottom = 263.0
 monster_name = "bruxa"
 
 [node name="Kikimora" parent="." instance=ExtResource("1_cuh5e")]
-offset_left = 469.0
-offset_top = 390.0
-offset_right = 469.0
-offset_bottom = 390.0
+offset_left = 287.0
+offset_top = 634.0
+offset_right = 287.0
+offset_bottom = 634.0
 monster_name = "kikimora"
 
 [node name="Wyvern" parent="." instance=ExtResource("1_cuh5e")]
-offset_left = 283.0
-offset_top = 922.0
-offset_right = 283.0
-offset_bottom = 922.0
+offset_left = 299.0
+offset_top = 1021.0
+offset_right = 299.0
+offset_bottom = 1021.0
 monster_name = "wyvern"

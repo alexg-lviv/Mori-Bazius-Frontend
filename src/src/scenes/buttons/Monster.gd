@@ -18,7 +18,8 @@ var _exp: int
 @onready var _monster = get_node("Monster") as TextureButton
 @onready var _hunter = get_node("Hunter") as TextureButton
 @onready var _master = get_node("Master") as TextureButton
-@onready var _logs = get_node("Logs") as VBoxContainer
+@onready var _hunters_logs = get_node("HuntersLogs") as VBoxContainer
+@onready var _masters_logs = get_node("MastersLogs") as VBoxContainer
 
 
 func _ready():
@@ -32,30 +33,33 @@ func _validate(_item: String, _qty_delta: int):
 
 func _on_hunter_pressed():
 	if randf_range(0, 1) <= _hunter_p:
-		_display_log("\nHunter died fighting " + monster_name)
+		_display_log(_hunters_logs, "\nHunter died fighting " + monster_name)
 		Events.emit_signal("update_qty", "hunter", -1)
 	else:
-		_display_log("\nHunter slayed " + monster_name)
+		_display_log(_hunters_logs, "\nHunter slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
 
 func _on_master_pressed():
 	if randf_range(0, 1) <= _master_p:
-		_display_log("\nMaster died fighting " + monster_name)
+		_display_log(_masters_logs, "\nMaster died fighting " + monster_name)
 		Events.emit_signal("update_qty", "master", -1)
 	else:
-		_display_log("\nMaster slayed " + monster_name)
+		_display_log(_masters_logs, "\nMaster slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
 
-func _display_log(line: String):
+func _display_log(logs_container: VBoxContainer, line: String):
 	var timer := Timer.new()
 	var label := Label.new()
 	add_child(timer)
-	_logs.add_child(label)
-	timer.wait_time = 2
+	logs_container.add_child(label)
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT if logs_container == _hunters_logs else HORIZONTAL_ALIGNMENT_LEFT
+	timer.wait_time = 1.5
 	label.text = line
 	timer.timeout.connect(_delete_log.bind(timer, label))
 	timer.start()
 
 func _delete_log(timer: Timer, label: Label):
-	label.queue_free()
+	var tween = create_tween()
+	tween.tween_property(label, "modulate", Color.TRANSPARENT, 0.5)
+	tween.tween_callback(label.queue_free)
 	timer.queue_free()
