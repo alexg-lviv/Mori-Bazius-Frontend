@@ -2,7 +2,8 @@ extends Node
 
 var player_id: int
 
-var power := 0
+# This is a power without the level multiplier. The total power is stored in stats dict instead
+var power: int = 0
 
 
 const data: Dictionary = {
@@ -23,7 +24,7 @@ const data: Dictionary = {
 	},
 
 	"swallow_potion": {
-		"power": 25,
+		"power": 30,
 		"sprite": preload("res://art/items/craftable/potions/swallow.png"),
 		"requirements": {
 			"arenaria": 10,
@@ -33,37 +34,37 @@ const data: Dictionary = {
 	},
 
 	"meteorite_silver_ore": {
-		"power": 5,
+		"power": 2,
 		"sprite": preload("res://art/items/clickable/ores/meteorite_silver_ore.png"),
 		"requirements": null,
 	},
 	"dark_steel_ore": {
-		"power": 5,
+		"power": 2,
 		"sprite": preload("res://art/items/clickable/ores/dark_steel_ore.png"),
 		"requirements": null,
 	},
 	"green_gold_ore": {
-		"power": 5,
+		"power": 3,
 		"sprite": preload("res://art/items/clickable/ores/green_gold_ore.png"),
 		"requirements": null,
 	},
 
 	"meteorite_silver_ingot": {
-		"power": 100,
+		"power": 30,
 		"sprite": preload("res://art/items/craftable/ingots/meteorite_silver_ingot.png"),
 		"requirements": {
 			"meteorite_silver_ore": 10,
 		},
 	},
 	"dark_steel_ingot": {
-		"power": 100,
+		"power": 30,
 		"sprite": preload("res://art/items/craftable/ingots/dark_steel_ingot.png"),
 		"requirements": {
 			"dark_steel_ore": 10,
 		},
 	},
 	"green_gold_ingot": {
-		"power": 100,
+		"power": 45,
 		"sprite": preload("res://art/items/craftable/ingots/green_gold_ingot.png"),
 		"requirements": {
 			"green_gold_ore": 10,
@@ -71,12 +72,12 @@ const data: Dictionary = {
 	},
 
 	"diamond_dust": {
-		"power": 2,
+		"power": 5,
 		"sprite": preload("res://art/items/clickable/other/diamond_dust.png"),
 		"requirements": null,
 	},
 	"diamond": {
-		"power": 50,
+		"power": 100,
 		"sprite": preload("res://art/items/craftable/other/diamond.png"),
 		"requirements": {
 			"diamond_dust": 10,
@@ -89,7 +90,7 @@ const data: Dictionary = {
 		"requirements": null,
 	},
 	"leather_scraps": {
-		"power": 3,
+		"power": 1,
 		"sprite": preload("res://art/items/clickable/other/leather_scrap.png"),
 		"requirements": null,
 	},
@@ -100,69 +101,69 @@ const data: Dictionary = {
 	},
 
 	"armor": {
-		"power": 350,
+		"power": 180,
 		"sprite": preload("res://art/items/craftable/armor/armor.png"),
 		"requirements": {
 			"dark_steel_ingot": 1,
-			"leather_scraps": 20,
-			"monster_bone": 5,
+			"leather_scraps": 50,
+			"monster_bone": 10,
 		},
 	},
 	"mastercrafted_armor": {
-		"power": 2500,
+		"power": 750,
 		"sprite": preload("res://art/items/upgrades/armor/mastercrafted_armor.png"),
 		"requirements": {
-			"diamond": 5,
-			"meteorite_silver_ingot": 3,
-			"green_gold_ingot": 3,
+			"diamond": 1,
+			"meteorite_silver_ingot": 1,
+			"green_gold_ingot": 1,
 			"leather_scraps": 10,
-			"armor": 1
+			"armor": 1,
 		},
 	},
 
 	"steel_sword": {
-		"power": 550,
+		"power": 210,
 		"sprite": preload("res://art/items/craftable/swords/steel_sword.png"),
 		"requirements": {
-			"dark_steel_ingot": 2,
-			"oil": 8,
-			"leather_scraps": 4,
+			"dark_steel_ingot": 3,
+			"oil": 10,
+			"leather_scraps": 5,
 		},
 	},
 	"kingslayers_steel_sword": {
-		"power": 3500,
+		"power": 950,
 		"sprite": preload("res://art/items/upgrades/swords/kingslayers_steel_sword.png"),
 		"requirements": {
-			"diamond": 5,
+			"diamond": 1,
 			"green_gold_ingot": 5,
 			"steel_sword": 1,
 		},
 	},
 
 	"silver_sword": {
-		"power": 550,
+		"power": 210,
 		"sprite": preload("res://art/items/craftable/swords/silver_sword.png"),
 		"requirements": {
-			"meteorite_silver_ingot": 2,
-			"oil": 8,
-			"leather_scraps": 4,
+			"meteorite_silver_ingot": 3,
+			"oil": 10,
+			"leather_scraps": 5,
 		},
 	},
 	"kingslayers_silver_sword": {
-		"power": 3500,
+		"power": 950,
 		"sprite": preload("res://art/items/upgrades/swords/kingslayers_silver_sword.png"),
 		"requirements": {
-			"diamond": 5,
+			"diamond": 1,
 			"green_gold_ingot": 5,
 			"silver_sword": 1,
 		},
 	},
 	
 	"hunter": {
-		"power": 10000, # TODO,
+		"power": 1500,
 		"sprite": preload("res://art/hunters/hunter.png"),
 		"requirements": {
-			"swallow_potion": 10,
+			"swallow_potion": 5,
 			"silver_sword": 1,
 			"steel_sword": 1,
 			"armor": 1,
@@ -170,7 +171,7 @@ const data: Dictionary = {
 	},
 
 	"master": {
-		"power": 100000, # TODO,
+		"power": 8900,
 		"sprite": preload("res://art/hunters/master.png"),
 		"requirements": {
 			"hunter": 1,
@@ -182,6 +183,26 @@ const data: Dictionary = {
 	},
 }
 
+const monsters: Dictionary = {
+	"bruxa": {
+		"exp": 1,
+		"sprite": preload("res://art/monsters/bruxa.png"),
+		"hunter_p": 0.1,
+		"master_p": 0.05,
+	},
+	"kikimora": {
+		"exp": 3,
+		"sprite": preload("res://art/monsters/kikimora.png"),
+		"hunter_p": 0.2,
+		"master_p": 0.1,
+	},
+	"wyvern": {
+		"exp": 15,
+		"sprite": preload("res://art/monsters/wyvern.png"),
+		"hunter_p": 0.5,
+		"master_p": 0.25,
+	},
+}
 
 var qty: Dictionary = {
 	"arenaria": 0,
@@ -213,7 +234,12 @@ var qty: Dictionary = {
 	
 	"silver_sword": 0,
 	"kingslayers_silver_sword": 0,
-	
-	"hunter": 0,
-	"master": 0,
+}
+
+var stats: Dictionary = {
+	"power": 0,
+	"level": 1,
+	"hunters": 5,
+	"masters": 5,
+	"exp": 0,
 }
