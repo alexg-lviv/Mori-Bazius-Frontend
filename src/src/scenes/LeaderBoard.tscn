@@ -1,5 +1,84 @@
-[gd_scene format=3 uid="uid://b4cme045vht6y"]
+[gd_scene load_steps=5 format=3 uid="uid://b4cme045vht6y"]
+
+[ext_resource type="Texture2D" uid="uid://co4yh0602esvw" path="res://art/UI/background.png" id="1_k86ty"]
+[ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
+[ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
+[ext_resource type="PackedScene" uid="uid://ddmgs6yrsevil" path="res://src/scenes/ScorePanel.tscn" id="4_woepx"]
 
 [node name="LeaderBoard" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_yiobh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 728.0
+offset_bottom = 1276.0
+texture = ExtResource("1_k86ty")
+
+[node name="Title" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 119.0
+offset_right = 656.0
+offset_bottom = 235.0
+texture = ExtResource("1_qv8ih")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+layout_mode = 0
+offset_top = 291.0
+offset_right = 722.0
+offset_bottom = 1274.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScorePanel" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel2" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel3" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel4" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel5" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel6" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel7" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel8" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel9" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel10" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="ScorePanel11" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="GET" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]

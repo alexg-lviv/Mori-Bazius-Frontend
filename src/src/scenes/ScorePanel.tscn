@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddmgs6yrsevil"]
+
+[ext_resource type="Texture2D" uid="uid://lt62mkblfqwk" path="res://art/UI/rank.png" id="1_abixw"]
+[ext_resource type="Script" path="res://src/scenes/ScorePanel.gd" id="1_v16ir"]
+[ext_resource type="Texture2D" uid="uid://dq6k3ishnguyo" path="res://art/UI/panel_background.png" id="2_iug1x"]
+
+[node name="ScorePanel" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 112.0
+offset_right = 99.0
+offset_bottom = -1036.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_v16ir")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_abixw")
+expand_mode = 3
+
+[node name="TextureName" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_iug1x")
+expand_mode = 3
+
+[node name="PlayerName" type="Label" parent="TextureName"]
+layout_mode = 2
+offset_left = 30.0
+offset_top = 5.0
+offset_right = 402.0
+offset_bottom = 91.0
+theme_override_font_sizes/font_size = 45
+text = "Player Name"
+vertical_alignment = 1
+
+[node name="TextureScore" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_iug1x")
+
+[node name="Score" type="Label" parent="TextureScore"]
+layout_mode = 2
+offset_left = 13.0
+offset_top = 9.0
+offset_right = 149.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 60
+text = "1000
+"
