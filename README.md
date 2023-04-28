@@ -1,1 +1,1 @@
-# witcher_clicker_front
+# Hunter Clicker (front-end)
