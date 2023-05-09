@@ -1,6 +1,7 @@
 extends Node
 
 var player_id: int
+var player_token: String
 
 # This is a power without the level multiplier. The total power is stored in stats dict instead
 var power: int = 0

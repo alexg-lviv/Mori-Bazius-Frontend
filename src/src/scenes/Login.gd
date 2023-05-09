@@ -5,23 +5,28 @@ var credentials := {
 	"password": null,
 }
 
-const _register_url := "localhost:8080/user"
-const _login_url := "localhost:8081/login/user"
+const _register_url := "http://localhost:9000/register"
+const _login_url := "http://localhost:9000/login"
 
-#@onready var _register_get = get_node("RegisterGET") as HTTPRequest
-@onready var _register_post = get_node("RegisterPOST") as HTTPRequest
-@onready var _login_post = get_node("LoginPOST") as HTTPRequest
+var _game_scene = preload("res://src/scenes/Main.tscn").instantiate()
 
 @onready var _username_label = get_node("Box/VBoxContainer/Input/Username") as LineEdit
 @onready var _password_label = get_node("Box/VBoxContainer/Input/Password") as LineEdit
 
-@onready var _login_button = get_node("Box/VBoxContainer/Buttons/Login") as Button
 @onready var _register_button = get_node("Box/VBoxContainer/Buttons/Register") as Button
+@onready var _login_button = get_node("Box/VBoxContainer/Buttons/Login") as Button
+
+@onready var _register_post = get_node("RegisterPOST") as HTTPRequest
+@onready var _login_post = get_node("LoginPOST") as HTTPRequest
 
 
 func _save_credentials():
 	credentials["username"] = _username_label.text
 	credentials["password"] = _password_label.text
+
+
+func _load_game_scene():
+	get_tree().get_root().add_child(_game_scene)
 
 
 func _on_register_pressed():
@@ -49,13 +54,14 @@ func _on_login_pressed():
 	# TODO: error checks
 
 
-#func _on_register_get_request_completed(result, response_code, headers, body):
-#	pass # Replace with function body.
+func _on_register_post_request_completed(_result, response_code, _headers, body):
+	if response_code != 200:
+		pass # TODO: error checks
+	Items.player_id = body.get_string_from_utf8()
 
 
-func _on_register_post_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.
-
-
-func _on_login_post_request_completed(result, response_code, headers, body):
-	pass # Replace with function body.
+func _on_login_post_request_completed(_result, response_code, _headers, body):
+	if response_code != 200:
+		pass # TODO: error checks
+	Items.player_token = body.get_string_from_utf8()
+	_load_game_scene()

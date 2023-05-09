@@ -107,14 +107,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Register"
 
-[node name="RegisterGET" type="HTTPRequest" parent="."]
-
 [node name="RegisterPOST" type="HTTPRequest" parent="."]
 
 [node name="LoginPOST" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="Box/VBoxContainer/Buttons/Login" to="." method="_on_login_pressed"]
 [connection signal="pressed" from="Box/VBoxContainer/Buttons/Register" to="." method="_on_register_pressed"]
-[connection signal="request_completed" from="RegisterGET" to="." method="_on_register_get_request_completed"]
 [connection signal="request_completed" from="RegisterPOST" to="." method="_on_register_post_request_completed"]
 [connection signal="request_completed" from="LoginPOST" to="." method="_on_login_post_request_completed"]
