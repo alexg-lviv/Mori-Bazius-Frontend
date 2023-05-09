@@ -21,6 +21,7 @@ signal pull()
 func _ready():
 	update_qty.connect(_update_qty)
 	update_exp.connect(_update_exp)
+	
 	save.connect(_on_save)
 	pull.connect(_on_pull)
 	

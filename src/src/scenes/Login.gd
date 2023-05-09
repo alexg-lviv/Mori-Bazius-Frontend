@@ -58,14 +58,14 @@ func _on_register_post_request_completed(_result, response_code, _headers, body)
 	if response_code != 200:
 		pass # TODO: error checks
 	
-	Items.stats["player_id"] = body.get_string_from_utf8()
+	Items.credentials["player_id"] = body.get_string_from_utf8()
 
 
 func _on_login_post_request_completed(_result, response_code, _headers, body):
 	if response_code != 200:
 		pass # TODO: error checks
 	
-	Items.stats["token"] = body.get_string_from_utf8()
-	Items.stats["player_name"] = credentials["username"]
+	Items.credentials["token"] = body.get_string_from_utf8()
+	Items.credentials["player_name"] = credentials["username"]
 	
 	_load_game_scene()
