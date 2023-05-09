@@ -1,7 +1,7 @@
 extends Node
 
-var player_id: int
-var player_token: String
+#var player_id: int
+#var player_token: String
 
 # This is a power without the level multiplier. The total power is stored in stats dict instead
 var power: int = 0
@@ -238,6 +238,9 @@ var qty: Dictionary = {
 }
 
 var stats: Dictionary = {
+	"player_id": null,
+	"token": null,
+	"player_name": null,
 	"power": 0,
 	"level": 1,
 	"hunters": 5,
