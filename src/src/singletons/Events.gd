@@ -61,6 +61,10 @@ func _combine_dict_with_credentials(dict: Dictionary):
 	merged["player_name"] = Items.credentials["player_name"]
 	return merged
 
+func remove_credentials_from_dict(dict: Dictionary):
+	for key in ["player_id", "token", "player_name"]:
+		dict.erase(key)
+	return dict
 
 func _on_save():
 	print("Save emitted")
@@ -111,7 +115,8 @@ func _on_post_request_completed(_result, response_code, _headers, _body):
 func _on_get_request_completed(_result, response_code, _headers, body, saving_dict):
 	# TODO: error checks
 	print(response_code)
-	saving_dict = JSON.parse_string(body.get_string_from_utf8())
+	saving_dict = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
+	print(saving_dict)
 	
 	if response_code == 500:
 		return

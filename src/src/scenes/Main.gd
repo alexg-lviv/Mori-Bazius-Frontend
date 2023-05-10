@@ -21,5 +21,7 @@ func _ready():
 		
 #	Events.emit_signal("pull")  # TODO: uncomment
 
+	Events.emit_signal("set_qty")
+
 func _on_save_timer_timeout():
 	Events.emit_signal("save")
