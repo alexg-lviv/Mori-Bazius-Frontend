@@ -55,17 +55,25 @@ func _on_login_pressed():
 
 
 func _on_register_post_request_completed(_result, response_code, _headers, body):
-	if response_code != 200:
-		pass # TODO: error checks
+	# TODO: error checks
+#	if response_code != 200:
+	if body.get_string_from_utf8() == "\"Internal Server Error\"":
+		print("error registring")
+		return
 	
-	Items.credentials["player_id"] = body.get_string_from_utf8()
+	Items.credentials["player_id"] = int(body.get_string_from_utf8())
 
 
 func _on_login_post_request_completed(_result, response_code, _headers, body):
-	if response_code != 200:
-		pass # TODO: error checks
+	# TODO: error checks
+#	if response_code != 200:
+	if body.get_string_from_utf8() == "\"Internal Server Error\"":
+		print("error logging")
+		return
 	
-	Items.credentials["token"] = body.get_string_from_utf8()
+	Items.credentials["token"] = body.get_string_from_utf8().substr(7, 40)
 	Items.credentials["player_name"] = credentials["username"]
 	
 	_load_game_scene()
+	
+	# TODO: free or hide curr scene

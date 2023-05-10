@@ -19,7 +19,7 @@ func _ready():
 	for i in range(num_tabs):
 		TabsContainer.set_tab_title(i, "")
 		
-	Events.emit_signal("pull")
+#	Events.emit_signal("pull")  # TODO: uncomment
 
 func _on_save_timer_timeout():
 	Events.emit_signal("save")

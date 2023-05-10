@@ -239,8 +239,8 @@ var qty: Dictionary = {
 var stats: Dictionary = {
 	"power": 0,
 	"level": 1,
-	"hunters": 5,
-	"masters": 5,
+	"hunters": 0,
+	"masters": 0,
 	"exp": 0,
 }
 
