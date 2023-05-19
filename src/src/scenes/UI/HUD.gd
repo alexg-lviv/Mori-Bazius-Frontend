@@ -16,9 +16,10 @@ func _update_power(_item: String, _qty_delta: int):
 	_masters_label.text = str(Items.stats["masters"])
 
 func _update_level(_exp_delta: int):
-	_power_label.text = str(Items.stats["power"])
 	_level_label.text = str(Items.stats["level"])
 
 func _set_labels():
-	_update_power("", 0)
-	_update_level(0)
+	_power_label.text = str(Items.stats["power"])
+	_hunters_label.text = str(Items.stats["hunters"])
+	_masters_label.text = str(Items.stats["masters"])
+	_level_label.text = str(Items.stats["level"])

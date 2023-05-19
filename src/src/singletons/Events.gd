@@ -43,7 +43,6 @@ func _ready():
 func _update_exp(exp_delta: int):
 	Items.stats["exp"] += exp_delta
 	Items.stats["level"] = floori(Items.stats["exp"] / 10) + 1
-	Items.stats["power"] = Items.power * Items.stats["level"]
 
 
 func _update_qty(item: String, qty_delta: int):
@@ -51,8 +50,8 @@ func _update_qty(item: String, qty_delta: int):
 		Items.stats[item + "s"] += qty_delta
 	else:
 		Items.qty[item] += qty_delta
-	Items.power += qty_delta * Items.data[item]["power"]
-	Items.stats["power"] = Items.power * Items.stats["level"]
+	Items.stats["power"] += qty_delta * Items.data[item]["power"]
+
 
 func _combine_dict_with_credentials(dict: Dictionary):
 	var merged := dict.duplicate()
@@ -66,8 +65,10 @@ func remove_credentials_from_dict(dict: Dictionary):
 		dict.erase(key)
 	return dict
 
+
 func _on_save():
 	print("Save emitted")
+	print(Items.stats)
 	
 	var err_resources = _POST_resources.request(
 		_url % ["resources", Items.credentials["player_id"]],
@@ -97,13 +98,6 @@ func _on_pull():
 		_url % ["stats", Items.credentials["player_id"]],
 	)
 	# TODO: error checks
-	
-#	for item in Items.qty:
-#		Items.power += Items.qty[item] * Items.data[item]["power"]
-#	Items.power += Items.stats["hunters"] * Items.data["hunter"]["power"]
-#	Items.power += Items.stats["masters"] * Items.data["master"]["power"]
-#
-#	Items.stats["power"] = Items.power * Items.stats["level"]
 
 
 func _on_post_request_completed(_result, response_code, _headers, _body):
@@ -115,10 +109,11 @@ func _on_post_request_completed(_result, response_code, _headers, _body):
 func _on_get_request_completed(_result, response_code, _headers, body, saving_dict):
 	# TODO: error checks
 	print(response_code)
-	saving_dict = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
-	print(saving_dict)
+	var data = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
+	saving_dict.merge(data, true)
+	print(data)
 	
-	if response_code == 500:
-		return
+#	if response_code == 500:
+#		return
 
 	emit_signal("set_qty")

@@ -1,11 +1,6 @@
 extends Node
 
 
-# This is a power without the level multiplier.
-# The total power is stored in stats dict instead.
-var power: int = 0
-
-
 const data: Dictionary = {
 	"arenaria": {
 		"power": 1,
