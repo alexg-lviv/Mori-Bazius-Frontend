@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd03x36d33ifv"]
+[gd_scene load_steps=6 format=3 uid="uid://bd03x36d33ifv"]
 
 [ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_tl1tu"]
-[ext_resource type="Texture2D" uid="uid://imu7d5his2v7" path="res://art/UI/rects/white_box.png" id="3_k6wje"]
+[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="3_b5qts"]
 [ext_resource type="PackedScene" uid="uid://dfy2ac8nab5dc" path="res://src/scenes/buttons/Upgrades.tscn" id="3_nyjc1"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="3_vos4g"]
+[ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="4_a8yk2"]
 
 [node name="Equipment" type="Control"]
 layout_mode = 3
@@ -11,27 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(0.443137, 0.517647, 1, 1)
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 25.0
-offset_bottom = 125.0
-grow_horizontal = 2
-texture = ExtResource("3_k6wje")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="TextureRect"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 100.0
-grow_horizontal = 2
-text = "Weapons & Armors"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -101,3 +82,37 @@ _name = "mastercrafted_armor"
 layout_mode = 2
 size_flags_vertical = 4
 _name = "kingslayers_steel_sword"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.988235, 0.85098, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 45.0
+offset_bottom = 145.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(360, 50)
+texture = ExtResource("3_vos4g")
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Equipment"
+label_settings = ExtResource("4_a8yk2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_b5qts")
