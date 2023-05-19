@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://whaicn1ejvw0"]
+
+[ext_resource type="Texture2D" uid="uid://imu7d5his2v7" path="res://art/UI/rects/white_box.png" id="1_08u3t"]
+[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="2_d2f0t"]
+[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_x8wkg"]
+
+[node name="Utility" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.443137, 0.517647, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+texture = ExtResource("1_08u3t")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Utility"
+
+[node name="DiamondDust" parent="." instance=ExtResource("2_d2f0t")]
+offset_left = 241.0
+offset_top = 485.0
+offset_right = 427.0
+offset_bottom = 662.0
+_name = "diamond_dust"
+
+[node name="Diamond" parent="." instance=ExtResource("2_x8wkg")]
+custom_minimum_size = Vector2(80, 80)
+offset_left = 221.0
+offset_top = 734.0
+offset_right = 419.0
+offset_bottom = 922.0
+texture_pressed = null
+_name = "diamond"
+
+[node name="Oil" parent="." instance=ExtResource("2_d2f0t")]
+offset_left = 14.6
+offset_top = 605.6
+offset_right = 179.6
+offset_bottom = 758.6
+_name = "oil"
+
+[node name="Leather" parent="." instance=ExtResource("2_d2f0t")]
+offset_left = 478.0
+offset_top = 592.0
+offset_right = 655.0
+offset_bottom = 763.0
+_name = "leather_scraps"

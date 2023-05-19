@@ -1,21 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce2attkcv2r11"]
+[gd_scene load_steps=7 format=3 uid="uid://ce2attkcv2r11"]
 
 [ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_8q1hi"]
-[ext_resource type="Texture2D" uid="uid://jd7spylko0e8" path="res://art/UI/buttons/craft_butt.png" id="1_dd0jc"]
-[ext_resource type="Texture2D" uid="uid://i5tppfsk6djp" path="res://art/UI/buttons/disabeled_craft_butt.png" id="2_nydha"]
+[ext_resource type="Texture2D" uid="uid://o2qd63xfnq3c" path="res://art/UI/butts/craft.png" id="2_veteo"]
 [ext_resource type="Script" path="res://src/scenes/buttons/Craftable.gd" id="3_dh0d2"]
+[ext_resource type="Texture2D" uid="uid://4mc56ojaqvm2" path="res://art/UI/butts/craft_pressed.png" id="3_vms68"]
+[ext_resource type="Texture2D" uid="uid://cukw05hw8p3tf" path="res://art/UI/butts/craft_disabled.png" id="4_nbbgx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gba7l"]
 resource_local_to_scene = true
 
 [node name="Craftable" instance=ExtResource("1_8q1hi")]
+custom_minimum_size = Vector2(180, 180)
+offset_right = 180.0
+offset_bottom = 180.0
 scale = Vector2(1.2, 1.2)
-texture_normal = ExtResource("1_dd0jc")
-texture_disabled = ExtResource("2_nydha")
+texture_normal = ExtResource("2_veteo")
+texture_pressed = ExtResource("3_vms68")
+texture_disabled = ExtResource("4_nbbgx")
 script = ExtResource("3_dh0d2")
+_name = "swallow_potion"
 
 [node name="Item" parent="." index="0"]
 material = SubResource("ShaderMaterial_gba7l")
+offset_left = 51.0
+offset_top = 43.0
+offset_right = -51.0
+offset_bottom = -65.0
 
 [node name="Requirements" type="Label" parent="Description" index="2"]
 layout_mode = 2

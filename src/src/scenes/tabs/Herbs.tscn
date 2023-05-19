@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://du7igre06pgj3"]
+
+[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_aigq2"]
+[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="3_8q156"]
+[ext_resource type="Texture2D" uid="uid://imu7d5his2v7" path="res://art/UI/rects/white_box.png" id="3_qxrmf"]
+
+[node name="Herbs" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.443137, 0.517647, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+texture = ExtResource("3_qxrmf")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Herbs & Potions"
+
+[node name="Herbs" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -187.0
+offset_right = -60.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Clickable" parent="Herbs" instance=ExtResource("1_aigq2")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Clickable2" parent="Herbs" instance=ExtResource("1_aigq2")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Clickable3" parent="Herbs" instance=ExtResource("1_aigq2")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Potions" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = 60.0
+offset_right = -60.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Craftable" parent="Potions" instance=ExtResource("3_8q156")]
+layout_mode = 2

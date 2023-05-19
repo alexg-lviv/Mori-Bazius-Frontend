@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd03x36d33ifv"]
+
+[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_tl1tu"]
+[ext_resource type="Texture2D" uid="uid://imu7d5his2v7" path="res://art/UI/rects/white_box.png" id="3_k6wje"]
+[ext_resource type="PackedScene" uid="uid://dfy2ac8nab5dc" path="res://src/scenes/buttons/Upgrades.tscn" id="3_nyjc1"]
+
+[node name="Equipment" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.443137, 0.517647, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+texture = ExtResource("3_k6wje")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Weapons & Armors"
+
+[node name="SilverSword" parent="." instance=ExtResource("2_tl1tu")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 67.0
+offset_top = 402.0
+offset_right = 210.0
+offset_bottom = 535.0
+texture_pressed = null
+_name = "silver_sword"
+
+[node name="SteelSword" parent="." instance=ExtResource("2_tl1tu")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 499.0
+offset_top = 402.0
+offset_right = 625.0
+offset_bottom = 533.0
+texture_pressed = null
+_name = "steel_sword"
+
+[node name="Armor" parent="." instance=ExtResource("2_tl1tu")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 284.0
+offset_top = 344.0
+offset_right = 421.0
+offset_bottom = 493.0
+texture_pressed = null
+_name = "armor"
+
+[node name="KingSilverSword" parent="." instance=ExtResource("3_nyjc1")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 646.0
+offset_right = 197.0
+offset_bottom = 811.0
+texture_pressed = null
+_name = "kingslayers_silver_sword"
+
+[node name="KingSteelSword" parent="." instance=ExtResource("3_nyjc1")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 428.0
+offset_top = 648.0
+offset_right = 578.0
+offset_bottom = 793.0
+texture_pressed = null
+_name = "kingslayers_steel_sword"
+
+[node name="MasterArmor" parent="." instance=ExtResource("3_nyjc1")]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 221.0
+offset_top = 786.0
+offset_right = 390.0
+offset_bottom = 940.0
+texture_pressed = null
+_name = "mastercrafted_armor"
