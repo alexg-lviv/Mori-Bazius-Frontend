@@ -1,9 +1,9 @@
 extends Control
 
-@onready var _power_label: Label = get_node("UpperPanel/HBoxContainer/Power/Label")
-@onready var _level_label: Label = get_node("UpperPanel/HBoxContainer/Level/Label")
-@onready var _hunters_label: Label = get_node("UpperPanel/HBoxContainer/Hunters/Label")
-@onready var _masters_label: Label = get_node("UpperPanel/HBoxContainer/Masters/Label")
+@onready var _power_label: Label = get_node("HBoxContainer/Power/Label")
+@onready var _level_label: Label = get_node("HBoxContainer/Level/Label")
+@onready var _hunters_label: Label = get_node("HBoxContainer/Hunters/Label")
+@onready var _masters_label: Label = get_node("HBoxContainer/Masters/Label")
 
 func _ready():
 	Events.update_qty.connect(_update_power)
