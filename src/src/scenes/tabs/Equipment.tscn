@@ -56,17 +56,20 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Craftable" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
+[node name="SilverSword" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "silver_sword"
 
-[node name="Craftable2" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
+[node name="Armor" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 0
+_name = "armor"
 
-[node name="Craftable3" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
+[node name="SteelSword" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "steel_sword"
 
 [node name="Upgrades" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -84,14 +87,17 @@ grow_vertical = 2
 theme_override_constants/separation = -65
 alignment = 1
 
-[node name="Upgrades" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="SilverSword" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "kingslayers_silver_sword"
 
-[node name="Upgrades2" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="Armor" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 8
+_name = "mastercrafted_armor"
 
-[node name="Upgrades3" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="SteelSword" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "kingslayers_steel_sword"

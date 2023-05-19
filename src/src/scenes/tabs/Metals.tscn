@@ -57,20 +57,23 @@ grow_vertical = 2
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Clickable" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+[node name="Silver" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "meteorite_silver_ore"
 
-[node name="Clickable2" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+[node name="Gold" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+_name = "green_gold_ore"
 
-[node name="Clickable3" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+[node name="Steel" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "dark_steel_ore"
 
 [node name="Ingots" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -87,14 +90,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Craftable" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+[node name="Silver" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "meteorite_silver_ingot"
 
-[node name="Craftable2" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+[node name="Gold" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
 layout_mode = 2
 size_flags_vertical = 8
+_name = "green_gold_ingot"
 
-[node name="Craftable3" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+[node name="Steel" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
 layout_mode = 2
 size_flags_vertical = 4
+_name = "dark_steel_ingot"

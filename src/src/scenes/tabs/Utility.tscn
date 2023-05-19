@@ -41,7 +41,7 @@ offset_top = 400.0
 offset_bottom = 400.0
 grow_horizontal = 2
 
-[node name="Herbs" type="HBoxContainer" parent="Control"]
+[node name="Stuff" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,29 +49,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -244.0
-offset_top = -155.0
+offset_top = -216.0
 offset_right = 244.0
-offset_bottom = 155.0
+offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Clickable" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Bone(r)" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "monster_bone"
 
-[node name="Clickable2" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Oil" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+_name = "oil"
 
-[node name="Clickable3" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Leather" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "leather_scraps"
 
-[node name="Potions" type="HBoxContainer" parent="Control"]
+[node name="MoreStuff" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -79,12 +82,20 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -90.0
-offset_top = 88.0
+offset_top = 18.0
 offset_right = 90.0
-offset_bottom = 268.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Craftable" parent="Control/Potions" instance=ExtResource("2_x8wkg")]
+[node name="CrystalMeth" parent="Control/MoreStuff" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+_name = "diamond_dust"
+
+[node name="BiggerMeth" parent="Control/MoreStuff" instance=ExtResource("2_x8wkg")]
+layout_mode = 2
+_name = "diamond"

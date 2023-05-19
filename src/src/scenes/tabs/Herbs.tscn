@@ -56,20 +56,22 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Clickable" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
+[node name="Nostrix" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "nostrix"
 
-[node name="Clickable2" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
+[node name="Arenaria" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Clickable3" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
+[node name="Wolfsbane" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+_name = "wolfsbane"
 
 [node name="Potions" type="HBoxContainer" parent="Control"]
 layout_mode = 1
@@ -86,5 +88,5 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Craftable" parent="Control/Potions" instance=ExtResource("3_8q156")]
+[node name="Swallow" parent="Control/Potions" instance=ExtResource("3_8q156")]
 layout_mode = 2
