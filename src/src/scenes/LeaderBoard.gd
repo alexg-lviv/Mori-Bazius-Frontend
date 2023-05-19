@@ -4,7 +4,7 @@ extends Control
 var _url: String
 
 @onready var row = preload("res://src/scenes/ScorePanel.tscn")
-@onready var container = get_node("Background/ScrollContainer/VBoxContainer")
+@onready var container = get_node("ScrollContainer/VBoxContainer")
 
 @onready var _GET = get_node('GET')
 

@@ -5,9 +5,10 @@ var _requirements: Dictionary
 @onready var _requirements_label: Label = get_node("Description/Requirements")
 
 func _ready():
+	Events.update_qty.connect(_update_requirements)
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
-	validate()
+	_validate()
 	_hide_description()
 	_set_description()
 
@@ -22,7 +23,7 @@ func _set_description():
 	
 	_requirements_label.text = requirements_str
 
-func validate():
+func _validate():
 	var is_valid = true
 	for item in _requirements.keys():
 		var dict = Items.qty
@@ -33,8 +34,11 @@ func validate():
 			is_valid = false
 	disabled = not is_valid
 
+func _update_requirements(_item: String, _qty_delta: int):
+	_validate()
+
 func _on_pressed():
 	Events.emit_signal("update_qty", _name, 1)
 	for req_name in _requirements.keys():
 		Events.emit_signal("update_qty", req_name, - _requirements[req_name])
-	validate()
+	_validate()

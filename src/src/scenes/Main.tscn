@@ -36,8 +36,8 @@ texture = SubResource("GradientTexture2D_oar74")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("1_lvsag")]
-offset_top = 140.0
-offset_bottom = -1140.0
+offset_top = 150.0
+offset_bottom = -1130.0
 mouse_filter = 2
 
 [node name="TabContainer" type="TabContainer" parent="."]

@@ -1,0 +1,121 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwhmm1sqgqjri"]
+
+[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_oxoi4"]
+[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_0wygn"]
+[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="3_7f7sw"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="3_da7fm"]
+[ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="4_4ioqi"]
+
+[node name="Metals" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 350.0
+offset_bottom = 350.0
+grow_horizontal = 2
+
+[node name="Ores" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -155.0
+offset_right = 244.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Silver" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+_name = "meteorite_silver_ore"
+
+[node name="Gold" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+_name = "green_gold_ore"
+
+[node name="Steel" parent="Control/Ores" instance=ExtResource("1_oxoi4")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+_name = "dark_steel_ore"
+
+[node name="Ingots" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = 70.0
+offset_right = 274.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Silver" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+layout_mode = 2
+size_flags_vertical = 4
+_name = "meteorite_silver_ingot"
+
+[node name="Gold" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+layout_mode = 2
+size_flags_vertical = 8
+_name = "green_gold_ingot"
+
+[node name="Steel" parent="Control/Ingots" instance=ExtResource("2_0wygn")]
+layout_mode = 2
+size_flags_vertical = 4
+_name = "dark_steel_ingot"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.839216, 0.87451, 1, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 72.0
+offset_bottom = 172.0
+grow_horizontal = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(360, 50)
+texture = ExtResource("3_da7fm")
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Minerals"
+label_settings = ExtResource("4_4ioqi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_7f7sw")

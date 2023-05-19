@@ -3,17 +3,11 @@
 [ext_resource type="Script" path="res://src/scenes/UI/HUD.gd" id="1_7hbof"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="1_gugko"]
 [ext_resource type="Texture2D" uid="uid://cydffo68kgqss" path="res://art/UI/icons/hunter_icon.png" id="2_wviw5"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="2_y4lto"]
 [ext_resource type="Texture2D" uid="uid://clj85rw63emq2" path="res://art/UI/icons/master_icon.png" id="3_6ekwx"]
 [ext_resource type="LabelSettings" uid="uid://c27ipveh34qay" path="res://labels/HUD.tres" id="3_lcw3b"]
 [ext_resource type="Texture2D" uid="uid://bg1iswvlvkgxy" path="res://art/UI/icons/power.png" id="3_u6wep"]
-
-[sub_resource type="Gradient" id="Gradient_xvfya"]
-colors = PackedColorArray(0.329412, 0.807843, 0.596078, 1, 1, 0.517647, 0.513726, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ghjdk"]
-gradient = SubResource("Gradient_xvfya")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 0)
+[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="8_hrldc"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -25,40 +19,49 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7hbof")
 
-[node name="UpperPanel" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.6)
+[node name="Back" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 100.0
+offset_top = 13.0
+offset_bottom = 116.0
 grow_horizontal = 2
-texture = SubResource("GradientTexture2D_ghjdk")
-expand_mode = 1
+texture = ExtResource("2_y4lto")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UpperPanel"]
+[node name="Contour" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.968627, 0.941176, 1)
+custom_minimum_size = Vector2(720, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 129.0
+grow_horizontal = 2
+texture = ExtResource("8_hrldc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 697.0
-offset_bottom = -20.0
+offset_left = 30.0
+offset_top = 13.0
+offset_right = 690.0
+offset_bottom = 116.0
 grow_vertical = 2
 alignment = 1
 
-[node name="Power" type="HBoxContainer" parent="UpperPanel/HBoxContainer"]
+[node name="Power" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="UpperPanel/HBoxContainer/Power"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Power"]
 layout_mode = 2
 texture = ExtResource("1_gugko")
-expand_mode = 2
+expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UpperPanel/HBoxContainer/Power"]
+[node name="Label" type="Label" parent="HBoxContainer/Power"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -66,18 +69,18 @@ text = "666"
 label_settings = ExtResource("3_lcw3b")
 vertical_alignment = 1
 
-[node name="Level" type="HBoxContainer" parent="UpperPanel/HBoxContainer"]
+[node name="Level" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="UpperPanel/HBoxContainer/Level"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Level"]
 layout_mode = 2
 texture = ExtResource("3_u6wep")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UpperPanel/HBoxContainer/Level"]
+[node name="Label" type="Label" parent="HBoxContainer/Level"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -85,18 +88,18 @@ text = "666"
 label_settings = ExtResource("3_lcw3b")
 vertical_alignment = 1
 
-[node name="Hunters" type="HBoxContainer" parent="UpperPanel/HBoxContainer"]
+[node name="Hunters" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="UpperPanel/HBoxContainer/Hunters"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Hunters"]
 layout_mode = 2
 texture = ExtResource("2_wviw5")
-expand_mode = 2
+expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UpperPanel/HBoxContainer/Hunters"]
+[node name="Label" type="Label" parent="HBoxContainer/Hunters"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -104,18 +107,18 @@ text = "666"
 label_settings = ExtResource("3_lcw3b")
 vertical_alignment = 1
 
-[node name="Masters" type="HBoxContainer" parent="UpperPanel/HBoxContainer"]
+[node name="Masters" type="HBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="UpperPanel/HBoxContainer/Masters"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Masters"]
 layout_mode = 2
 texture = ExtResource("3_6ekwx")
-expand_mode = 2
+expand_mode = 3
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="UpperPanel/HBoxContainer/Masters"]
+[node name="Label" type="Label" parent="HBoxContainer/Masters"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50

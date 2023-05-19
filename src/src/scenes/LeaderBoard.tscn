@@ -1,84 +1,281 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4cme045vht6y"]
+[gd_scene load_steps=10 format=3 uid="uid://b4cme045vht6y"]
 
 [ext_resource type="Texture2D" uid="uid://co4yh0602esvw" path="res://art/UI/background.png" id="1_k86ty"]
 [ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
 [ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
+[ext_resource type="Texture2D" uid="uid://csofu8eojrt51" path="res://art/backgrounds/NightForest/Image without mist.png" id="2_db0gg"]
 [ext_resource type="PackedScene" uid="uid://ddmgs6yrsevil" path="res://src/scenes/ScorePanel.tscn" id="4_woepx"]
+
+[sub_resource type="Shader" id="Shader_ge5x0"]
+code = "shader_type canvas_item;
+
+uniform vec4 BackColor : source_color = vec4(0.0, 0.4, 0.58, 1.0);
+uniform vec4 CloudColor : source_color = vec4(0.18, 0.70, 0.87, 1.0);
+uniform float speed : hint_range(0.0, 5.0) = 0.1;
+uniform float alpha : hint_range(0.0, 1.0) = 0.1;
+
+const float TAU_ = 6.28318530718;
+
+float Func(float pX)
+{
+	return 0.6*(0.5*sin(0.1*pX) + 0.5*sin(0.553*pX) + 0.7*sin(1.2*pX));
+}
+
+
+float FuncR(float pX)
+{
+	return 0.5 + 0.25*(1.0 + sin(mod(40.0*pX, TAU_)));
+}
+
+
+float Layer(vec2 pQ, float pT)
+{
+	vec2 Qt = 3.5*pQ;
+	pT *= 0.5;
+	Qt.x += pT;
+
+	float Xi = floor(Qt.x);
+	float Xf = Qt.x - Xi -0.5;
+
+	vec2 C;
+	float Yi;
+	float D = 1.0 - step(Qt.y,  Func(Qt.x));
+
+	// Disk:
+	Yi = Func(Xi + 0.5);
+	C = vec2(Xf, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi+ pT/80.0));
+
+	// Previous disk:
+	Yi = Func(Xi+1.0 + 0.5);
+	C = vec2(Xf-1.0, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi+1.0+ pT/80.0));
+
+	// Next Disk:
+	Yi = Func(Xi-1.0 + 0.5);
+	C = vec2(Xf+1.0, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi-1.0+ pT/80.0));
+
+	return min(1.0, D);
+}
+
+void fragment() {
+	//vec2 uv = 8.0 * (SCREEN_UV - UV * 2.0);
+	vec2 uv = 3.0 * (SCREEN_UV - UV * 2.0);
+
+	// Render:
+	vec3 Color= BackColor.rgb;
+	for(float J = 0.0; J <= 1.0; J += 0.2)
+	{
+		// Cloud Layer:
+		float Lt =  TIME * speed * (0.5  + 2.0 * J) * (1.0 + 0.1 * sin(226.0 * J)) + 17.0 * J;
+		vec2 Lp = vec2(0.0, 0.3 + 1.5 * ( J - 0.5));
+		float L = Layer(uv + Lp, Lt);
+		// Blur and color:
+		float Blur = 4.0 * (0.5 * abs(2.0 - 5.0 * J)) / (11.0 - 5.0 * J);
+		float V = mix( 0.0, 1.0, 1.0 - smoothstep( 0.0, 0.01 +0.2 * Blur, L ) );
+		vec3 Lc=  mix(CloudColor.rgb, vec3(1.0), J);
+		Color =mix(Color, Lc,  V);
+	}
+	COLOR = vec4(Color, alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l48gl"]
+shader = SubResource("Shader_ge5x0")
+shader_parameter/BackColor = Color(0, 0, 0, 1)
+shader_parameter/CloudColor = Color(0, 0, 0, 1)
+shader_parameter/speed = 1.0
+shader_parameter/alpha = 0.3
+
+[sub_resource type="Shader" id="Shader_2jfpr"]
+code = "shader_type canvas_item;
+
+uniform vec4 BackColor : source_color = vec4(0.0, 0.4, 0.58, 1.0);
+uniform vec4 CloudColor : source_color = vec4(0.18, 0.70, 0.87, 1.0);
+uniform float speed : hint_range(0.0, 5.0) = 0.1;
+uniform float alpha : hint_range(0.0, 1.0) = 0.1;
+
+const float TAU_ = 6.28318530718;
+
+float Func(float pX)
+{
+	return 0.6*(0.5*sin(0.1*pX) + 0.5*sin(0.553*pX) + 0.7*sin(1.2*pX));
+}
+
+
+float FuncR(float pX)
+{
+	return 0.5 + 0.25*(1.0 + sin(mod(40.0*pX, TAU_)));
+}
+
+
+float Layer(vec2 pQ, float pT)
+{
+	vec2 Qt = 3.5*pQ;
+	pT *= 0.5;
+	Qt.x += pT;
+
+	float Xi = floor(Qt.x);
+	float Xf = Qt.x - Xi -0.5;
+
+	vec2 C;
+	float Yi;
+	float D = 1.0 - step(Qt.y,  Func(Qt.x));
+
+	// Disk:
+	Yi = Func(Xi + 0.5);
+	C = vec2(Xf, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi+ pT/80.0));
+
+	// Previous disk:
+	Yi = Func(Xi+1.0 + 0.5);
+	C = vec2(Xf-1.0, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi+1.0+ pT/80.0));
+
+	// Next Disk:
+	Yi = Func(Xi-1.0 + 0.5);
+	C = vec2(Xf+1.0, Qt.y - Yi );
+	D =  min(D, length(C) - FuncR(Xi-1.0+ pT/80.0));
+
+	return min(1.0, D);
+}
+
+void fragment() {
+	//vec2 uv = 8.0 * (SCREEN_UV - UV * 2.0);
+	vec2 uv = 3.0 * (SCREEN_UV - UV * 2.0);
+
+	// Render:
+	vec3 Color= BackColor.rgb;
+	for(float J = 0.0; J <= 1.0; J += 0.2)
+	{
+		// Cloud Layer:
+		float Lt =  TIME * speed * (0.5  + 2.0 * J) * (1.0 + 0.1 * sin(226.0 * J)) + 17.0 * J;
+		vec2 Lp = vec2(0.0, 0.3 + 1.5 * ( J - 0.5));
+		float L = Layer(uv + Lp, Lt);
+		// Blur and color:
+		float Blur = 4.0 * (0.5 * abs(2.0 - 5.0 * J)) / (11.0 - 5.0 * J);
+		float V = mix( 0.0, 1.0, 1.0 - smoothstep( 0.0, 0.01 +0.2 * Blur, L ) );
+		vec3 Lc=  mix(CloudColor.rgb, vec3(1.0), J);
+		Color =mix(Color, Lc,  V);
+	}
+	COLOR = vec4(Color, alpha);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qg3ds"]
+shader = SubResource("Shader_2jfpr")
+shader_parameter/BackColor = Color(0, 0, 0, 1)
+shader_parameter/CloudColor = Color(0, 0, 0, 1)
+shader_parameter/speed = 3.0
+shader_parameter/alpha = 0.3
 
 [node name="LeaderBoard" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_yiobh")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 728.0
-offset_bottom = 1276.0
-texture = ExtResource("1_k86ty")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_db0gg")
+expand_mode = 3
 
-[node name="Title" type="TextureRect" parent="Background"]
+[node name="Clouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_l48gl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 273.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_k86ty")
+flip_v = true
+
+[node name="UpperClouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_qg3ds")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 131.0
+offset_bottom = 275.0
+grow_horizontal = 2
+texture = ExtResource("1_k86ty")
+expand_mode = 1
+flip_v = true
+
+[node name="GET" type="HTTPRequest" parent="."]
+
+[node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 58.0
-offset_top = 119.0
+offset_top = 175.0
 offset_right = 656.0
-offset_bottom = 235.0
+offset_bottom = 251.0
 texture = ExtResource("1_qv8ih")
+expand_mode = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background"]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_top = 291.0
+offset_top = 274.0
 offset_right = 722.0
-offset_bottom = 1274.0
+offset_bottom = 1071.0
+scroll_deadzone = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="ScorePanel" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel2" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel3" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel4" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel5" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel6" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel6" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel7" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel7" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel8" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel8" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel9" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel10" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel11" parent="Background/ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
+[node name="ScorePanel11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
-
-[node name="GET" type="HTTPRequest" parent="."]
 
 [connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]
