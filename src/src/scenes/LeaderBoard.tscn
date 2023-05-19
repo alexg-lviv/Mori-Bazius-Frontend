@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_64ulo"]
 shader = ExtResource("3_r82o5")
-shader_parameter/BackColor = Color(1, 1, 1, 1)
+shader_parameter/BackColor = Color(0, 0.4, 0.58, 1)
 shader_parameter/CloudColor = Color(0, 0, 0, 1)
 shader_parameter/speed = 1.617
 shader_parameter/alpha = 0.298
@@ -42,22 +42,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_k86ty")
+flip_v = true
 
 [node name="GET" type="HTTPRequest" parent="."]
 
 [node name="Title" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 58.0
-offset_top = 119.0
+offset_top = 175.0
 offset_right = 656.0
-offset_bottom = 235.0
+offset_bottom = 251.0
 texture = ExtResource("1_qv8ih")
+expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_top = 291.0
+offset_top = 274.0
 offset_right = 722.0
-offset_bottom = 1276.0
+offset_bottom = 1071.0
+scroll_deadzone = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
