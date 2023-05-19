@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bl11ahmpyl3qd" path="res://art/UI/butts/upgrade_disabled.png" id="4_tc3iy"]
 
 [node name="Upgrades" instance=ExtResource("1_2btxo")]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(250, 250)
 offset_right = 200.0
 offset_bottom = 200.0
 scale = Vector2(1.6, 1.6)
@@ -16,7 +16,7 @@ texture_disabled = ExtResource("4_tc3iy")
 
 [node name="Item" parent="." index="0"]
 material = null
-offset_left = 65.0
-offset_top = 60.0
-offset_right = -64.0
-offset_bottom = -78.0
+offset_left = 81.0
+offset_top = 74.0
+offset_right = -81.0
+offset_bottom = -97.0

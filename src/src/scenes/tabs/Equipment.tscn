@@ -33,62 +33,53 @@ offset_bottom = 100.0
 grow_horizontal = 2
 text = "Weapons & Armors"
 
-[node name="SilverSword" parent="." instance=ExtResource("2_tl1tu")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 67.0
-offset_top = 402.0
-offset_right = 210.0
-offset_bottom = 535.0
-texture_pressed = null
-_name = "silver_sword"
+[node name="Basic" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -290.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="SteelSword" parent="." instance=ExtResource("2_tl1tu")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 499.0
-offset_top = 402.0
-offset_right = 625.0
-offset_bottom = 533.0
-texture_pressed = null
-_name = "steel_sword"
+[node name="Craftable" parent="Basic" instance=ExtResource("2_tl1tu")]
+layout_mode = 2
+size_flags_vertical = 4
 
-[node name="Armor" parent="." instance=ExtResource("2_tl1tu")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 284.0
-offset_top = 344.0
-offset_right = 421.0
-offset_bottom = 493.0
-texture_pressed = null
-_name = "armor"
+[node name="Craftable2" parent="Basic" instance=ExtResource("2_tl1tu")]
+layout_mode = 2
+size_flags_vertical = 0
 
-[node name="KingSilverSword" parent="." instance=ExtResource("3_nyjc1")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 50.0
-offset_top = 646.0
-offset_right = 197.0
-offset_bottom = 811.0
-texture_pressed = null
-_name = "kingslayers_silver_sword"
+[node name="Craftable3" parent="Basic" instance=ExtResource("2_tl1tu")]
+layout_mode = 2
+size_flags_vertical = 4
 
-[node name="KingSteelSword" parent="." instance=ExtResource("3_nyjc1")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 428.0
-offset_top = 648.0
-offset_right = 578.0
-offset_bottom = 793.0
-texture_pressed = null
-_name = "kingslayers_steel_sword"
+[node name="Upgrades" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -34.0
+offset_right = 19.0
+offset_bottom = 391.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -65
+alignment = 1
 
-[node name="MasterArmor" parent="." instance=ExtResource("3_nyjc1")]
-custom_minimum_size = Vector2(80, 80)
-layout_mode = 0
-offset_left = 221.0
-offset_top = 786.0
-offset_right = 390.0
-offset_bottom = 940.0
-texture_pressed = null
-_name = "mastercrafted_armor"
+[node name="Upgrades" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Upgrades2" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Upgrades3" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+layout_mode = 2
+size_flags_vertical = 4

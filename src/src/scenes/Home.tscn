@@ -111,7 +111,6 @@ offset_top = 234.0
 offset_right = 393.0
 offset_bottom = 314.0
 texture_pressed = null
-_name = "swallow_potion"
 
 [node name="SilverIngot" parent="Craftables" instance=ExtResource("2_v22mh")]
 custom_minimum_size = Vector2(80, 80)
