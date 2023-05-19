@@ -1,17 +1,17 @@
 extends Control
 
-@onready var _craftables := get_node("Craftables").get_children()
 
-# TODO: remove
-@onready var _text = $ItemsText
+@onready var _tabs = get_node("TabContainer") as TabContainer
+@onready var _num_tabs: int = _tabs.get_child_count()
 
+const _icons := {
+	0: preload("res://icon.svg"),
+	1: preload("res://icon.svg"),
+	2: preload("res://icon.svg"),
+	3: preload("res://icon.svg"),
+}
 
 func _ready():
-	_text.text = str(Items.stats["power"]) + "\n" + str(Items.qty)
-	
-	Events.update_qty.connect(_update_label)
-
-
-func _update_label(item: String, _qty_delta: int):
-	# TODO: change only item's label, and not all 
-	_text.text = "total power: " + str(Items.stats["power"]) + "\n" + str(Items.qty)
+	for i in range(_num_tabs):
+		_tabs.set_tab_icon(i, _icons[i])
+		_tabs.set_tab_title(i, "")

@@ -18,8 +18,8 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 200.0
-offset_bottom = 300.0
+offset_top = 25.0
+offset_bottom = 125.0
 grow_horizontal = 2
 texture = ExtResource("1_08u3t")
 expand_mode = 1
@@ -33,48 +33,58 @@ offset_bottom = 100.0
 grow_horizontal = 2
 text = "Utility"
 
-[node name="Herbs" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 10
 anchor_right = 1.0
+offset_top = 400.0
+offset_bottom = 400.0
+grow_horizontal = 2
+
+[node name="Herbs" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = -187.0
-offset_right = -60.0
-offset_bottom = 123.0
+offset_left = -244.0
+offset_top = -155.0
+offset_right = 244.0
+offset_bottom = 155.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Clickable" parent="Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Clickable" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Clickable2" parent="Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Clickable2" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
-[node name="Clickable3" parent="Herbs" instance=ExtResource("2_d2f0t")]
+[node name="Clickable3" parent="Control/Herbs" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Potions" type="HBoxContainer" parent="."]
+[node name="Potions" type="HBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 60.0
-offset_top = 60.0
-offset_right = -60.0
-offset_bottom = 240.0
+offset_left = -90.0
+offset_top = 88.0
+offset_right = 90.0
+offset_bottom = 268.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Craftable" parent="Potions" instance=ExtResource("2_x8wkg")]
+[node name="Craftable" parent="Control/Potions" instance=ExtResource("2_x8wkg")]
 layout_mode = 2

@@ -18,8 +18,8 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 200.0
-offset_bottom = 300.0
+offset_top = 25.0
+offset_bottom = 125.0
 grow_horizontal = 2
 texture = ExtResource("3_k6wje")
 expand_mode = 1
@@ -33,53 +33,65 @@ offset_bottom = 100.0
 grow_horizontal = 2
 text = "Weapons & Armors"
 
-[node name="Basic" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 10
 anchor_right = 1.0
+offset_top = 350.0
+offset_bottom = 350.0
+grow_horizontal = 2
+
+[node name="Basic" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -290.0
-offset_bottom = 24.0
+offset_left = -274.0
+offset_top = -188.0
+offset_right = 274.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Craftable" parent="Basic" instance=ExtResource("2_tl1tu")]
+[node name="Craftable" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Craftable2" parent="Basic" instance=ExtResource("2_tl1tu")]
+[node name="Craftable2" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="Craftable3" parent="Basic" instance=ExtResource("2_tl1tu")]
+[node name="Craftable3" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Upgrades" type="HBoxContainer" parent="."]
+[node name="Upgrades" type="HBoxContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -19.0
-offset_top = -34.0
-offset_right = 19.0
-offset_bottom = 391.0
+offset_left = -310.0
+offset_top = 21.5
+offset_right = 310.0
+offset_bottom = 446.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -65
 alignment = 1
 
-[node name="Upgrades" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="Upgrades" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Upgrades2" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="Upgrades2" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Upgrades3" parent="Upgrades" instance=ExtResource("3_nyjc1")]
+[node name="Upgrades3" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
 size_flags_vertical = 4

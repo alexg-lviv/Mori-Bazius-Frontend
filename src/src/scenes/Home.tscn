@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://812dv8rv3sdd"]
+[gd_scene load_steps=9 format=3 uid="uid://812dv8rv3sdd"]
 
 [ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_mpc7o"]
 [ext_resource type="Script" path="res://src/scenes/Home.gd" id="1_utws0"]
 [ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_v22mh"]
 [ext_resource type="PackedScene" uid="uid://dfy2ac8nab5dc" path="res://src/scenes/buttons/Upgrades.tscn" id="3_h8h33"]
+[ext_resource type="PackedScene" uid="uid://du7igre06pgj3" path="res://src/scenes/tabs/Herbs.tscn" id="5_b86sr"]
+[ext_resource type="PackedScene" uid="uid://dwhmm1sqgqjri" path="res://src/scenes/tabs/Metals.tscn" id="6_vdm6y"]
+[ext_resource type="PackedScene" uid="uid://bd03x36d33ifv" path="res://src/scenes/tabs/Equipment.tscn" id="7_m54qs"]
+[ext_resource type="PackedScene" uid="uid://whaicn1ejvw0" path="res://src/scenes/tabs/Utility.tscn" id="8_soics"]
 
 [node name="Home" type="Control"]
 layout_mode = 3
@@ -15,6 +19,7 @@ grow_vertical = 2
 script = ExtResource("1_utws0")
 
 [node name="Clickables" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -95,6 +100,7 @@ offset_bottom = 219.0
 _name = "diamond_dust"
 
 [node name="Craftables" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -232,11 +238,28 @@ offset_bottom = 980.0
 texture_pressed = null
 _name = "master"
 
-[node name="ItemsText" type="RichTextLabel" parent="."]
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 155.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+tab_alignment = 1
+
+[node name="Herbs" parent="TabContainer" instance=ExtResource("5_b86sr")]
+layout_mode = 2
+
+[node name="Metals" parent="TabContainer" instance=ExtResource("6_vdm6y")]
 visible = false
-custom_minimum_size = Vector2(500, 100)
-layout_mode = 0
-offset_left = 147.0
-offset_top = 525.0
-offset_right = 647.0
-offset_bottom = 789.0
+layout_mode = 2
+
+[node name="Equipment" parent="TabContainer" instance=ExtResource("7_m54qs")]
+visible = false
+layout_mode = 2
+
+[node name="Utility" parent="TabContainer" instance=ExtResource("8_soics")]
+visible = false
+layout_mode = 2
