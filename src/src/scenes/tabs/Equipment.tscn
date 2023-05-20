@@ -1,10 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd03x36d33ifv"]
+[gd_scene load_steps=12 format=3 uid="uid://bd03x36d33ifv"]
 
+[ext_resource type="Texture2D" uid="uid://fvrtp2lufmj8" path="res://art/backgrounds/castle.png" id="1_ihtsj"]
 [ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="2_tl1tu"]
+[ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="2_xnuth"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="3_b5qts"]
 [ext_resource type="PackedScene" uid="uid://dfy2ac8nab5dc" path="res://src/scenes/buttons/Upgrades.tscn" id="3_nyjc1"]
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="3_vos4g"]
 [ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="4_a8yk2"]
+
+[sub_resource type="Shader" id="Shader_25jbt"]
+code = "shader_type canvas_item;
+
+// Amount of detail.
+uniform int octaves = 4;
+
+// Opacity of the output fog.
+uniform float starting_amplitude: hint_range(0.0, 0.5) = 0.5;
+
+// Rate of pattern within the fog.
+uniform float starting_frequency = 1.0;
+
+// Shift towards transparency (clamped) for sparser fog.
+uniform float shift: hint_range(-1.0, 0.0) = -0.2;
+
+// Direction and speed of travel.
+uniform vec2 velocity = vec2(1.0, 1.0);
+
+// Color of the fog.
+uniform vec4 fog_color: source_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+// Noise texture; OpenSimplexNoise is great, but any filtered texture is fine.
+uniform sampler2D noise;
+
+float rand(vec2 uv) {
+	float amplitude = starting_amplitude;
+	float frequency = starting_frequency;
+	float output = 0.0;
+	for (int i = 0; i < octaves; i++) {
+		output += texture(noise, uv * frequency).x * amplitude;
+		amplitude /= 2.0;
+		frequency *= 2.0;
+	}
+	return clamp(output + shift, 0.0, 1.0);
+}
+
+void fragment() {
+	vec2 motion = vec2(rand(UV + 0.15 * cos(TIME) * starting_frequency * velocity));
+	COLOR = mix(vec4(0.0), fog_color, rand(UV + motion));
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rsbn2"]
+seed = 69
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 12.0
+fractal_gain = 0.3
+fractal_weighted_strength = 0.45
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jjt0q"]
+width = 513
+noise = SubResource("FastNoiseLite_rsbn2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gisvh"]
+shader = SubResource("Shader_25jbt")
+shader_parameter/octaves = 4
+shader_parameter/starting_amplitude = 0.5
+shader_parameter/starting_frequency = 0.699
+shader_parameter/shift = -0.205
+shader_parameter/velocity = Vector2(1, 1)
+shader_parameter/fog_color = Color(0.180392, 0.560784, 0.529412, 0.968627)
+shader_parameter/noise = SubResource("NoiseTexture2D_jjt0q")
 
 [node name="Equipment" type="Control"]
 layout_mode = 3
@@ -13,6 +79,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Back" type="TextureRect" parent="."]
+modulate = Color(0.619608, 0.658824, 0.627451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1031.05
+offset_right = 2291.05
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ihtsj")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Fog" type="TextureRect" parent="Back"]
+material = SubResource("ShaderMaterial_gisvh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xnuth")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
