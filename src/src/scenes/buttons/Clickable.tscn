@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="4_qrklc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjwih"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dquc1"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
 custom_minimum_size = Vector2(160, 160)
 offset_right = 160.0
 offset_bottom = 160.0
+pivot_offset = Vector2(80, 80)
 texture_normal = ExtResource("1_sply4")
 texture_pressed = ExtResource("2_4m663")
 stretch_mode = 5
@@ -20,7 +21,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_xjwih")
+material = SubResource("ShaderMaterial_dquc1")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -31,6 +32,7 @@ offset_right = -40.0
 offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Description" type="VBoxContainer" parent="."]
 z_index = 1
@@ -40,6 +42,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="ItemName" type="Label" parent="Description"]
@@ -49,10 +52,12 @@ horizontal_alignment = 1
 
 [node name="Power" type="HBoxContainer" parent="Description"]
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Description/Power"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("4_qrklc")
 stretch_mode = 5
 

@@ -9,7 +9,7 @@
 custom_minimum_size = Vector2(250, 250)
 offset_right = 200.0
 offset_bottom = 200.0
-scale = Vector2(1.6, 1.6)
+pivot_offset = Vector2(125, 125)
 texture_normal = ExtResource("2_e6mwe")
 texture_pressed = ExtResource("3_4ky8w")
 texture_disabled = ExtResource("4_tc3iy")
@@ -20,3 +20,13 @@ offset_left = 81.0
 offset_top = 74.0
 offset_right = -81.0
 offset_bottom = -97.0
+mouse_filter = 1
+
+[node name="Description" parent="." index="1"]
+mouse_filter = 1
+
+[node name="Power" parent="Description" index="1"]
+mouse_filter = 1
+
+[node name="TextureRect" parent="Description/Power" index="0"]
+mouse_filter = 1

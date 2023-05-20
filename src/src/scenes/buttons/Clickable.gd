@@ -28,6 +28,10 @@ func _on_pressed():
 
 func _on_mouse_entered():
 	_show_description()
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
 func _on_mouse_exited():
 	_hide_description()
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
