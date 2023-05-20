@@ -200,42 +200,42 @@ const monsters: Dictionary = {
 }
 
 var qty: Dictionary = {
-	"arenaria": 0,
-	"nostrix": 0,
-	"wolfsbane": 0,
+	"arenaria": 10,
+	"nostrix": 10,
+	"wolfsbane": 10,
 	
-	"swallow_potion": 0,
+	"swallow_potion": 15,
 	
 	"meteorite_silver_ore": 0,
 	"dark_steel_ore": 0,
 	"green_gold_ore": 0,
 	
-	"meteorite_silver_ingot": 0,
-	"dark_steel_ingot": 0,
-	"green_gold_ingot": 0,
+	"meteorite_silver_ingot": 5,
+	"dark_steel_ingot": 5,
+	"green_gold_ingot": 5,
 	
 	"diamond_dust": 0,
-	"diamond": 0,
+	"diamond": 10,
 	
 	"monster_bone": 0,
 	"leather_scraps": 0,
 	"oil": 0,
 	
-	"armor": 0,
-	"mastercrafted_armor": 0,
+	"armor": 3,
+	"mastercrafted_armor": 1,
 	
-	"steel_sword": 0,
-	"kingslayers_steel_sword": 0,
+	"steel_sword": 3,
+	"kingslayers_steel_sword": 1,
 	
-	"silver_sword": 0,
-	"kingslayers_silver_sword": 0,
+	"silver_sword": 3,
+	"kingslayers_silver_sword": 1,
 }
 
 var stats: Dictionary = {
 	"power": 0,
 	"level": 1,
-	"hunters": 0,
-	"masters": 0,
+	"hunters": 3,
+	"masters": 1,
 	"exp": 0,
 }
 

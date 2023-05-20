@@ -42,13 +42,17 @@ var _rot_tween_master
 func _ready():
 	_description.visible = false
 	Events.update_qty.connect(_validate)
+	Events.set_qty.connect(_val)
 	_validate("", 0)
 
 func _validate(_item: String, _qty_delta: int):
+	_val()
+
+func _val():
 	_hunter.disabled = true if Items.stats["hunters"] == 0 else false
 	_master.disabled = true if Items.stats["masters"] == 0 else false
 	_monster.disabled = true if _hunter.disabled and _master.disabled else false
-	
+
 
 func _on_hunter_pressed():
 	_rotate(_hunter, _rot_tween_hunter)

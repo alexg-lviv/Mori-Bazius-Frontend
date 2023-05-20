@@ -6,6 +6,7 @@ var _requirements: Dictionary
 
 func _ready():
 	Events.update_qty.connect(_update_requirements)
+	Events.set_qty.connect(_validate)
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
 	_validate()
