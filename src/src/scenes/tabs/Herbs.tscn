@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="2_nmo3u"]
 [ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="3_8q156"]
 
-[sub_resource type="Shader" id="Shader_0rqcg"]
+[sub_resource type="Shader" id="Shader_muuth"]
 code = "shader_type canvas_item;
 
 // Amount of detail.
@@ -58,19 +58,19 @@ fractal_lacunarity = 12.0
 fractal_gain = 0.3
 fractal_weighted_strength = 0.45
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3xnw7"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dwg78"]
 width = 513
 noise = SubResource("FastNoiseLite_2jqpf")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbhyq"]
-shader = SubResource("Shader_0rqcg")
+shader = SubResource("Shader_muuth")
 shader_parameter/octaves = 4
 shader_parameter/starting_amplitude = 0.5
 shader_parameter/starting_frequency = 0.699
 shader_parameter/shift = -0.205
 shader_parameter/velocity = Vector2(1, 1)
 shader_parameter/fog_color = Color(0.447059, 0.639216, 0.768627, 0.764706)
-shader_parameter/noise = SubResource("NoiseTexture2D_3xnw7")
+shader_parameter/noise = SubResource("NoiseTexture2D_dwg78")
 
 [node name="Herbs" type="Control"]
 layout_mode = 3
