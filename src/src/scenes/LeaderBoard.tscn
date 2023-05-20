@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://co4yh0602esvw" path="res://art/UI/background.png" id="1_k86ty"]
 [ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
 [ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
-[ext_resource type="Texture2D" uid="uid://csofu8eojrt51" path="res://art/backgrounds/NightForest/Image without mist.png" id="2_db0gg"]
+[ext_resource type="Texture2D" uid="uid://csfbopscooqo1" path="res://art/backgrounds/forest.png" id="2_vof3c"]
 [ext_resource type="PackedScene" uid="uid://ddmgs6yrsevil" path="res://src/scenes/ScorePanel.tscn" id="4_woepx"]
 
 [sub_resource type="Shader" id="Shader_ge5x0"]
@@ -184,7 +184,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_db0gg")
+texture = ExtResource("2_vof3c")
 expand_mode = 3
 
 [node name="Clouds" type="TextureRect" parent="."]

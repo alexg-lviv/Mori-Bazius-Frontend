@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbd4j0a3sbfj1"
-path="res://.godot/imported/2.png-255a31e09636f691f402b614af120dd3.ctex"
+uid="uid://2cq7sowc86m8"
+path="res://.godot/imported/cave.png-32cca6abe1b8861b84e42095c78cbe76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/backgrounds/NightForest/Layers/2.png"
-dest_files=["res://.godot/imported/2.png-255a31e09636f691f402b614af120dd3.ctex"]
+source_file="res://art/backgrounds/cave.png"
+dest_files=["res://.godot/imported/cave.png-32cca6abe1b8861b84e42095c78cbe76.ctex"]
 
 [params]
 
