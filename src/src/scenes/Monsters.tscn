@@ -1,6 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://c35tuwngjom8j"]
+[gd_scene load_steps=10 format=3 uid="uid://c35tuwngjom8j"]
 
 [ext_resource type="PackedScene" uid="uid://cy66ntjihexbe" path="res://src/scenes/buttons/Monster.tscn" id="1_cuh5e"]
+[ext_resource type="Texture2D" uid="uid://bnq3p4nbrkgnh" path="res://art/backgrounds/wastelands/back.png" id="1_ohdpw"]
+[ext_resource type="Texture2D" uid="uid://bwwluge7hlynf" path="res://art/backgrounds/wastelands/middle.png" id="2_er7di"]
+[ext_resource type="Texture2D" uid="uid://imu7d5his2v7" path="res://art/UI/rects/white_box.png" id="3_2ajkl"]
+[ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="4_ibqfw"]
+
+[sub_resource type="Shader" id="Shader_dwkfe"]
+code = "shader_type canvas_item;
+
+// Amount of detail.
+uniform int octaves = 4;
+
+// Opacity of the output fog.
+uniform float starting_amplitude: hint_range(0.0, 0.5) = 0.5;
+
+// Rate of pattern within the fog.
+uniform float starting_frequency = 1.0;
+
+// Shift towards transparency (clamped) for sparser fog.
+uniform float shift: hint_range(-1.0, 0.0) = -0.2;
+
+// Direction and speed of travel.
+uniform vec2 velocity = vec2(1.0, 1.0);
+
+// Color of the fog.
+uniform vec4 fog_color: source_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+// Noise texture; OpenSimplexNoise is great, but any filtered texture is fine.
+uniform sampler2D noise;
+
+float rand(vec2 uv) {
+	float amplitude = starting_amplitude;
+	float frequency = starting_frequency;
+	float output = 0.0;
+	for (int i = 0; i < octaves; i++) {
+		output += texture(noise, uv * frequency).x * amplitude;
+		amplitude /= 2.0;
+		frequency *= 2.0;
+	}
+	return clamp(output + shift, 0.0, 1.0);
+}
+
+void fragment() {
+	vec2 motion = vec2(rand(UV + 0.15 * cos(TIME) * starting_frequency * velocity));
+	COLOR = mix(vec4(0.0), fog_color, rand(UV + motion));
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_e0j5k"]
+seed = 69
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 12.0
+fractal_gain = 0.3
+fractal_weighted_strength = 0.45
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2h4g7"]
+width = 513
+noise = SubResource("FastNoiseLite_e0j5k")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i2epx"]
+shader = SubResource("Shader_dwkfe")
+shader_parameter/octaves = 4
+shader_parameter/starting_amplitude = 0.5
+shader_parameter/starting_frequency = 0.699
+shader_parameter/shift = -0.205
+shader_parameter/velocity = Vector2(1, 1)
+shader_parameter/fog_color = Color(1, 0.470588, 0.858824, 0.670588)
+shader_parameter/noise = SubResource("NoiseTexture2D_2h4g7")
 
 [node name="Monsters" type="Control"]
 layout_mode = 3
@@ -9,6 +77,48 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Back" type="TextureRect" parent="."]
+self_modulate = Color(0.780392, 0, 0.286275, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ohdpw")
+
+[node name="TextureRect" type="TextureRect" parent="Back"]
+self_modulate = Color(1, 0, 0.478431, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_er7di")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="TextureRect" type="TextureRect" parent="Back/TextureRect"]
+self_modulate = Color(0.733333, 0.054902, 0.52549, 0.117647)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2ajkl")
+
+[node name="Fog" type="TextureRect" parent="Back/TextureRect/TextureRect"]
+material = SubResource("ShaderMaterial_i2epx")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ibqfw")
 
 [node name="Bruxa" parent="." instance=ExtResource("1_cuh5e")]
 offset_left = 282.0

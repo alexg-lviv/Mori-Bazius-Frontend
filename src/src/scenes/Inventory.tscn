@@ -16,7 +16,7 @@ fractal_lacunarity = 12.0
 fractal_gain = 0.3
 fractal_weighted_strength = 0.45
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4ejpi"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qhtst"]
 width = 513
 noise = SubResource("FastNoiseLite_3a8fj")
 
@@ -28,7 +28,7 @@ shader_parameter/starting_frequency = 0.699
 shader_parameter/shift = -0.205
 shader_parameter/velocity = Vector2(1, 1)
 shader_parameter/fog_color = Color(0.898039, 0.819608, 1, 1)
-shader_parameter/noise = SubResource("NoiseTexture2D_4ejpi")
+shader_parameter/noise = SubResource("NoiseTexture2D_qhtst")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sfatd"]
 resource_local_to_scene = true
