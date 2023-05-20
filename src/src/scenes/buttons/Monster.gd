@@ -74,8 +74,35 @@ func _delete_log(timer: Timer, label: Label):
 	timer.queue_free()
 
 
+func _scale_up(butt: TextureButton):
+	var tween = get_tree().create_tween()
+	tween.tween_property(butt, "scale", 1.3 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _scale_down(butt: TextureButton):
+	var tween = get_tree().create_tween()
+	tween.tween_property(butt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
 func _on_monster_mouse_entered():
 	_description.visible = true
 
 func _on_monster_mouse_exited():
 	_description.visible = false
+
+
+func _on_hunter_mouse_entered():
+	_scale_up(_hunter)
+	_scale_up(_monster)
+
+func _on_hunter_mouse_exited():
+	_scale_down(_hunter)
+	_scale_down(_monster)
+
+
+func _on_master_mouse_entered():
+	_scale_up(_master)
+	_scale_up(_monster)
+
+func _on_master_mouse_exited():
+	_scale_down(_master)
+	_scale_down(_monster)
