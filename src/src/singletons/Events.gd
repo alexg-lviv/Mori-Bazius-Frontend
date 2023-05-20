@@ -125,5 +125,5 @@ func _on_get_request_completed(_result, response_code, _headers, body, saving_di
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		emit_signal("save")
-		await get_tree().create_timer(0.05).timeout
+		await get_tree().create_timer(0.005).timeout
 		get_tree().quit() # default behavior
