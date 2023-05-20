@@ -6,6 +6,7 @@ var _requirements: Dictionary
 
 func _ready():
 	Events.update_qty.connect(_update_requirements)
+	Events.set_qty.connect(_validate)
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
 	_validate()
@@ -42,3 +43,5 @@ func _on_pressed():
 	for req_name in _requirements.keys():
 		Events.emit_signal("update_qty", req_name, - _requirements[req_name])
 	_validate()
+	_rotate()
+	_emit_particles()

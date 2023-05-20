@@ -18,8 +18,6 @@ func _ready():
 	
 	for i in range(num_tabs):
 		TabsContainer.set_tab_title(i, "")
-		
-#	Events.emit_signal("pull")  # TODO: uncomment
 
 	Events.emit_signal("set_qty")
 

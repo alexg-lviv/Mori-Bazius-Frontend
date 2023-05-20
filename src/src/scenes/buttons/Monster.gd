@@ -19,6 +19,10 @@ var _hunter_p: float
 var _master_p: float
 var _exp: int
 
+var _rot_tween_hunter
+var _rot_tween_master
+
+
 @onready var _monster = get_node("Monster") as TextureButton
 @onready var _hunter = get_node("Hunter") as TextureButton
 @onready var _master = get_node("Master") as TextureButton
@@ -28,18 +32,32 @@ var _exp: int
 
 @onready var _description = get_node("Description") as VBoxContainer
 
+@onready var _spawn_hunters = get_node("Hunter/ParticlesSpawn") as Node2D
+@onready var _spawn_masters = get_node("Master/ParticlesSpawn") as Node2D
+
+@onready var _particles := preload("res://src/scenes/particles/Click.tscn")
+
+
 
 func _ready():
 	_description.visible = false
 	Events.update_qty.connect(_validate)
+	Events.set_qty.connect(_val)
+	_validate("", 0)
 
 func _validate(_item: String, _qty_delta: int):
+	_val()
+
+func _val():
 	_hunter.disabled = true if Items.stats["hunters"] == 0 else false
 	_master.disabled = true if Items.stats["masters"] == 0 else false
 	_monster.disabled = true if _hunter.disabled and _master.disabled else false
-	
+
 
 func _on_hunter_pressed():
+	_rotate(_hunter, _rot_tween_hunter)
+	_emit_particles(_spawn_hunters, Items.data["hunter"]["sprite"])
+	
 	if randf_range(0, 1) <= _hunter_p:
 		_display_log(_hunters_logs, "\nHunter died fighting " + monster_name)
 		Events.emit_signal("update_qty", "hunter", -1)
@@ -47,13 +65,18 @@ func _on_hunter_pressed():
 		_display_log(_hunters_logs, "\nHunter slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
 
+
 func _on_master_pressed():
+	_rotate(_master, _rot_tween_master)
+	_emit_particles(_spawn_masters, Items.data["master"]["sprite"])
+	
 	if randf_range(0, 1) <= _master_p:
 		_display_log(_masters_logs, "\nMaster died fighting " + monster_name)
 		Events.emit_signal("update_qty", "master", -1)
 	else:
 		_display_log(_masters_logs, "\nMaster slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
+
 
 func _display_log(logs_container: VBoxContainer, line: String):
 	var timer := Timer.new()
@@ -73,8 +96,50 @@ func _delete_log(timer: Timer, label: Label):
 	timer.queue_free()
 
 
+func _scale_up(butt: TextureButton):
+	var tween = get_tree().create_tween()
+	tween.tween_property(butt, "scale", 1.3 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _scale_down(butt: TextureButton):
+	var tween = get_tree().create_tween()
+	tween.tween_property(butt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _rotate(butt: TextureButton, tween):
+	if tween and tween.is_running():
+		return
+
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
+
+
 func _on_monster_mouse_entered():
 	_description.visible = true
 
 func _on_monster_mouse_exited():
 	_description.visible = false
+
+
+func _on_hunter_mouse_entered():
+	_scale_up(_hunter)
+	_scale_up(_monster)
+
+func _on_hunter_mouse_exited():
+	_scale_down(_hunter)
+	_scale_down(_monster)
+
+
+func _on_master_mouse_entered():
+	_scale_up(_master)
+	_scale_up(_monster)
+
+func _on_master_mouse_exited():
+	_scale_down(_master)
+	_scale_down(_monster)
+
+
+func _emit_particles(spawn_position, texture):
+	var p = _particles.instantiate()
+	spawn_position.add_child(p)
+	p.texture = texture
+	p.emit_and_free()
