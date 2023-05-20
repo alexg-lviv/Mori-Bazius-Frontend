@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="4_qrklc"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_isq1o"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7haa"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
@@ -20,7 +20,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_isq1o")
+material = SubResource("ShaderMaterial_g7haa")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
