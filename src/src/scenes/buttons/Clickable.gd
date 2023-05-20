@@ -7,6 +7,7 @@ extends TextureButton
 @onready var _name_label: Label = _description.get_node("ItemName")
 @onready var _power_label: Label = _description.get_node("Power/ItemPower")
 
+var _rot_tween
 
 func _ready():
 	_item.item_name = _name
@@ -25,6 +26,12 @@ func _show_description():
 
 func _on_pressed():
 	Events.emit_signal("update_qty", _name, 1)
+	if _rot_tween and _rot_tween.is_running():
+		return
+
+	_rot_tween = get_tree().create_tween()
+	_rot_tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	_rot_tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
 
 func _on_mouse_entered():
 	_show_description()
