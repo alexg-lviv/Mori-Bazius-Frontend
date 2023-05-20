@@ -43,3 +43,4 @@ func _on_pressed():
 		Events.emit_signal("update_qty", req_name, - _requirements[req_name])
 	_validate()
 	_rotate()
+	_emit_particles()

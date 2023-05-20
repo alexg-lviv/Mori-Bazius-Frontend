@@ -12,7 +12,7 @@ shader = ExtResource("1_5sqio")
 shader_parameter/radius = 2.0
 shader_parameter/modulate = Color(0.219608, 0, 0.192157, 0.862745)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dquc1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fvrxs"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
@@ -28,7 +28,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_dquc1")
+material = SubResource("ShaderMaterial_fvrxs")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -71,6 +71,9 @@ stretch_mode = 5
 [node name="ItemPower" type="Label" parent="Description/Power"]
 layout_mode = 2
 text = "666"
+
+[node name="ParticlesSpawn" type="Node2D" parent="."]
+position = Vector2(80, 80)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

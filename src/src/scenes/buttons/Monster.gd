@@ -32,6 +32,12 @@ var _rot_tween_master
 
 @onready var _description = get_node("Description") as VBoxContainer
 
+@onready var _spawn_hunters = get_node("Hunter/ParticlesSpawn") as Node2D
+@onready var _spawn_masters = get_node("Master/ParticlesSpawn") as Node2D
+
+@onready var _particles := preload("res://src/scenes/particles/Click.tscn")
+
+
 
 func _ready():
 	_description.visible = false
@@ -46,6 +52,8 @@ func _validate(_item: String, _qty_delta: int):
 
 func _on_hunter_pressed():
 	_rotate(_hunter, _rot_tween_hunter)
+	_emit_particles(_spawn_hunters, Items.data["hunter"]["sprite"])
+	
 	if randf_range(0, 1) <= _hunter_p:
 		_display_log(_hunters_logs, "\nHunter died fighting " + monster_name)
 		Events.emit_signal("update_qty", "hunter", -1)
@@ -53,14 +61,18 @@ func _on_hunter_pressed():
 		_display_log(_hunters_logs, "\nHunter slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
 
+
 func _on_master_pressed():
 	_rotate(_master, _rot_tween_master)
+	_emit_particles(_spawn_masters, Items.data["master"]["sprite"])
+	
 	if randf_range(0, 1) <= _master_p:
 		_display_log(_masters_logs, "\nMaster died fighting " + monster_name)
 		Events.emit_signal("update_qty", "master", -1)
 	else:
 		_display_log(_masters_logs, "\nMaster slayed " + monster_name)
 		Events.emit_signal("update_exp", _exp)
+
 
 func _display_log(logs_container: VBoxContainer, line: String):
 	var timer := Timer.new()
@@ -120,3 +132,10 @@ func _on_master_mouse_entered():
 func _on_master_mouse_exited():
 	_scale_down(_master)
 	_scale_down(_monster)
+
+
+func _emit_particles(spawn_position, texture):
+	var p = _particles.instantiate()
+	spawn_position.add_child(p)
+	p.texture = texture
+	p.emit_and_free()
