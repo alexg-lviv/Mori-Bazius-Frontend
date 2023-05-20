@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cah1kojldjtmp"]
+[gd_scene load_steps=13 format=3 uid="uid://2ki4ss1goot8"]
 
 [ext_resource type="Script" path="res://src/scenes/Main.gd" id="1_ffidp"]
 [ext_resource type="PackedScene" uid="uid://cbog86ioeumba" path="res://src/scenes/UI/HUD.tscn" id="1_lvsag"]
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="2_3ik41"]
-[ext_resource type="Texture2D" uid="uid://otx6wkundcpn" path="res://art/backgrounds/Parallax_Backgrounds_Cave/0.png" id="3_gbjqw"]
 [ext_resource type="PackedScene" uid="uid://812dv8rv3sdd" path="res://src/scenes/Home.tscn" id="3_gk0qq"]
 [ext_resource type="PackedScene" uid="uid://b4cme045vht6y" path="res://src/scenes/LeaderBoard.tscn" id="4_nbvxq"]
 [ext_resource type="PackedScene" uid="uid://c35tuwngjom8j" path="res://src/scenes/Monsters.tscn" id="5_irkkf"]
@@ -102,6 +101,5 @@ offset_right = 192.0
 offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_gbjqw")
 
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]
