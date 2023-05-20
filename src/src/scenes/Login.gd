@@ -95,6 +95,3 @@ func _on_login_post_request_completed(_result, response_code, _headers, body):
 	_load_game_scene()
 	
 	queue_free()
-	
-	# TODO: free or hide curr scene
-	

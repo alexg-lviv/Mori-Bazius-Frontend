@@ -21,6 +21,8 @@ signal pull()
 
 
 func _ready():
+	get_tree().set_auto_accept_quit(false)
+	
 	add_child(_GET_stats)
 	add_child(_GET_resources)
 	add_child(_POST_stats)
@@ -86,6 +88,8 @@ func _on_save():
 	# TODO: error checks
 	
 	print(err_resources, err_stats)
+	
+	return true
 
 
 func _on_pull():
@@ -117,3 +121,9 @@ func _on_get_request_completed(_result, response_code, _headers, body, saving_di
 #		return
 
 	emit_signal("set_qty")
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		emit_signal("save")
+		await get_tree().create_timer(0.05).timeout
+		get_tree().quit() # default behavior
