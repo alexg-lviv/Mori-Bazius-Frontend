@@ -51,7 +51,9 @@ func _on_register_pressed():
 		HTTPClient.METHOD_POST,
 		JSON.stringify(credentials)
 	)
-	print("Sent POST to register with return code ", err)
+	if err != Error.OK:
+		_show_error("Error occured. Try later.")
+	print("Sent POST to register with code ", err)
 
 
 func _on_login_pressed():
@@ -64,8 +66,9 @@ func _on_login_pressed():
 		HTTPClient.METHOD_POST,
 		JSON.stringify(credentials)
 	)
-	print("Sent POST to login with return code ", err)
-	# TODO: error checks
+	if err != Error.OK:
+		_show_error("Error occured. Try later.")
+	print("Sent POST to login with code ", err)
 
 
 func _show_error(text: String):
@@ -78,7 +81,6 @@ func _show_error(text: String):
 
 
 func _parse_response(response_code, body):
-	print(response_code, body.get_string_from_utf8())
 	var res = body.get_string_from_utf8()
 	if "Invalid Credentials" in res:
 		_show_error("Invalid username or password.")
@@ -99,9 +101,7 @@ func _parse_response(response_code, body):
 
 
 func _on_register_post_request_completed(_result, response_code, _headers, body):
-	# TODO: error checks
-#	if response_code != 200:
-	
+	print("POST completed to register with code ", response_code)
 	if not _parse_response(response_code, body):
 		return
 	
@@ -111,20 +111,15 @@ func _on_register_post_request_completed(_result, response_code, _headers, body)
 	Items.stats["power"] += Items.stats["masters"] * Items.data["master"]["power"]
 		
 	Events.emit_signal("save")
-	
 	_load_game_scene()
-	
 	queue_free()
 
 
 func _on_login_post_request_completed(_result, response_code, _headers, body):
-	# TODO: error checks
-#	if response_code != 200:
+	print("POST completed to login with code ", response_code)
 	if not _parse_response(response_code, body):
 		return
 	
 	Events.emit_signal("pull")
-	
 	_load_game_scene()
-	
 	queue_free()
