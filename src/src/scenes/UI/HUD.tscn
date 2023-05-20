@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbog86ioeumba"]
+[gd_scene load_steps=10 format=3 uid="uid://cbog86ioeumba"]
 
 [ext_resource type="Script" path="res://src/scenes/UI/HUD.gd" id="1_7hbof"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="1_gugko"]
@@ -8,6 +8,8 @@
 [ext_resource type="LabelSettings" uid="uid://c27ipveh34qay" path="res://labels/HUD.tres" id="3_lcw3b"]
 [ext_resource type="Texture2D" uid="uid://bg1iswvlvkgxy" path="res://art/UI/icons/power.png" id="3_u6wep"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="8_hrldc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnw3u"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -31,6 +33,7 @@ texture = ExtResource("2_y4lto")
 
 [node name="Contour" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.968627, 0.941176, 1)
+material = SubResource("ShaderMaterial_wnw3u")
 custom_minimum_size = Vector2(720, 100)
 layout_mode = 1
 anchors_preset = 10

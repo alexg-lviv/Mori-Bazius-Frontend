@@ -102,6 +102,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_stxkd")
 
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 99.0
+offset_top = 192.0
+offset_right = -59.0
+offset_bottom = 268.0
+grow_horizontal = 2
+texture = ExtResource("6_q6cwo")
+expand_mode = 1
+
 [node name="GET" type="HTTPRequest" parent="."]
 
 [node name="Title" type="TextureRect" parent="."]
@@ -112,6 +125,32 @@ offset_top = 175.0
 offset_right = 656.0
 offset_bottom = 251.0
 texture = ExtResource("1_qv8ih")
+expand_mode = 1
+
+[node name="PanelShadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.462745)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 1068.0
+offset_right = -14.0
+offset_bottom = 1088.0
+grow_horizontal = 2
+texture = ExtResource("6_q6cwo")
+expand_mode = 1
+
+[node name="Shadow2" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 680.0
+offset_top = 318.0
+offset_right = -27.0
+offset_bottom = 1068.0
+grow_horizontal = 2
+texture = ExtResource("6_q6cwo")
 expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]

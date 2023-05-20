@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl4wpxt8kb3ce"]
+[gd_scene load_steps=9 format=3 uid="uid://cl4wpxt8kb3ce"]
 
+[ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="1_5sqio"]
 [ext_resource type="Texture2D" uid="uid://b7i530xc1f8tq" path="res://art/UI/butts/click.png" id="1_sply4"]
 [ext_resource type="Texture2D" uid="uid://bkvnn0vlqg6qj" path="res://art/UI/butts/click_pressed.png" id="2_4m663"]
 [ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="4_qrklc"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h5pbl"]
+shader = ExtResource("1_5sqio")
+shader_parameter/radius = 2.0
+shader_parameter/modulate = Color(0.219608, 0, 0.192157, 0.862745)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dquc1"]
 resource_local_to_scene = true
 
 [node name="Clickable" type="TextureButton"]
+material = SubResource("ShaderMaterial_h5pbl")
 custom_minimum_size = Vector2(160, 160)
 offset_right = 160.0
 offset_bottom = 160.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://be1euo5oh2t12"]
+[gd_scene load_steps=32 format=3 uid="uid://be1euo5oh2t12"]
 
 [ext_resource type="Texture2D" uid="uid://lfcoqc2aa68u" path="res://art/UI/inventory.png" id="1_4g4bc"]
 [ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="1_5l6au"]
 [ext_resource type="Shader" path="res://shaders/fog.gdshader" id="1_iasxb"]
 [ext_resource type="PackedScene" uid="uid://bxyk1gsyr8a2m" path="res://src/scenes/items/InventoryItem.tscn" id="2_bnnx8"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="3_8bq33"]
 [ext_resource type="Script" path="res://src/scenes/Save.gd" id="3_ne5dq"]
 [ext_resource type="Script" path="res://src/scenes/Pull.gd" id="4_u02ao"]
 
@@ -119,6 +120,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5l6au")
+
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 105.0
+offset_top = 1115.0
+offset_right = -29.0
+offset_bottom = 1139.0
+grow_horizontal = 2
+texture = ExtResource("3_8bq33")
+expand_mode = 1
+
+[node name="Shadow2" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 651.0
+offset_top = 350.0
+offset_right = -46.0
+offset_bottom = 1115.0
+grow_horizontal = 2
+texture = ExtResource("3_8bq33")
+expand_mode = 1
 
 [node name="Shelf" type="TextureRect" parent="."]
 layout_mode = 1

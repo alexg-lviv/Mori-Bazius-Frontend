@@ -20,6 +20,7 @@ func _ready():
 		TabsContainer.set_tab_title(i, "")
 		
 #	Events.emit_signal("pull")  # TODO: uncomment
+	# TODO: if new user, give him n resources
 
 	Events.emit_signal("set_qty")
 

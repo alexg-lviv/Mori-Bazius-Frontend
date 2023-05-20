@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cy66ntjihexbe"]
+[gd_scene load_steps=16 format=3 uid="uid://cy66ntjihexbe"]
 
 [ext_resource type="Script" path="res://src/scenes/buttons/Monster.gd" id="1_bpwp6"]
 [ext_resource type="Texture2D" uid="uid://ckdtnghyoj40p" path="res://art/UI/butts/monster.png" id="2_fi558"]
 [ext_resource type="Texture2D" uid="uid://efckgpexei66" path="res://art/monsters/wyvern.png" id="2_owrg1"]
+[ext_resource type="Material" uid="uid://38030sjwkx7i" path="res://materials/monster_shadow.tres" id="2_vpcvm"]
 [ext_resource type="Texture2D" uid="uid://c3pu40yx0wurg" path="res://art/UI/butts/monster_disabled.png" id="3_k5ng2"]
 [ext_resource type="Texture2D" uid="uid://cvt5lxh7gsdcv" path="res://art/hunters/hunter.png" id="5_087na"]
 [ext_resource type="Texture2D" uid="uid://chial2xmo1dlc" path="res://art/UI/butts/send.png" id="5_lvss1"]
@@ -23,6 +24,7 @@ anchors_preset = 0
 script = ExtResource("1_bpwp6")
 
 [node name="Monster" type="TextureButton" parent="."]
+material = ExtResource("2_vpcvm")
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 offset_right = 40.0
@@ -48,6 +50,7 @@ mouse_filter = 2
 texture = ExtResource("2_owrg1")
 
 [node name="Hunter" type="TextureButton" parent="."]
+material = ExtResource("2_vpcvm")
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = -80.0
@@ -76,6 +79,7 @@ mouse_filter = 2
 texture = ExtResource("5_087na")
 
 [node name="Master" type="TextureButton" parent="."]
+material = ExtResource("2_vpcvm")
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = 110.0

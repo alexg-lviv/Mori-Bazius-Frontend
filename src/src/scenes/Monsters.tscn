@@ -124,6 +124,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_ibqfw")
 
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.858824)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 106.0
+offset_top = 204.0
+offset_right = -54.0
+offset_bottom = 272.0
+grow_horizontal = 2
+texture = ExtResource("7_jdipq")
+expand_mode = 1
+
 [node name="Bruxa" parent="." instance=ExtResource("1_cuh5e")]
 offset_left = 136.0
 offset_top = 444.0

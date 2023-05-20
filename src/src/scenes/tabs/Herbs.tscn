@@ -102,6 +102,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_nmo3u")
 
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 137.0
+offset_top = 143.0
+offset_right = -95.0
+offset_bottom = 209.0
+grow_horizontal = 2
+texture = ExtResource("1_2em46")
+expand_mode = 1
+
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.760784, 1, 0.792157, 1)
 custom_minimum_size = Vector2(0, 100)

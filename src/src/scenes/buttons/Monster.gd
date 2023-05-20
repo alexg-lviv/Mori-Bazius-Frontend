@@ -19,6 +19,10 @@ var _hunter_p: float
 var _master_p: float
 var _exp: int
 
+var _rot_tween_hunter
+var _rot_tween_master
+
+
 @onready var _monster = get_node("Monster") as TextureButton
 @onready var _hunter = get_node("Hunter") as TextureButton
 @onready var _master = get_node("Master") as TextureButton
@@ -41,6 +45,7 @@ func _validate(_item: String, _qty_delta: int):
 	
 
 func _on_hunter_pressed():
+	_rotate(_hunter, _rot_tween_hunter)
 	if randf_range(0, 1) <= _hunter_p:
 		_display_log(_hunters_logs, "\nHunter died fighting " + monster_name)
 		Events.emit_signal("update_qty", "hunter", -1)
@@ -49,6 +54,7 @@ func _on_hunter_pressed():
 		Events.emit_signal("update_exp", _exp)
 
 func _on_master_pressed():
+	_rotate(_master, _rot_tween_master)
 	if randf_range(0, 1) <= _master_p:
 		_display_log(_masters_logs, "\nMaster died fighting " + monster_name)
 		Events.emit_signal("update_qty", "master", -1)
@@ -81,6 +87,14 @@ func _scale_up(butt: TextureButton):
 func _scale_down(butt: TextureButton):
 	var tween = get_tree().create_tween()
 	tween.tween_property(butt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _rotate(butt: TextureButton, tween):
+	if tween and tween.is_running():
+		return
+
+	tween = get_tree().create_tween()
+	tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
 
 
 func _on_monster_mouse_entered():

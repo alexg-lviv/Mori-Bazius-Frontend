@@ -26,12 +26,7 @@ func _show_description():
 
 func _on_pressed():
 	Events.emit_signal("update_qty", _name, 1)
-	if _rot_tween and _rot_tween.is_running():
-		return
-
-	_rot_tween = get_tree().create_tween()
-	_rot_tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	_rot_tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
+	_rotate()
 
 func _on_mouse_entered():
 	_show_description()
@@ -42,3 +37,11 @@ func _on_mouse_exited():
 	_hide_description()
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _rotate():
+	if _rot_tween and _rot_tween.is_running():
+		return
+
+	_rot_tween = get_tree().create_tween()
+	_rot_tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 20), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	_rot_tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)

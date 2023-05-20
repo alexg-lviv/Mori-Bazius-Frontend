@@ -104,6 +104,19 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_xnuth")
 
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 140.0
+offset_top = 80.0
+offset_right = -92.0
+offset_bottom = 146.0
+grow_horizontal = 2
+texture = ExtResource("3_vos4g")
+expand_mode = 1
+
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 10
