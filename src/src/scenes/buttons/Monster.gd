@@ -32,6 +32,7 @@ var _exp: int
 func _ready():
 	_description.visible = false
 	Events.update_qty.connect(_validate)
+	_validate("", 0)
 
 func _validate(_item: String, _qty_delta: int):
 	_hunter.disabled = true if Items.stats["hunters"] == 0 else false

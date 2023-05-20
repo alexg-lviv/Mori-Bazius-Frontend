@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://cy66ntjihexbe"]
+[gd_scene load_steps=15 format=3 uid="uid://cy66ntjihexbe"]
 
 [ext_resource type="Script" path="res://src/scenes/buttons/Monster.gd" id="1_bpwp6"]
-[ext_resource type="Texture2D" uid="uid://cbbpc86n3ftvn" path="res://art/UI/buttons/monster_butt.png" id="2_ey1ow"]
+[ext_resource type="Texture2D" uid="uid://ckdtnghyoj40p" path="res://art/UI/butts/monster.png" id="2_fi558"]
 [ext_resource type="Texture2D" uid="uid://efckgpexei66" path="res://art/monsters/wyvern.png" id="2_owrg1"]
-[ext_resource type="Texture2D" uid="uid://lmbt1xklny6k" path="res://art/UI/buttons/disabled_monster_butt.png" id="3_s5nve"]
+[ext_resource type="Texture2D" uid="uid://c3pu40yx0wurg" path="res://art/UI/butts/monster_disabled.png" id="3_k5ng2"]
 [ext_resource type="Texture2D" uid="uid://cvt5lxh7gsdcv" path="res://art/hunters/hunter.png" id="5_087na"]
-[ext_resource type="Texture2D" uid="uid://c4ilw7lidqd00" path="res://art/UI/buttons/send_hunter_butt.png" id="5_jfgef"]
-[ext_resource type="Texture2D" uid="uid://c66mmiul53emu" path="res://art/UI/buttons/disabled_send_hunter_butt.png" id="6_5b55f"]
+[ext_resource type="Texture2D" uid="uid://chial2xmo1dlc" path="res://art/UI/butts/send.png" id="5_lvss1"]
 [ext_resource type="Texture2D" uid="uid://fiaxoj0cxibc" path="res://art/hunters/master.png" id="6_atth1"]
+[ext_resource type="Texture2D" uid="uid://7shdxgw2lit0" path="res://art/UI/butts/send_pressed.png" id="6_gkcas"]
+[ext_resource type="Texture2D" uid="uid://cd11ei41fhyqs" path="res://art/UI/butts/send_disabled.png" id="7_abgjh"]
 [ext_resource type="Texture2D" uid="uid://bg1iswvlvkgxy" path="res://art/UI/icons/power.png" id="9_5grvb"]
 [ext_resource type="Texture2D" uid="uid://cydffo68kgqss" path="res://art/UI/icons/hunter_icon.png" id="10_arp6a"]
 [ext_resource type="LabelSettings" uid="uid://8py0kh0cmx7j" path="res://labels/Monster.tres" id="10_c2rjd"]
@@ -22,12 +23,12 @@ anchors_preset = 0
 script = ExtResource("1_bpwp6")
 
 [node name="Monster" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(180, 180)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture_normal = ExtResource("2_ey1ow")
-texture_disabled = ExtResource("3_s5nve")
+texture_normal = ExtResource("2_fi558")
+texture_disabled = ExtResource("3_k5ng2")
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Monster"]
@@ -35,23 +36,24 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_top = 30.0
-offset_right = -30.0
-offset_bottom = -30.0
+offset_left = 58.0
+offset_top = 53.0
+offset_right = -58.0
+offset_bottom = -70.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_owrg1")
 
 [node name="Hunter" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-offset_left = -69.0
-offset_top = -129.0
-offset_right = 31.0
-offset_bottom = -29.0
-texture_normal = ExtResource("5_jfgef")
-texture_disabled = ExtResource("6_5b55f")
+offset_left = -80.0
+offset_top = -127.0
+offset_right = 70.0
+offset_bottom = 23.0
+texture_normal = ExtResource("5_lvss1")
+texture_pressed = ExtResource("6_gkcas")
+texture_disabled = ExtResource("7_abgjh")
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Hunter"]
@@ -68,14 +70,15 @@ grow_vertical = 2
 texture = ExtResource("5_087na")
 
 [node name="Master" type="TextureButton" parent="."]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-offset_left = 87.0
-offset_top = -129.0
-offset_right = 187.0
-offset_bottom = -29.0
-texture_normal = ExtResource("5_jfgef")
-texture_disabled = ExtResource("6_5b55f")
+offset_left = 110.0
+offset_top = -127.0
+offset_right = 260.0
+offset_bottom = 23.0
+texture_normal = ExtResource("5_lvss1")
+texture_pressed = ExtResource("6_gkcas")
+texture_disabled = ExtResource("7_abgjh")
 stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="Master"]
@@ -110,21 +113,27 @@ mouse_filter = 2
 theme_override_constants/separation = -10
 
 [node name="Description" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -183.0
-offset_right = 304.0
-offset_bottom = 168.0
+layout_mode = 1
+offset_left = -192.0
+offset_right = 372.0
+offset_bottom = 283.0
 mouse_filter = 2
+alignment = 1
 
 [node name="Stats" type="HBoxContainer" parent="Description"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
+size_flags_vertical = 6
 mouse_filter = 2
+theme_override_constants/separation = 200
+alignment = 1
 
 [node name="Exp" type="HBoxContainer" parent="Description/Stats"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 mouse_filter = 2
+alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="Description/Stats/Exp"]
 self_modulate = Color(1, 0.729412, 1, 1)
@@ -140,7 +149,9 @@ text = "66"
 label_settings = ExtResource("10_c2rjd")
 
 [node name="Probs" type="VBoxContainer" parent="Description/Stats"]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
+size_flags_horizontal = 8
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="Description/Stats/Probs"]

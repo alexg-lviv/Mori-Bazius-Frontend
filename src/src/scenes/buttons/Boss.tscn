@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cph3e0vyh8ymv"]
+
+[ext_resource type="PackedScene" uid="uid://cy66ntjihexbe" path="res://src/scenes/buttons/Monster.tscn" id="1_oyxjx"]
+[ext_resource type="Texture2D" uid="uid://qvp3jkqovl2" path="res://art/UI/butts/boss.png" id="2_27l5o"]
+[ext_resource type="Texture2D" uid="uid://bwsydffqltxuu" path="res://art/UI/butts/boss_disabled.png" id="3_aopmq"]
+
+[node name="Boss" instance=ExtResource("1_oyxjx")]
+
+[node name="Monster" parent="." index="0"]
+custom_minimum_size = Vector2(200, 200)
+texture_normal = ExtResource("2_27l5o")
+texture_disabled = ExtResource("3_aopmq")
+
+[node name="Hunter" parent="." index="1"]
+custom_minimum_size = Vector2(170, 170)
+offset_left = -99.0
+offset_top = -145.0
+offset_right = 71.0
+offset_bottom = 25.0
+
+[node name="Master" parent="." index="2"]
+custom_minimum_size = Vector2(170, 170)
+offset_left = 129.0
+offset_top = -145.0
+offset_right = 299.0
+offset_bottom = 25.0
