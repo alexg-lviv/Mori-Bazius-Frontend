@@ -24,8 +24,8 @@ Events="*res://src/singletons/Events.gd"
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-window/stretch/mode="canvas_items"
 window/handheld/orientation=1
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
@@ -33,5 +33,5 @@ enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=0
