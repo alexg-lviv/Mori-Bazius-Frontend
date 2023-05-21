@@ -56,7 +56,7 @@ func _val():
 
 func _on_hunter_pressed():
 	_rotate(_hunter, _rot_tween_hunter)
-	_emit_particles(_spawn_hunters, Items.data["hunter"]["sprite"])
+	_emit_particles(_spawn_hunters, Items.data["silver_sword"]["sprite"])
 	
 	if randf_range(0, 1) <= _hunter_p:
 		_display_log(_hunters_logs, "\nHunter died fighting " + monster_name)
@@ -68,7 +68,7 @@ func _on_hunter_pressed():
 
 func _on_master_pressed():
 	_rotate(_master, _rot_tween_master)
-	_emit_particles(_spawn_masters, Items.data["master"]["sprite"])
+	_emit_particles(_spawn_masters, Items.data["kingslayers_silver_sword"]["sprite"])
 	
 	if randf_range(0, 1) <= _master_p:
 		_display_log(_masters_logs, "\nMaster died fighting " + monster_name)
@@ -109,8 +109,8 @@ func _rotate(butt: TextureButton, tween):
 		return
 
 	tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
+	tween.tween_property(butt, "rotation_degrees", pow(-1, randi()) * randf_range(5, 30), 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_property(butt, "rotation_degrees", 0, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN).set_delay(0.1)
 
 
 func _on_monster_mouse_entered():
