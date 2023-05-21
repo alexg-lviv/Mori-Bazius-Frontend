@@ -1,10 +1,9 @@
 extends Control
 class_name ScorePanel
 
-# TODO
 @onready var icon = get_node("Icon")
-@onready var player_name = get_node("TextureName/PlayerName")
-@onready var score = get_node("TextureScore/Score")
+@onready var player_name = get_node("Icon/PlayerName")
+@onready var score = get_node("Icon/Score")
 
 var images: Dictionary = {
 	1: load("res://art/UI/rank.png")
