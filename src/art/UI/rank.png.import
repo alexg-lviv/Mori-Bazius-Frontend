@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1hi7uluf54nr"
-path="res://.godot/imported/monster.png-4dfd989e9756870c5edeabe344cfcf1f.ctex"
+uid="uid://lt62mkblfqwk"
+path="res://.godot/imported/rank.png-68fe20a07324f0ae80e3d6bf76ce8897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/tabs_icons/active/monster.png"
-dest_files=["res://.godot/imported/monster.png-4dfd989e9756870c5edeabe344cfcf1f.ctex"]
+source_file="res://art/UI/rank.png"
+dest_files=["res://.godot/imported/rank.png-68fe20a07324f0ae80e3d6bf76ce8897.ctex"]
 
 [params]
 

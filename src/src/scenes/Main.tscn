@@ -88,9 +88,6 @@ layout_mode = 2
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 30.0
 
-
-[connection signal="tab_selected" from="TabContainer" to="." method="_on_tab_container_tab_selected"]
-
 [node name="Back2" type="TextureRect" parent="."]
 visible = false
 material = SubResource("ShaderMaterial_n0vh0")
