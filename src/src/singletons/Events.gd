@@ -8,6 +8,7 @@ var _GET_resources = HTTPRequest.new()
 var _POST_stats = HTTPRequest.new()
 var _POST_resources = HTTPRequest.new()
 
+var _errors_counter = 0
 
 signal update_qty(item: String, qty_delta: int)
 
@@ -20,9 +21,7 @@ signal save()
 signal pull()
 
 
-func _ready():
-	get_tree().set_auto_accept_quit(false)
-	
+func _ready():	
 	add_child(_GET_stats)
 	add_child(_GET_resources)
 	add_child(_POST_stats)
@@ -96,10 +95,19 @@ func _on_pull():
 
 func _on_post_request_completed(_result, response_code, _headers, _body, table):
 	print("POST request to ", table, " completed with code ", response_code)
+	if _errors_counter >= 5:
+		return  # TODO
+	
+	if response_code != 200:
+		emit_signal("save")
+		_errors_counter += 1
 
 
 func _on_get_request_completed(_result, response_code, _headers, body, table):
-	print("POST request to ", table, " completed with code ", response_code)
+	print("GET request to ", table, " completed with code ", response_code)
+	
+	if response_code != 200:
+		pass
 
 	var data = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
 	if table == "resources":
@@ -108,6 +116,7 @@ func _on_get_request_completed(_result, response_code, _headers, body, table):
 		Items.stats = data
 
 	emit_signal("set_qty")
+
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:

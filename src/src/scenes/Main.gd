@@ -30,6 +30,8 @@ func _physics_process(_delta):
 		TabsContainer.set_tab_title(i, "")
 	
 	Events.emit_signal("set_qty")
+	
+	get_tree().set_auto_accept_quit(false)
 
 	
 func _on_save_timer_timeout():
