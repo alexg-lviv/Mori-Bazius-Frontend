@@ -195,39 +195,38 @@ func _on_pull():
 
 func _on_post_stats_request_completed(_result, response_code, _headers, _body):
 	print("POST request to stats completed with code ", response_code)
-	if response_code != 200:
-		_send_POST_to_stats()
-		_POST_stats_errors_counter += 1
-	
 	if _POST_stats_errors_counter >= 5:
 		_POST_stats_errors_counter = 0
 		_display_error()
 		return
+	
+	if response_code != 200:
+		_send_POST_to_stats()
+		_POST_stats_errors_counter += 1
 
 
 func _on_post_resources_request_completed(_result, response_code, _headers, _body):
 	print("POST request to resources completed with code ", response_code)
-	if response_code != 200:
-		_send_POST_to_resources()
-		_POST_resources_errors_counter += 1
-	
 	if _POST_resources_errors_counter >= 5:
 		_POST_resources_errors_counter = 0
 		_display_error()
 		return
+		
+	if response_code != 200:
+		_send_POST_to_resources()
+		_POST_resources_errors_counter += 1
 
 
 func _on_get_stats_request_completed(_result, response_code, _headers, body):
 	print("GET request to stats completed with code ", response_code)
-
-	if response_code != 200:
-		_send_GET_to_stats()
-		_GET_stats_errors_counter += 1
-	
 	if _GET_stats_errors_counter >= 5:
 		_GET_stats_errors_counter = 0
 		_display_error()
 		return
+	
+	if response_code != 200:
+		_send_GET_to_stats()
+		_GET_stats_errors_counter += 1
 
 	Items.stats = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
 	
@@ -236,15 +235,14 @@ func _on_get_stats_request_completed(_result, response_code, _headers, body):
 
 func _on_get_resources_request_completed(_result, response_code, _headers, body):
 	print("GET request to resources completed with code ", response_code)
-
-	if response_code != 200:
-		_send_GET_to_resources()
-		_GET_resources_errors_counter += 1
-	
 	if _GET_resources_errors_counter >= 5:
 		_GET_resources_errors_counter = 0
 		_display_error()
 		return
+
+	if response_code != 200:
+		_send_GET_to_resources()
+		_GET_resources_errors_counter += 1
 
 	Items.qty = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
 	

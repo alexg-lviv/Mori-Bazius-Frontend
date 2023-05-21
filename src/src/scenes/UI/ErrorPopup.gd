@@ -8,3 +8,5 @@ var error:
 
 func _on_texture_button_pressed():
 	get_tree().get_root().add_child(_main_menu)
+	get_tree().get_root().get_node("Main").queue_free()
+	queue_free()
