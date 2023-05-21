@@ -1,173 +1,78 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4cme045vht6y"]
 
-[ext_resource type="Texture2D" uid="uid://co4yh0602esvw" path="res://art/UI/background.png" id="1_k86ty"]
+[gd_scene load_steps=13 format=3 uid="uid://b4cme045vht6y"]
+
+[ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
 [ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
-[ext_resource type="Texture2D" uid="uid://csofu8eojrt51" path="res://art/backgrounds/NightForest/Image without mist.png" id="2_db0gg"]
-[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="4_q7lwl"]
+[ext_resource type="Texture2D" uid="uid://bma5xm0gypiif" path="res://art/backgrounds/space.png" id="2_df00a"]
+[ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="3_stxkd"]
 [ext_resource type="PackedScene" uid="uid://ddmgs6yrsevil" path="res://src/scenes/ScorePanel.tscn" id="4_woepx"]
-[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="5_q121g"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="6_q6cwo"]
+[ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="7_sjo0y"]
+[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="8_3bsyl"]
 
-[sub_resource type="Shader" id="Shader_ge5x0"]
+[sub_resource type="Shader" id="Shader_rcmkg"]
 code = "shader_type canvas_item;
 
-uniform vec4 BackColor : source_color = vec4(0.0, 0.4, 0.58, 1.0);
-uniform vec4 CloudColor : source_color = vec4(0.18, 0.70, 0.87, 1.0);
-uniform float speed : hint_range(0.0, 5.0) = 0.1;
-uniform float alpha : hint_range(0.0, 1.0) = 0.1;
+// Amount of detail.
+uniform int octaves = 4;
 
-const float TAU_ = 6.28318530718;
+// Opacity of the output fog.
+uniform float starting_amplitude: hint_range(0.0, 0.5) = 0.5;
 
-float Func(float pX)
-{
-	return 0.6*(0.5*sin(0.1*pX) + 0.5*sin(0.553*pX) + 0.7*sin(1.2*pX));
-}
+// Rate of pattern within the fog.
+uniform float starting_frequency = 1.0;
 
+// Shift towards transparency (clamped) for sparser fog.
+uniform float shift: hint_range(-1.0, 0.0) = -0.2;
 
-float FuncR(float pX)
-{
-	return 0.5 + 0.25*(1.0 + sin(mod(40.0*pX, TAU_)));
-}
+// Direction and speed of travel.
+uniform vec2 velocity = vec2(1.0, 1.0);
 
+// Color of the fog.
+uniform vec4 fog_color: source_color = vec4(0.0, 0.0, 0.0, 1.0);
 
-float Layer(vec2 pQ, float pT)
-{
-	vec2 Qt = 3.5*pQ;
-	pT *= 0.5;
-	Qt.x += pT;
+// Noise texture; OpenSimplexNoise is great, but any filtered texture is fine.
+uniform sampler2D noise;
 
-	float Xi = floor(Qt.x);
-	float Xf = Qt.x - Xi -0.5;
-
-	vec2 C;
-	float Yi;
-	float D = 1.0 - step(Qt.y,  Func(Qt.x));
-
-	// Disk:
-	Yi = Func(Xi + 0.5);
-	C = vec2(Xf, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi+ pT/80.0));
-
-	// Previous disk:
-	Yi = Func(Xi+1.0 + 0.5);
-	C = vec2(Xf-1.0, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi+1.0+ pT/80.0));
-
-	// Next Disk:
-	Yi = Func(Xi-1.0 + 0.5);
-	C = vec2(Xf+1.0, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi-1.0+ pT/80.0));
-
-	return min(1.0, D);
+float rand(vec2 uv) {
+	float amplitude = starting_amplitude;
+	float frequency = starting_frequency;
+	float output = 0.0;
+	for (int i = 0; i < octaves; i++) {
+		output += texture(noise, uv * frequency).x * amplitude;
+		amplitude /= 2.0;
+		frequency *= 2.0;
+	}
+	return clamp(output + shift, 0.0, 1.0);
 }
 
 void fragment() {
-	//vec2 uv = 8.0 * (SCREEN_UV - UV * 2.0);
-	vec2 uv = 3.0 * (SCREEN_UV - UV * 2.0);
-
-	// Render:
-	vec3 Color= BackColor.rgb;
-	for(float J = 0.0; J <= 1.0; J += 0.2)
-	{
-		// Cloud Layer:
-		float Lt =  TIME * speed * (0.5  + 2.0 * J) * (1.0 + 0.1 * sin(226.0 * J)) + 17.0 * J;
-		vec2 Lp = vec2(0.0, 0.3 + 1.5 * ( J - 0.5));
-		float L = Layer(uv + Lp, Lt);
-		// Blur and color:
-		float Blur = 4.0 * (0.5 * abs(2.0 - 5.0 * J)) / (11.0 - 5.0 * J);
-		float V = mix( 0.0, 1.0, 1.0 - smoothstep( 0.0, 0.01 +0.2 * Blur, L ) );
-		vec3 Lc=  mix(CloudColor.rgb, vec3(1.0), J);
-		Color =mix(Color, Lc,  V);
-	}
-	COLOR = vec4(Color, alpha);
+	vec2 motion = vec2(rand(UV + 0.15 * cos(TIME) * starting_frequency * velocity));
+	COLOR = mix(vec4(0.0), fog_color, rand(UV + motion));
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_l48gl"]
-shader = SubResource("Shader_ge5x0")
-shader_parameter/BackColor = Color(0, 0, 0, 1)
-shader_parameter/CloudColor = Color(0, 0, 0, 1)
-shader_parameter/speed = 1.0
-shader_parameter/alpha = 0.3
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8mv4n"]
+seed = 69
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 4
+fractal_lacunarity = 12.0
+fractal_gain = 0.3
+fractal_weighted_strength = 0.45
 
-[sub_resource type="Shader" id="Shader_2jfpr"]
-code = "shader_type canvas_item;
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2ddg6"]
+width = 513
+noise = SubResource("FastNoiseLite_8mv4n")
 
-uniform vec4 BackColor : source_color = vec4(0.0, 0.4, 0.58, 1.0);
-uniform vec4 CloudColor : source_color = vec4(0.18, 0.70, 0.87, 1.0);
-uniform float speed : hint_range(0.0, 5.0) = 0.1;
-uniform float alpha : hint_range(0.0, 1.0) = 0.1;
-
-const float TAU_ = 6.28318530718;
-
-float Func(float pX)
-{
-	return 0.6*(0.5*sin(0.1*pX) + 0.5*sin(0.553*pX) + 0.7*sin(1.2*pX));
-}
-
-
-float FuncR(float pX)
-{
-	return 0.5 + 0.25*(1.0 + sin(mod(40.0*pX, TAU_)));
-}
-
-
-float Layer(vec2 pQ, float pT)
-{
-	vec2 Qt = 3.5*pQ;
-	pT *= 0.5;
-	Qt.x += pT;
-
-	float Xi = floor(Qt.x);
-	float Xf = Qt.x - Xi -0.5;
-
-	vec2 C;
-	float Yi;
-	float D = 1.0 - step(Qt.y,  Func(Qt.x));
-
-	// Disk:
-	Yi = Func(Xi + 0.5);
-	C = vec2(Xf, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi+ pT/80.0));
-
-	// Previous disk:
-	Yi = Func(Xi+1.0 + 0.5);
-	C = vec2(Xf-1.0, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi+1.0+ pT/80.0));
-
-	// Next Disk:
-	Yi = Func(Xi-1.0 + 0.5);
-	C = vec2(Xf+1.0, Qt.y - Yi );
-	D =  min(D, length(C) - FuncR(Xi-1.0+ pT/80.0));
-
-	return min(1.0, D);
-}
-
-void fragment() {
-	//vec2 uv = 8.0 * (SCREEN_UV - UV * 2.0);
-	vec2 uv = 3.0 * (SCREEN_UV - UV * 2.0);
-
-	// Render:
-	vec3 Color= BackColor.rgb;
-	for(float J = 0.0; J <= 1.0; J += 0.2)
-	{
-		// Cloud Layer:
-		float Lt =  TIME * speed * (0.5  + 2.0 * J) * (1.0 + 0.1 * sin(226.0 * J)) + 17.0 * J;
-		vec2 Lp = vec2(0.0, 0.3 + 1.5 * ( J - 0.5));
-		float L = Layer(uv + Lp, Lt);
-		// Blur and color:
-		float Blur = 4.0 * (0.5 * abs(2.0 - 5.0 * J)) / (11.0 - 5.0 * J);
-		float V = mix( 0.0, 1.0, 1.0 - smoothstep( 0.0, 0.01 +0.2 * Blur, L ) );
-		vec3 Lc=  mix(CloudColor.rgb, vec3(1.0), J);
-		Color =mix(Color, Lc,  V);
-	}
-	COLOR = vec4(Color, alpha);
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qg3ds"]
-shader = SubResource("Shader_2jfpr")
-shader_parameter/BackColor = Color(0, 0, 0, 1)
-shader_parameter/CloudColor = Color(0, 0, 0, 1)
-shader_parameter/speed = 3.0
-shader_parameter/alpha = 0.3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffur5"]
+shader = SubResource("Shader_rcmkg")
+shader_parameter/octaves = 4
+shader_parameter/starting_amplitude = 0.5
+shader_parameter/starting_frequency = 0.699
+shader_parameter/shift = -0.205
+shader_parameter/velocity = Vector2(1, 1)
+shader_parameter/fog_color = Color(1, 0.6, 0.6, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_2ddg6")
 
 [node name="LeaderBoard" type="Control"]
 layout_mode = 3
@@ -185,37 +90,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1.0051)
-texture = ExtResource("2_db0gg")
+texture = ExtResource("2_df00a")
 expand_mode = 3
 
-[node name="Clouds" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_l48gl")
+[node name="Fog" type="TextureRect" parent="Background"]
+material = SubResource("ShaderMaterial_ffur5")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 273.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_k86ty")
-flip_v = true
+texture = ExtResource("3_stxkd")
 
-[node name="UpperClouds" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_qg3ds")
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 131.0
-offset_bottom = 275.0
+offset_left = 99.0
+offset_top = 192.0
+offset_right = -59.0
+offset_bottom = 268.0
 grow_horizontal = 2
-texture = ExtResource("1_k86ty")
+texture = ExtResource("6_q6cwo")
 expand_mode = 1
-flip_v = true
 
 [node name="GET" type="HTTPRequest" parent="."]
 
 [node name="Title" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 58.0
 offset_top = 175.0
@@ -223,6 +127,7 @@ offset_right = 656.0
 offset_bottom = 251.0
 texture = ExtResource("4_q7lwl")
 expand_mode = 1
+
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
@@ -241,6 +146,32 @@ offset_right = 778.0
 offset_bottom = 275.0
 scale = Vector2(0.836698, 0.756065)
 texture = ExtResource("5_q121g")
+
+[node name="PanelShadow" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.462745)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 1068.0
+offset_right = -14.0
+offset_bottom = 1088.0
+grow_horizontal = 2
+texture = ExtResource("6_q6cwo")
+expand_mode = 1
+
+[node name="Shadow2" type="TextureRect" parent="."]
+modulate = Color(0.290196, 0.290196, 0.290196, 0.392157)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 680.0
+offset_top = 318.0
+offset_right = -27.0
+offset_bottom = 1068.0
+grow_horizontal = 2
+texture = ExtResource("6_q6cwo")
+expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -297,5 +228,39 @@ layout_mode = 2
 [node name="ScorePanel11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.760784, 1, 0.976471, 1)
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 165.0
+offset_bottom = 265.0
+grow_horizontal = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(360, 50)
+texture = ExtResource("6_q6cwo")
+
+[node name="Label" type="Label" parent="TextureRect"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Leaderboard"
+label_settings = ExtResource("7_sjo0y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_3bsyl")
 
 [connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]

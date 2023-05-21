@@ -28,8 +28,7 @@ func _physics_process(delta):
 		else:
 			TabsContainer.set_tab_icon(i, icons[i])
 		TabsContainer.set_tab_title(i, "")
-#	Events.emit_signal("pull")  # TODO: uncomment
-	
+
 	Events.emit_signal("set_qty")
 
 	
