@@ -2,7 +2,10 @@ extends "res://src/scenes/buttons/Clickable.gd"
 
 var _requirements: Dictionary
 
-@onready var _requirements_label: Label = get_node("Description/Requirements")
+@onready var _req_container: HBoxContainer = get_node("Description/R")
+
+@onready var _req_pair := preload("res://src/scenes/buttons/ReqPair.tscn")
+
 
 func _ready():
 	Events.update_qty.connect(_update_requirements)
@@ -17,12 +20,12 @@ func _set_description():
 	_name_label.text = _name.capitalize().replace("_", " ")
 	_power_label.text = str(Items.data[_name]["power"])
 	
-	var requirements_str = ""
 	for item in _requirements.keys():
-		var qty = _requirements[item]
-		requirements_str += str(qty) + " x " + item.capitalize().replace("_", " ") + "\n"
-	
-	_requirements_label.text = requirements_str
+		var pair = _req_pair.instantiate()
+		_req_container.add_child(pair)
+		pair.get_node("Qty").text = str(_requirements[item])
+		pair.get_node("Item").texture = Items.data[item]["sprite"]
+
 
 func _validate():
 	var is_valid = true

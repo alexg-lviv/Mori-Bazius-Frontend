@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cofsc2sv7jg0j"]
+
+[ext_resource type="Texture2D" uid="uid://3q34acw8j4ue" path="res://art/items/clickable/herbs/nostrix.png" id="1_fg23k"]
+[ext_resource type="LabelSettings" uid="uid://c16e684ayamlc" path="res://labels/Requirement.tres" id="2_a51mi"]
+[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="2_fwfhf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0s1h"]
+font = ExtResource("2_fwfhf")
+
+[node name="ReqPair" type="HBoxContainer"]
+size_flags_vertical = 4
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Item" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+texture = ExtResource("1_fg23k")
+expand_mode = 3
+
+[node name="X" type="Label" parent="."]
+layout_mode = 2
+text = "x"
+label_settings = SubResource("LabelSettings_r0s1h")
+vertical_alignment = 1
+
+[node name="Qty" type="Label" parent="."]
+layout_mode = 2
+text = "10"
+label_settings = ExtResource("2_a51mi")
+vertical_alignment = 2
