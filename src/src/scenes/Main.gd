@@ -21,7 +21,7 @@ var active = 0
 
 @onready var TabsContainer = get_node("TabContainer")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for i in range(4):
 		if i == active:
 			TabsContainer.set_tab_icon(i, active_icons[i])
