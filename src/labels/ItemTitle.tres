@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cy7dara6ryin4"]
+
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="1_hfrkg"]
+
+[resource]
+font = ExtResource("1_hfrkg")
+font_size = 32
