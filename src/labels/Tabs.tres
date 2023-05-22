@@ -1,4 +1,10 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://brugr8yoiyt5t"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://brugr8yoiyt5t"]
+
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="1_7pdc6"]
 
 [resource]
-font_size = 32
+font = ExtResource("1_7pdc6")
+font_size = 82
+shadow_size = 10
+shadow_color = Color(0.266667, 0, 0.278431, 0.603922)
+shadow_offset = Vector2(10, 5)

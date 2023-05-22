@@ -1,26 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxyk1gsyr8a2m"]
+[gd_scene load_steps=7 format=3 uid="uid://bxyk1gsyr8a2m"]
 
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="1_tft4u"]
 [ext_resource type="Script" path="res://src/scenes/items/InventoryItem.gd" id="2_qp6by"]
+[ext_resource type="Texture2D" uid="uid://cto6s1wmc83qt" path="res://art/UI/rects/simple_filled.png" id="3_g8j5b"]
+[ext_resource type="Texture2D" uid="uid://c25yirjxfidyb" path="res://art/UI/rects/simple_rectangular.png" id="4_3c2yb"]
+[ext_resource type="LabelSettings" uid="uid://b0fv8s0e3638c" path="res://labels/InventoryItem.tres" id="5_kitw4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6v0dr"]
 resource_local_to_scene = true
 
 [node name="InventoryItem" instance=ExtResource("1_tft4u")]
 material = SubResource("ShaderMaterial_6v0dr")
+offset_right = 14.0
+offset_bottom = 16.0
 pivot_offset = Vector2(16, 16)
 script = ExtResource("2_qp6by")
 
-[node name="Label" type="Label" parent="." index="0"]
+[node name="TextureRect" type="TextureRect" parent="." index="0"]
+self_modulate = Color(0.219608, 0.184314, 0.321569, 0.568627)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -16.0
-offset_top = -4.0
-offset_right = 91.0
-offset_bottom = 22.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
-scale = Vector2(0.3, 0.3)
+grow_vertical = 0
+texture = ExtResource("3_g8j5b")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="." index="1"]
+self_modulate = Color(0.705882, 0.611765, 1, 0.372549)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 4.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_3c2yb")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="." index="2"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -4.0
+offset_right = 162.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
 text = "100"
+label_settings = ExtResource("5_kitw4")
 horizontal_alignment = 1

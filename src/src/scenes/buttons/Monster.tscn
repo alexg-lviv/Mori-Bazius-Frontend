@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cy66ntjihexbe"]
+[gd_scene load_steps=37 format=3 uid="uid://cy66ntjihexbe"]
 
 [ext_resource type="Script" path="res://src/scenes/buttons/Monster.gd" id="1_bpwp6"]
 [ext_resource type="Texture2D" uid="uid://ckdtnghyoj40p" path="res://art/UI/butts/monster.png" id="2_fi558"]
@@ -11,43 +11,139 @@
 [ext_resource type="Texture2D" uid="uid://7shdxgw2lit0" path="res://art/UI/butts/send_pressed.png" id="6_gkcas"]
 [ext_resource type="Texture2D" uid="uid://cd11ei41fhyqs" path="res://art/UI/butts/send_disabled.png" id="7_abgjh"]
 [ext_resource type="Texture2D" uid="uid://bg1iswvlvkgxy" path="res://art/UI/icons/power.png" id="9_5grvb"]
+[ext_resource type="Texture2D" uid="uid://0jp217u0o3mu" path="res://art/UI/icons/win_rate.png" id="10_780q1"]
 [ext_resource type="Texture2D" uid="uid://cydffo68kgqss" path="res://art/UI/icons/hunter_icon.png" id="10_arp6a"]
-[ext_resource type="LabelSettings" uid="uid://8py0kh0cmx7j" path="res://labels/Monster.tres" id="10_c2rjd"]
+[ext_resource type="SpriteFrames" uid="uid://dkccg7y44i6l7" path="res://spreadsheets/blood_animation.tres" id="10_cmtaj"]
+[ext_resource type="Texture2D" uid="uid://sultypw6mlx5" path="res://art/fx/smoke.png" id="11_h1kdp"]
 [ext_resource type="Texture2D" uid="uid://clj85rw63emq2" path="res://art/UI/icons/master_icon.png" id="11_xytps"]
+[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="12_yocm8"]
+[ext_resource type="LabelSettings" uid="uid://bsj3ylcan58ac" path="res://labels/MonsterTitle.tres" id="15_p44ru"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_68tkh"]
-font_size = 25
+[sub_resource type="LabelSettings" id="LabelSettings_hscrb"]
+font = ExtResource("12_yocm8")
+font_size = 22
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ip3yu"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(3528, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_um7m1"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(3276, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hf0uk"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(3024, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kww8k"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(2772, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t6xl"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(2520, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f02hr"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(2268, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa5vv"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(2016, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i15f2"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(1764, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32fbm"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(1512, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbiam"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(1260, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22jea"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(1008, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74ec4"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(756, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30iv2"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(504, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8b40"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(252, 0, 252, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ohye"]
+atlas = ExtResource("11_h1kdp")
+region = Rect2(0, 0, 252, 61)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6me65"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ip3yu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_um7m1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hf0uk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kww8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t6xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f02hr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa5vv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i15f2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32fbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbiam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22jea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74ec4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30iv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8b40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ohye")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvcam"]
+font = ExtResource("12_yocm8")
+font_size = 32
 
 [node name="Monster" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_bpwp6")
-
-[node name="Monster" type="TextureButton" parent="."]
-material = ExtResource("2_vpcvm")
-custom_minimum_size = Vector2(180, 180)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-pivot_offset = Vector2(90, 90)
-mouse_filter = 1
-texture_normal = ExtResource("2_fi558")
-texture_disabled = ExtResource("3_k5ng2")
-stretch_mode = 5
-
-[node name="TextureRect" type="TextureRect" parent="Monster"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 58.0
-offset_top = 53.0
-offset_right = -58.0
-offset_bottom = -70.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_owrg1")
 
 [node name="Hunter" type="TextureButton" parent="."]
 material = ExtResource("2_vpcvm")
@@ -81,6 +177,48 @@ texture = ExtResource("5_087na")
 [node name="ParticlesSpawn" type="Node2D" parent="Hunter"]
 position = Vector2(80, 68)
 
+[node name="WR" type="HBoxContainer" parent="Hunter"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -27.0
+offset_bottom = 5.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Hunter/WR"]
+layout_mode = 2
+text = "30%"
+label_settings = SubResource("LabelSettings_hscrb")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Hunter/WR"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10_780q1")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Hunter/WR"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+mouse_filter = 2
+texture = ExtResource("10_arp6a")
+expand_mode = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Hunter"]
+position = Vector2(79, 68)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("10_cmtaj")
+frame_progress = 0.383304
+
+[node name="Smoke" type="AnimatedSprite2D" parent="Hunter"]
+self_modulate = Color(0.917647, 0.741176, 1, 0.8)
+position = Vector2(80, 69)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6me65")
+
 [node name="Master" type="TextureButton" parent="."]
 material = ExtResource("2_vpcvm")
 custom_minimum_size = Vector2(150, 150)
@@ -113,48 +251,107 @@ texture = ExtResource("6_atth1")
 [node name="ParticlesSpawn" type="Node2D" parent="Master"]
 position = Vector2(80, 68)
 
-[node name="HuntersLogs" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = -352.0
-offset_top = -162.0
-offset_right = -80.0
-offset_bottom = -101.0
+[node name="WR" type="HBoxContainer" parent="Master"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -27.0
+offset_bottom = 5.0
+grow_horizontal = 2
 mouse_filter = 2
-theme_override_constants/separation = -10
 
-[node name="MastersLogs" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 196.0
-offset_top = -162.0
-offset_right = 468.0
-offset_bottom = -101.0
+[node name="TextureRect2" type="TextureRect" parent="Master/WR"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
 mouse_filter = 2
-theme_override_constants/separation = -10
+texture = ExtResource("11_xytps")
+expand_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Master/WR"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10_780q1")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Master/WR"]
+layout_mode = 2
+text = "30%"
+label_settings = SubResource("LabelSettings_hscrb")
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Master"]
+position = Vector2(79, 68)
+scale = Vector2(6, 6)
+sprite_frames = ExtResource("10_cmtaj")
+frame_progress = 0.383304
+
+[node name="Smoke" type="AnimatedSprite2D" parent="Master"]
+self_modulate = Color(0.917647, 0.741176, 1, 0.8)
+position = Vector2(80, 69)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_6me65")
+
+[node name="Monster" type="TextureButton" parent="."]
+material = ExtResource("2_vpcvm")
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 180.0
+pivot_offset = Vector2(90, 90)
+mouse_filter = 1
+texture_normal = ExtResource("2_fi558")
+texture_disabled = ExtResource("3_k5ng2")
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Monster"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.0
+offset_top = 53.0
+offset_right = -58.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_owrg1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Monster"]
+position = Vector2(90, 89)
+scale = Vector2(10, 10)
+sprite_frames = ExtResource("10_cmtaj")
+
+[node name="ParticlesSpawn" type="Node2D" parent="Monster"]
+position = Vector2(93, 93)
 
 [node name="Description" type="VBoxContainer" parent="."]
 layout_mode = 1
 offset_left = -192.0
+offset_top = 182.0
 offset_right = 372.0
 offset_bottom = 283.0
 mouse_filter = 2
-alignment = 1
 
-[node name="Stats" type="HBoxContainer" parent="Description"]
+[node name="Label" type="Label" parent="Description"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Wyvern"
+label_settings = ExtResource("15_p44ru")
+horizontal_alignment = 1
+
+[node name="Exp" type="HBoxContainer" parent="Description"]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 mouse_filter = 2
-theme_override_constants/separation = 200
 alignment = 1
 
-[node name="Exp" type="HBoxContainer" parent="Description/Stats"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-mouse_filter = 2
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="Description/Stats/Exp"]
+[node name="TextureRect" type="TextureRect" parent="Description/Exp"]
 self_modulate = Color(1, 0.729412, 1, 1)
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -162,68 +359,16 @@ mouse_filter = 2
 texture = ExtResource("9_5grvb")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Description/Stats/Exp"]
+[node name="Label" type="Label" parent="Description/Exp"]
 layout_mode = 2
 text = "66"
-label_settings = ExtResource("10_c2rjd")
+label_settings = SubResource("LabelSettings_vvcam")
 
-[node name="Probs" type="VBoxContainer" parent="Description/Stats"]
-custom_minimum_size = Vector2(180, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-mouse_filter = 2
-
-[node name="Label" type="Label" parent="Description/Stats/Probs"]
-layout_mode = 2
-text = "Lose probability:"
-label_settings = ExtResource("10_c2rjd")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Description/Stats/Probs"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Hunter" type="HBoxContainer" parent="Description/Stats/Probs/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Description/Stats/Probs/VBoxContainer/Hunter"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("10_arp6a")
-
-[node name="Label" type="Label" parent="Description/Stats/Probs/VBoxContainer/Hunter"]
-layout_mode = 2
-text = "0.4"
-label_settings = ExtResource("10_c2rjd")
-
-[node name="Master" type="HBoxContainer" parent="Description/Stats/Probs/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="Description/Stats/Probs/VBoxContainer/Master"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("11_xytps")
-
-[node name="Label" type="Label" parent="Description/Stats/Probs/VBoxContainer/Master"]
-layout_mode = 2
-text = "0.2"
-label_settings = ExtResource("10_c2rjd")
-
-[node name="Label" type="Label" parent="Description"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Wyvern"
-label_settings = SubResource("LabelSettings_68tkh")
-horizontal_alignment = 1
-
-[connection signal="mouse_entered" from="Monster" to="." method="_on_monster_mouse_entered"]
-[connection signal="mouse_exited" from="Monster" to="." method="_on_monster_mouse_exited"]
 [connection signal="mouse_entered" from="Hunter" to="." method="_on_hunter_mouse_entered"]
 [connection signal="mouse_exited" from="Hunter" to="." method="_on_hunter_mouse_exited"]
 [connection signal="pressed" from="Hunter" to="." method="_on_hunter_pressed"]
 [connection signal="mouse_entered" from="Master" to="." method="_on_master_mouse_entered"]
 [connection signal="mouse_exited" from="Master" to="." method="_on_master_mouse_exited"]
 [connection signal="pressed" from="Master" to="." method="_on_master_pressed"]
+[connection signal="mouse_entered" from="Monster" to="." method="_on_monster_mouse_entered"]
+[connection signal="mouse_exited" from="Monster" to="." method="_on_monster_mouse_exited"]

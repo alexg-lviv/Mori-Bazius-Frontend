@@ -2,7 +2,10 @@ extends "res://src/scenes/buttons/Clickable.gd"
 
 var _requirements: Dictionary
 
-@onready var _requirements_label: Label = get_node("Description/Requirements")
+@onready var _req_container: HBoxContainer = get_node("Description/R")
+
+@onready var _req_pair := preload("res://src/scenes/buttons/ReqPair.tscn")
+
 
 func _ready():
 	Events.update_qty.connect(_update_requirements)
@@ -10,19 +13,39 @@ func _ready():
 	_item.item_name = _name
 	_requirements = Items.data[_name]["requirements"]
 	_validate()
-	_hide_description()
 	_set_description()
+	_description.visible = false
+	_name_label.visible_ratio = 0
+	_power_label.visible_ratio = 0
+	for child in _req_container.get_children():
+		child.get_node("Qty").visible_ratio = 0
 
 func _set_description():
 	_name_label.text = _name.capitalize().replace("_", " ")
 	_power_label.text = str(Items.data[_name]["power"])
 	
-	var requirements_str = ""
 	for item in _requirements.keys():
-		var qty = _requirements[item]
-		requirements_str += str(qty) + " x " + item.capitalize().replace("_", " ") + "\n"
-	
-	_requirements_label.text = requirements_str
+		var pair = _req_pair.instantiate()
+		_req_container.add_child(pair)
+		pair.get_node("Qty").text = str(_requirements[item])
+		pair.get_node("Item").texture = Items.data[item]["sprite"]
+
+func _hide_description():
+	var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	tween.tween_property(_name_label, "visible_ratio", 0, 0.2)
+	tween.tween_property(_power_label, "visible_ratio", 0, 0.1)
+	for child in _req_container.get_children():
+		tween.tween_property(child.get_node("Qty"), "visible_ratio", 0, 0.2)
+	await tween.finished
+	_description.visible = false
+
+func _show_description():
+	_description.visible = true
+	var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_name_label, "visible_ratio", 1, 0.2)
+	tween.tween_property(_power_label, "visible_ratio", 1, 0.1)
+	for child in _req_container.get_children():
+		tween.tween_property(child.get_node("Qty"), "visible_ratio", 1, 0.2)
 
 func _validate():
 	var is_valid = true

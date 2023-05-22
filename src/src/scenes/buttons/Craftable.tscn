@@ -28,9 +28,22 @@ offset_top = 43.0
 offset_right = -51.0
 offset_bottom = -65.0
 
-[node name="Requirements" type="Label" parent="Description" index="2"]
+[node name="Description" parent="." index="1"]
+offset_top = -216.0
+offset_bottom = 69.0
+
+[node name="ItemName" parent="Description" index="0"]
+vertical_alignment = 2
+
+[node name="Power" parent="Description" index="1"]
+custom_minimum_size = Vector2(0, 30)
+
+[node name="TextureRect" parent="Description/Power" index="0"]
+size_flags_vertical = 4
+
+[node name="R" type="HBoxContainer" parent="Description" index="2"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-text = "1 x dkjshdhs
-2 x fldlfd
-100 x lkwdkdkdkld"
-horizontal_alignment = 1
+mouse_filter = 2
+theme_override_constants/separation = 20
+alignment = 1

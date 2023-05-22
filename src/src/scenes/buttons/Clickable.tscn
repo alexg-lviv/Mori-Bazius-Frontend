@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl4wpxt8kb3ce"]
+[gd_scene load_steps=12 format=3 uid="uid://cl4wpxt8kb3ce"]
 
 [ext_resource type="Shader" path="res://shaders/shadow.gdshader" id="1_5sqio"]
 [ext_resource type="Texture2D" uid="uid://b7i530xc1f8tq" path="res://art/UI/butts/click.png" id="1_sply4"]
@@ -6,14 +6,20 @@
 [ext_resource type="Script" path="res://src/scenes/buttons/Clickable.gd" id="2_mfgya"]
 [ext_resource type="PackedScene" uid="uid://cuy5ckkpl4byb" path="res://src/scenes/items/Item.tscn" id="4_myaf2"]
 [ext_resource type="Texture2D" uid="uid://bwje3bba5gaxk" path="res://art/UI/icons/crown.png" id="4_qrklc"]
+[ext_resource type="LabelSettings" uid="uid://cy7dara6ryin4" path="res://labels/ItemTitle.tres" id="6_v7i5e"]
+[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="8_d2oen"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h5pbl"]
 shader = ExtResource("1_5sqio")
 shader_parameter/radius = 2.0
 shader_parameter/modulate = Color(0.219608, 0, 0.192157, 0.862745)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhmdb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jb2da"]
 resource_local_to_scene = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_oalyw"]
+font = ExtResource("8_d2oen")
+font_size = 18
 
 [node name="Clickable" type="TextureButton"]
 material = SubResource("ShaderMaterial_h5pbl")
@@ -28,7 +34,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_bhmdb")
+material = SubResource("ShaderMaterial_jb2da")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -48,29 +54,40 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -193.0
+offset_bottom = 30.0
 grow_horizontal = 2
 mouse_filter = 2
 alignment = 1
 
 [node name="ItemName" type="Label" parent="Description"]
 layout_mode = 2
+size_flags_vertical = 2
 text = "Nostrix"
+label_settings = ExtResource("6_v7i5e")
 horizontal_alignment = 1
 
 [node name="Power" type="HBoxContainer" parent="Description"]
 layout_mode = 2
+size_flags_vertical = 10
 mouse_filter = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Description/Power"]
+custom_minimum_size = Vector2(32, 14)
 layout_mode = 2
+size_flags_horizontal = 4
 mouse_filter = 2
 texture = ExtResource("4_qrklc")
+expand_mode = 5
 stretch_mode = 5
 
 [node name="ItemPower" type="Label" parent="Description/Power"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "666"
+label_settings = SubResource("LabelSettings_oalyw")
+vertical_alignment = 2
 
 [node name="ParticlesSpawn" type="Node2D" parent="."]
 position = Vector2(80, 80)
