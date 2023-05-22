@@ -260,5 +260,5 @@ func _display_error():
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		emit_signal("save")
-		await get_tree().create_timer(0.005).timeout
+		await get_tree().create_timer(0.05).timeout
 		get_tree().quit() # default behavior
