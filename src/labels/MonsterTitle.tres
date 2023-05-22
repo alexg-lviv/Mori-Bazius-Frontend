@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bsj3ylcan58ac"]
+
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="1_jrhfq"]
+
+[resource]
+font = ExtResource("1_jrhfq")
+font_size = 48

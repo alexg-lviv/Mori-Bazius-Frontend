@@ -16,10 +16,10 @@ texture_disabled = ExtResource("4_tc3iy")
 
 [node name="Item" parent="." index="0"]
 material = null
-offset_left = 81.0
-offset_top = 74.0
-offset_right = -81.0
-offset_bottom = -97.0
+offset_left = 73.0
+offset_top = 65.0
+offset_right = -73.0
+offset_bottom = -88.0
 
 [node name="Description" parent="." index="1"]
 offset_top = -261.0
