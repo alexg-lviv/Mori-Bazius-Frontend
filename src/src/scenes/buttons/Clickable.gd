@@ -14,7 +14,9 @@ var _rot_tween
 
 func _ready():
 	_item.item_name = _name
-	_hide_description()
+	_description.visible = false
+	_name_label.visible_ratio = 0
+	_power_label.visible_ratio = 0
 	_set_description()
 
 func _set_description():
@@ -22,10 +24,17 @@ func _set_description():
 	_power_label.text = str(Items.data[_name]["power"])
 
 func _hide_description():
+	var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	tween.tween_property(_name_label, "visible_ratio", 0, 0.2)
+	tween.tween_property(_power_label, "visible_ratio", 0, 0.1)
+	await tween.finished
 	_description.visible = false
 
 func _show_description():
 	_description.visible = true
+	var tween = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_name_label, "visible_ratio", 1, 0.2)
+	tween.tween_property(_power_label, "visible_ratio", 1, 0.1)
 
 func _on_pressed():
 	Events.emit_signal("update_qty", _name, 1)

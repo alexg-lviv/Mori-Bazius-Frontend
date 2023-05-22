@@ -22,6 +22,7 @@ var _exp: int
 var _rot_tween_hunter
 var _rot_tween_master
 
+var _tween_labels
 
 @onready var _monster = get_node("Monster") as TextureButton
 @onready var _hunter = get_node("Hunter") as TextureButton
@@ -51,6 +52,10 @@ func _ready():
 	_hunter_death_anim.visible = false
 	_master_death_anim.visible = false
 	_monster_death_anim.visible = false
+	$Description/Label.visible_ratio = 0
+	$Description/Exp/Label.visible_ratio = 0
+	$Hunter/WR/Label.visible_ratio = 0
+	$Master/WR/Label.visible_ratio = 0
 	Events.update_qty.connect(_validate)
 	Events.set_qty.connect(_val)
 	_validate("", 0)
@@ -100,13 +105,16 @@ func _on_master_pressed():
 		_play_death_anim(_monster_death_anim)
 		Events.emit_signal("update_exp", _exp)
 
+
 func _scale_up(butt: TextureButton):
 	var tween = get_tree().create_tween()
 	tween.tween_property(butt, "scale", 1.3 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
+
 func _scale_down(butt: TextureButton):
 	var tween = get_tree().create_tween()
 	tween.tween_property(butt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
 
 func _rotate(butt: TextureButton, tween):
 	if tween and tween.is_running():
@@ -118,44 +126,39 @@ func _rotate(butt: TextureButton, tween):
 
 
 func _on_monster_mouse_entered():
-	_description.visible = true
-	_hunters_wr.visible = true
-	_masters_wr.visible = true
+	_show_labels("monster")
 	_scale_up(_hunter)
 	_scale_up(_master)
 	_scale_up(_monster)
 
+
 func _on_monster_mouse_exited():
-	_description.visible = false
-	_hunters_wr.visible = false
-	_masters_wr.visible = false
+	_hide_labels("monster")
 	_scale_down(_hunter)
 	_scale_down(_master)
 	_scale_down(_monster)
 
 
 func _on_hunter_mouse_entered():
-	_description.visible = true
-	_hunters_wr.visible = true
+	_show_labels("hunter")
 	_scale_up(_hunter)
 	_scale_up(_monster)
 
+
 func _on_hunter_mouse_exited():
-	_description.visible = false
-	_hunters_wr.visible = false
+	_hide_labels("hunter")
 	_scale_down(_hunter)
 	_scale_down(_monster)
 
 
 func _on_master_mouse_entered():
-	_description.visible = true
-	_masters_wr.visible = true
+	_show_labels("master")
 	_scale_up(_master)
 	_scale_up(_monster)
 
+
 func _on_master_mouse_exited():
-	_description.visible = false
-	_masters_wr.visible = false
+	_hide_labels("master")
 	_scale_down(_master)
 	_scale_down(_monster)
 
@@ -165,3 +168,34 @@ func _emit_fight_particles(texture):
 	$Monster/ParticlesSpawn.add_child(p)
 	p.texture = texture
 	p.emit_and_free()
+
+
+func _hide_labels(who: String):
+	if _tween_labels and _tween_labels.is_running():
+		_tween_labels.stop()
+	_tween_labels = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN)
+	_tween_labels.tween_property($Description/Label, "visible_ratio", 0, 0.2)
+	_tween_labels.tween_property($Description/Exp/Label, "visible_ratio", 0, 0.1)
+	if who == "hunter" or who == "monster":
+		_tween_labels.tween_property($Hunter/WR/Label, "visible_ratio", 0, 0.1)
+	if who == "master" or who == "monster":
+		_tween_labels.tween_property($Master/WR/Label, "visible_ratio", 0, 0.1)
+	await _tween_labels.finished
+	_description.visible = false
+	_hunters_wr.visible = false
+	_masters_wr.visible = false
+
+
+func _show_labels(who: String):
+	_description.visible = true
+	if who == "hunter" or who == "monster":
+		_hunters_wr.visible = true
+	if who == "master" or who == "monster":
+		_masters_wr.visible = true
+	if _tween_labels and _tween_labels.is_running():
+		_tween_labels.stop()
+	_tween_labels = get_tree().create_tween().set_parallel(true).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+	_tween_labels.tween_property($Description/Label, "visible_ratio", 1, 0.2)
+	_tween_labels.tween_property($Description/Exp/Label, "visible_ratio", 1, 0.1)
+	_tween_labels.tween_property($Hunter/WR/Label, "visible_ratio", 1, 0.1)
+	_tween_labels.tween_property($Master/WR/Label, "visible_ratio", 1, 0.1)
