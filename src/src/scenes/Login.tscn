@@ -1,29 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://b76a3pqgpeg1c"]
 
 [ext_resource type="Script" path="res://src/scenes/Login.gd" id="1_ihx80"]
-
-[sub_resource type="Gradient" id="Gradient_4u2te"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.548387, 1)
-colors = PackedColorArray(0.494118, 0.25098, 0.462745, 1, 0.168627, 0.192157, 0.384314, 1, 0.556863, 0.729412, 0.847059, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ejfmf"]
-gradient = SubResource("Gradient_4u2te")
-fill_from = Vector2(0.293578, 0.0366972)
-fill_to = Vector2(0.880734, 1)
-
-[sub_resource type="Gradient" id="Gradient_7vt3j"]
-interpolation_mode = 2
-offsets = PackedFloat32Array(0, 0.548387, 1)
-colors = PackedColorArray(0.529412, 0.235294, 0.4, 1, 0.211765, 0.188235, 0.345098, 1, 0.576471, 0.745098, 0.72549, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wphyn"]
-gradient = SubResource("Gradient_7vt3j")
-fill_from = Vector2(0.293578, 0.0366972)
-fill_to = Vector2(0.880734, 1)
+[ext_resource type="Texture2D" uid="uid://dx3fx2sejq5ha" path="res://art/login.png" id="2_dh101"]
+[ext_resource type="Texture2D" uid="uid://dggap0ca36675" path="res://art/box_login.png" id="3_mtn7h"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="4_2dbwj"]
+[ext_resource type="Texture2D" uid="uid://dx466748cdfg2" path="res://art/button.png" id="5_o5oq6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48rdw"]
-font_size = 32
+font = ExtResource("4_2dbwj")
+font_size = 40
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -39,9 +24,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -88.0
+offset_right = 11.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_ejfmf")
+texture = ExtResource("2_dh101")
 stretch_mode = 6
 
 [node name="Box" type="TextureRect" parent="."]
@@ -51,9 +40,13 @@ anchor_left = 0.15
 anchor_top = 0.3
 anchor_right = 0.85
 anchor_bottom = 0.7
+offset_left = -4.00001
+offset_top = -9.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_wphyn")
+texture = ExtResource("3_mtn7h")
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Box"]
@@ -61,6 +54,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 32.0
+offset_right = -36.0
+offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -77,13 +74,14 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="Username" type="LineEdit" parent="Box/VBoxContainer/Input"]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(350, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "Username"
+draw_control_chars = true
 
 [node name="Password" type="LineEdit" parent="Box/VBoxContainer/Input"]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(350, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "Password"
@@ -104,14 +102,22 @@ alignment = 1
 [node name="Login" type="Button" parent="Box/VBoxContainer/Buttons"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 28
 text = "Login"
+icon = ExtResource("5_o5oq6")
+text_overrun_behavior = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="Register" type="Button" parent="Box/VBoxContainer/Buttons"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 28
 text = "Register"
+icon = ExtResource("5_o5oq6")
+text_overrun_behavior = 2
+icon_alignment = 1
+expand_icon = true
 
 [node name="RegisterPOST" type="HTTPRequest" parent="."]
 

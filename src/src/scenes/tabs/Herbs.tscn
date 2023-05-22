@@ -1,12 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://du7igre06pgj3"]
+[gd_scene load_steps=9 format=3 uid="uid://du7igre06pgj3"]
 
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="1_2em46"]
 [ext_resource type="Texture2D" uid="uid://dobn210w0ewtl" path="res://art/backgrounds/green_forest.png" id="1_a0hpa"]
-[ext_resource type="PackedScene" uid="uid://cl4wpxt8kb3ce" path="res://src/scenes/buttons/Clickable.tscn" id="1_aigq2"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="1_da5qb"]
-[ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="2_cqgac"]
 [ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="2_nmo3u"]
-[ext_resource type="PackedScene" uid="uid://ce2attkcv2r11" path="res://src/scenes/buttons/Craftable.tscn" id="3_8q156"]
 
 [sub_resource type="Shader" id="Shader_43x0g"]
 code = "shader_type canvas_item;
@@ -136,7 +133,6 @@ anchor_right = 1.0
 offset_bottom = 100.0
 grow_horizontal = 2
 text = "Herbs & Potions"
-label_settings = ExtResource("2_cqgac")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -172,23 +168,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Nostrix" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-_name = "nostrix"
-
-[node name="Arenaria" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-
-[node name="Wolfsbane" parent="Control/Herbs" instance=ExtResource("1_aigq2")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-_name = "wolfsbane"
-
 [node name="Potions" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
@@ -203,6 +182,3 @@ offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="Swallow" parent="Control/Potions" instance=ExtResource("3_8q156")]
-layout_mode = 2
