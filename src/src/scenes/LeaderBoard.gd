@@ -43,6 +43,7 @@ func _on_get_request_completed(result, response_code, headers, body):
 		return
 	
 	var res = JSON.parse_string(body.get_string_from_utf8())
+	res.sort_custom(func(a, b): return a["power"] > b["power"])  # TODO: senior kostyl
 	for i in range(len(res)):
 		var instance: ScorePanel = row.instantiate()
 		container.add_child(instance)
