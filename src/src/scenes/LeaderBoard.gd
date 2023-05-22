@@ -2,7 +2,7 @@ extends Control
 
 # TODO URL
 var _url := "http://localhost:8000/leaderboard?limit=%d"
-var _num := 25
+var _num := 100
 var _err_counter := 0
 
 @onready var row = preload("res://src/scenes/ScorePanel.tscn")
