@@ -98,6 +98,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_55r7s")
@@ -108,9 +110,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 133.0
-offset_top = 104.0
+offset_top = 135.0
 offset_right = -99.0
-offset_bottom = 170.0
+offset_bottom = 201.0
 grow_horizontal = 2
 texture = ExtResource("3_u6747")
 expand_mode = 1
@@ -123,38 +125,59 @@ offset_top = 400.0
 offset_bottom = 400.0
 grow_horizontal = 2
 
-[node name="Stuff" type="HBoxContainer" parent="Control"]
+[node name="Up" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -244.0
-offset_top = -216.0
-offset_right = 244.0
-offset_bottom = 94.0
+offset_left = -297.0
+offset_top = -178.0
+offset_right = 299.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Bone(r)" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
+[node name="CrystalMeth" parent="Control/Up" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
+_name = "diamond_dust"
+
+[node name="Leather" parent="Control/Up" instance=ExtResource("2_d2f0t")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+_name = "leather_scraps"
+
+[node name="Down" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -386.0
+offset_top = -24.0
+offset_right = 389.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Bone(r)" parent="Control/Down" instance=ExtResource("2_d2f0t")]
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
 _name = "monster_bone"
 
-[node name="Oil" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
+[node name="Oil" parent="Control/Down" instance=ExtResource("2_d2f0t")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-_name = "oil"
-
-[node name="Leather" parent="Control/Stuff" instance=ExtResource("2_d2f0t")]
-layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 4
-_name = "leather_scraps"
+_name = "oil"
 
 [node name="MoreStuff" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -163,20 +186,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = 18.0
-offset_right = 90.0
-offset_bottom = 362.0
+offset_left = -89.0
+offset_top = -125.0
+offset_right = 91.0
+offset_bottom = 219.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 alignment = 1
-
-[node name="CrystalMeth" parent="Control/MoreStuff" instance=ExtResource("2_d2f0t")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-_name = "diamond_dust"
 
 [node name="BiggerMeth" parent="Control/MoreStuff" instance=ExtResource("2_x8wkg")]
 layout_mode = 2
@@ -188,8 +205,8 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 72.0
-offset_bottom = 172.0
+offset_top = 99.0
+offset_bottom = 199.0
 grow_horizontal = 2
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(360, 50)

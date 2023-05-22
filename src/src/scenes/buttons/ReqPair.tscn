@@ -9,12 +9,14 @@ font = ExtResource("2_fwfhf")
 
 [node name="ReqPair" type="HBoxContainer"]
 size_flags_vertical = 4
+mouse_filter = 2
 theme_override_constants/separation = 2
 alignment = 1
 
 [node name="Item" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(14, 14)
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_fg23k")
 expand_mode = 3
 

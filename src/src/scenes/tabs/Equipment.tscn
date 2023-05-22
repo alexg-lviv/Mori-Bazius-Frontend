@@ -110,9 +110,9 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_left = 140.0
-offset_top = 80.0
+offset_top = 58.0
 offset_right = -92.0
-offset_bottom = 146.0
+offset_bottom = 124.0
 grow_horizontal = 2
 texture = ExtResource("3_vos4g")
 expand_mode = 1
@@ -132,12 +132,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -274.0
-offset_top = -188.0
-offset_right = 274.0
-offset_bottom = 126.0
+offset_left = -318.0
+offset_top = -183.0
+offset_right = 321.0
+offset_bottom = 89.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="SilverSword" parent="Control/Basic" instance=ExtResource("2_tl1tu")]
@@ -163,12 +165,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -310.0
-offset_top = 21.5
+offset_top = 60.0
 offset_right = 310.0
-offset_bottom = 446.5
+offset_bottom = 455.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = -65
+mouse_filter = 2
+theme_override_constants/separation = -45
 alignment = 1
 
 [node name="SilverSword" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
@@ -178,7 +181,7 @@ _name = "kingslayers_silver_sword"
 
 [node name="Armor" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_vertical = 0
 _name = "mastercrafted_armor"
 
 [node name="SteelSword" parent="Control/Upgrades" instance=ExtResource("3_nyjc1")]
@@ -192,8 +195,8 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 45.0
-offset_bottom = 145.0
+offset_top = 21.0
+offset_bottom = 121.0
 grow_horizontal = 2
 scale = Vector2(0.7, 0.7)
 pivot_offset = Vector2(360, 50)

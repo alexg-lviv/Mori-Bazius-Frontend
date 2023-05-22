@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bl11ahmpyl3qd" path="res://art/UI/butts/upgrade_disabled.png" id="4_tc3iy"]
 
 [node name="Upgrades" instance=ExtResource("1_2btxo")]
-custom_minimum_size = Vector2(250, 250)
+custom_minimum_size = Vector2(225, 225)
 offset_right = 200.0
 offset_bottom = 200.0
 pivot_offset = Vector2(125, 125)
@@ -20,13 +20,6 @@ offset_left = 81.0
 offset_top = 74.0
 offset_right = -81.0
 offset_bottom = -97.0
-mouse_filter = 1
 
 [node name="Description" parent="." index="1"]
-mouse_filter = 1
-
-[node name="Power" parent="Description" index="1"]
-mouse_filter = 1
-
-[node name="TextureRect" parent="Description/Power" index="0"]
-mouse_filter = 1
+offset_top = -261.0

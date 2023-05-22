@@ -14,7 +14,7 @@ shader = ExtResource("1_5sqio")
 shader_parameter/radius = 2.0
 shader_parameter/modulate = Color(0.219608, 0, 0.192157, 0.862745)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_je088"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_goghf"]
 resource_local_to_scene = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_oalyw"]
@@ -34,7 +34,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_je088")
+material = SubResource("ShaderMaterial_goghf")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -54,18 +54,22 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -193.0
+offset_bottom = 30.0
 grow_horizontal = 2
 mouse_filter = 2
 alignment = 1
 
 [node name="ItemName" type="Label" parent="Description"]
 layout_mode = 2
+size_flags_vertical = 2
 text = "Nostrix"
 label_settings = ExtResource("6_v7i5e")
 horizontal_alignment = 1
 
 [node name="Power" type="HBoxContainer" parent="Description"]
 layout_mode = 2
+size_flags_vertical = 10
 mouse_filter = 2
 alignment = 1
 
