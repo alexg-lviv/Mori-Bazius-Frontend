@@ -104,10 +104,10 @@ void fragment() {
 [resource]
 shader = SubResource("Shader_a0loa")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 4.0
+shader_parameter/width = 6.0
 shader_parameter/pattern = 1
 shader_parameter/inside = true
 shader_parameter/add_margins = true
-shader_parameter/strength = 0.5
+shader_parameter/strength = 0.4
 shader_parameter/speed = 0.5
-shader_parameter/angle = 0.0
+shader_parameter/angle = 340.0
