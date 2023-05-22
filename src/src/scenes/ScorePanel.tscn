@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddmgs6yrsevil"]
+[gd_scene load_steps=8 format=3 uid="uid://ddmgs6yrsevil"]
 
 [ext_resource type="Script" path="res://src/scenes/ScorePanel.gd" id="1_v16ir"]
 [ext_resource type="Texture2D" uid="uid://bj2mop4yxpyk" path="res://art/panel.png" id="2_8gknu"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="3_k35gk"]
+[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="3_mo0fa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dfluu"]
+font = ExtResource("3_k35gk")
+font_size = 67
+font_color = Color(1, 0.815686, 0.509804, 1)
+shadow_size = 10
+shadow_color = Color(0.192157, 0.0627451, 0.211765, 0.509804)
+shadow_offset = Vector2(5, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wpcde"]
+font = ExtResource("3_k35gk")
+font_size = 44
+shadow_size = 5
+shadow_color = Color(0.180392, 0.0666667, 0.25098, 0.6)
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkk05"]
+font = ExtResource("3_mo0fa")
+font_size = 38
+shadow_size = 5
+shadow_color = Color(0.192157, 0.0627451, 0.211765, 0.509804)
+shadow_offset = Vector2(5, 3)
 
 [node name="ScorePanel" type="HBoxContainer"]
 anchors_preset = 15
@@ -19,6 +43,7 @@ script = ExtResource("1_v16ir")
 
 [node name="Icon" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.705882)
+clip_contents = true
 layout_mode = 2
 texture = ExtResource("2_8gknu")
 
@@ -33,28 +58,31 @@ offset_right = -30.0
 offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 35
 
 [node name="Label" type="Label" parent="Icon/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "1"
+label_settings = SubResource("LabelSettings_dfluu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerName" type="Label" parent="Icon/HBoxContainer"]
-custom_minimum_size = Vector2(365, 0)
+custom_minimum_size = Vector2(340, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Player Name"
+label_settings = SubResource("LabelSettings_wpcde")
 vertical_alignment = 1
 
 [node name="Score" type="Label" parent="Icon/HBoxContainer"]
-custom_minimum_size = Vector2(170, 0)
+custom_minimum_size = Vector2(155, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "1000
 "
+label_settings = SubResource("LabelSettings_rkk05")
 horizontal_alignment = 1
 vertical_alignment = 1

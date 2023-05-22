@@ -55,6 +55,11 @@ func _on_get_request_completed(result, response_code, headers, body):
 func _on_visibility_changed():
 	if not visible:
 		return
+
+	for row in container.get_children():
+		container.remove_child(row)
+		row.queue_free()
+
 	_curr_player.update_score_panel("-", Items.credentials["player_name"], Items.stats["power"])
 	_get_leaderboard()
 
