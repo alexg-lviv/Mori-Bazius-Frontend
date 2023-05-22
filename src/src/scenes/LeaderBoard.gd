@@ -2,7 +2,7 @@ extends Control
 
 # TODO URL
 var _url := "http://localhost:8000/leaderboard?limit=%d"
-var _num := 1
+var _num := 25
 var _err_counter := 0
 
 @onready var row = preload("res://src/scenes/ScorePanel.tscn")
@@ -10,6 +10,11 @@ var _err_counter := 0
 
 @onready var _GET = get_node('GET')
 
+@onready var _curr_player = get_node("CurrPlayer") as ScorePanel
+
+
+func _ready():
+	_curr_player.icon.material = load("res://materials/leaderboard_row_outline.tres")
 
 
 func _get_leaderboard():
@@ -38,21 +43,19 @@ func _on_get_request_completed(result, response_code, headers, body):
 		return
 	
 	var res = JSON.parse_string(body.get_string_from_utf8())
-	print(res)
-	if res:
-		print("OK")
-		for i in range(len(res)):
-			var instance: ScorePanel = row.instantiate()
-			container.add_child(instance)
-			instance.update_score_panel(i + 1, res[i]["player_name"], res[i]["power"])
-	else:
-		# TODO: jsonification error
-		pass
+	for i in range(len(res)):
+		var instance: ScorePanel = row.instantiate()
+		container.add_child(instance)
+		instance.update_score_panel(i + 1, res[i]["player_name"], res[i]["power"])
+		if res[i]["player_id"] == Items.credentials["player_id"]:
+			instance.icon.material = load("res://materials/leaderboard_row_outline.tres")
+			_curr_player.update_score_panel(i + 1, res[i]["player_name"], res[i]["power"])
 
 
 func _on_visibility_changed():
 	if not visible:
 		return
+	_curr_player.update_score_panel("-", Items.credentials["player_name"], Items.stats["power"])
 	_get_leaderboard()
 
 
