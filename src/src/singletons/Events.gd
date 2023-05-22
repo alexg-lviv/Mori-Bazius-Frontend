@@ -227,6 +227,7 @@ func _on_get_stats_request_completed(_result, response_code, _headers, body):
 	if response_code != 200:
 		_send_GET_to_stats()
 		_GET_stats_errors_counter += 1
+		return
 
 	Items.stats = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
 	
@@ -243,6 +244,7 @@ func _on_get_resources_request_completed(_result, response_code, _headers, body)
 	if response_code != 200:
 		_send_GET_to_resources()
 		_GET_resources_errors_counter += 1
+		return
 
 	Items.qty = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
 	

@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4cme045vht6y"]
+[gd_scene load_steps=12 format=3 uid="uid://b4cme045vht6y"]
 
-[ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
 [ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
 [ext_resource type="Texture2D" uid="uid://bma5xm0gypiif" path="res://art/backgrounds/space.png" id="2_df00a"]
 [ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="3_stxkd"]
@@ -117,16 +116,6 @@ expand_mode = 1
 
 [node name="GET" type="HTTPRequest" parent="."]
 
-[node name="Title" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 58.0
-offset_top = 175.0
-offset_right = 656.0
-offset_bottom = 251.0
-texture = ExtResource("1_qv8ih")
-expand_mode = 1
-
 [node name="PanelShadow" type="TextureRect" parent="."]
 modulate = Color(0.290196, 0.290196, 0.290196, 0.462745)
 layout_mode = 1
@@ -197,18 +186,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
-[node name="ScorePanel9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.760784, 1, 0.976471, 1)
 custom_minimum_size = Vector2(0, 100)
@@ -243,4 +220,5 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_3bsyl")
 
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]

@@ -22,31 +22,39 @@ self_modulate = Color(1, 1, 1, 0.705882)
 layout_mode = 2
 texture = ExtResource("2_8gknu")
 
-[node name="Label" type="Label" parent="Icon"]
-layout_mode = 0
-offset_left = 50.0
-offset_top = 20.0
-offset_right = 79.0
-offset_bottom = 92.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Icon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 40.0
+offset_right = -30.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Icon/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 45
 text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="PlayerName" type="Label" parent="Icon"]
+[node name="PlayerName" type="Label" parent="Icon/HBoxContainer"]
+custom_minimum_size = Vector2(365, 0)
 layout_mode = 2
-offset_left = 163.0
-offset_top = 10.0
-offset_right = 535.0
-offset_bottom = 96.0
 theme_override_font_sizes/font_size = 40
 text = "Player Name"
 vertical_alignment = 1
 
-[node name="Score" type="Label" parent="Icon"]
+[node name="Score" type="Label" parent="Icon/HBoxContainer"]
+custom_minimum_size = Vector2(170, 0)
 layout_mode = 2
-offset_left = 535.0
-offset_top = 28.0
-offset_right = 671.0
-offset_bottom = 114.0
 theme_override_font_sizes/font_size = 40
 text = "1000
 "
+horizontal_alignment = 1
+vertical_alignment = 1
