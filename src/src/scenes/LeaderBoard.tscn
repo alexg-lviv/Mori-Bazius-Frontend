@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4cme045vht6y"]
+[gd_scene load_steps=14 format=3 uid="uid://b4cme045vht6y"]
 
-[ext_resource type="Texture2D" uid="uid://jairwk2v3t2q" path="res://art/UI/title.png" id="1_qv8ih"]
 [ext_resource type="Script" path="res://src/scenes/LeaderBoard.gd" id="1_yiobh"]
 [ext_resource type="Texture2D" uid="uid://bma5xm0gypiif" path="res://art/backgrounds/space.png" id="2_df00a"]
 [ext_resource type="Texture2D" uid="uid://2cq7sowc86m8" path="res://art/backgrounds/cave.png" id="3_stxkd"]
 [ext_resource type="PackedScene" uid="uid://ddmgs6yrsevil" path="res://src/scenes/ScorePanel.tscn" id="4_woepx"]
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="6_q6cwo"]
+[ext_resource type="Material" uid="uid://cpgyf7n0v5g10" path="res://materials/leaderboard_row_outline.tres" id="7_d42ru"]
+[ext_resource type="Texture2D" uid="uid://cto6s1wmc83qt" path="res://art/UI/rects/simple_filled.png" id="7_fq0vi"]
 [ext_resource type="LabelSettings" uid="uid://brugr8yoiyt5t" path="res://labels/Tabs.tres" id="7_sjo0y"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="8_3bsyl"]
 
@@ -117,16 +118,6 @@ expand_mode = 1
 
 [node name="GET" type="HTTPRequest" parent="."]
 
-[node name="Title" type="TextureRect" parent="."]
-visible = false
-layout_mode = 0
-offset_left = 58.0
-offset_top = 175.0
-offset_right = 656.0
-offset_bottom = 251.0
-texture = ExtResource("1_qv8ih")
-expand_mode = 1
-
 [node name="PanelShadow" type="TextureRect" parent="."]
 modulate = Color(0.290196, 0.290196, 0.290196, 0.462745)
 layout_mode = 1
@@ -155,59 +146,15 @@ expand_mode = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_top = 274.0
+offset_top = 303.0
 offset_right = 722.0
-offset_bottom = 1071.0
+offset_bottom = 820.0
 scroll_deadzone = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="ScorePanel" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel3" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel4" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel5" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel6" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel7" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel8" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel9" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel10" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-
-[node name="ScorePanel11" parent="ScrollContainer/VBoxContainer" instance=ExtResource("4_woepx")]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.760784, 1, 0.976471, 1)
@@ -243,4 +190,85 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_3bsyl")
 
+[node name="Sep" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 279.5
+offset_bottom = 284.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -20
+alignment = 1
+
+[node name="Sep" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep2" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep5" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep6" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep7" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep8" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="Sep3" type="TextureRect" parent="Sep"]
+material = ExtResource("7_d42ru")
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+texture = ExtResource("7_fq0vi")
+stretch_mode = 6
+
+[node name="CurrPlayer" parent="." instance=ExtResource("4_woepx")]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 1
+offset_left = 0.0
+offset_top = 932.0
+offset_right = 0.0
+offset_bottom = -198.0
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="request_completed" from="GET" to="." method="_on_get_request_completed"]

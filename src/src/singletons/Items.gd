@@ -221,14 +221,14 @@ var qty: Dictionary = {
 	"leather_scraps": 0,
 	"oil": 0,
 	
-	"armor": 3,
-	"mastercrafted_armor": 1,
+	"armor": 1,
+	"mastercrafted_armor": 0,
 	
-	"steel_sword": 3,
-	"kingslayers_steel_sword": 1,
+	"steel_sword": 1,
+	"kingslayers_steel_sword": 0,
 	
-	"silver_sword": 3,
-	"kingslayers_silver_sword": 1,
+	"silver_sword": 1,
+	"kingslayers_silver_sword": 0,
 }
 
 var stats: Dictionary = {

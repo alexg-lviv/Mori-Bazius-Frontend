@@ -2,8 +2,9 @@ extends Control
 class_name ScorePanel
 
 @onready var icon = get_node("Icon")
-@onready var player_name = get_node("Icon/PlayerName")
-@onready var score = get_node("Icon/Score")
+@onready var _rank = get_node("Icon/HBoxContainer/Label")
+@onready var _player_name = get_node("Icon/HBoxContainer/PlayerName")
+@onready var _score = get_node("Icon/HBoxContainer/Score")
 
 var images: Dictionary = {
 	1: load("res://art/UI/rank.png")
@@ -20,8 +21,8 @@ const players_data: Dictionary = {
 	}
 }
 
-
-func update_score_panel(rank, name, score):
-	icon.texture = images[1]
-	player_name.text = name
-	score.text = score
+func update_score_panel(rank, name_, score):
+	_rank.text = str(rank)
+#	icon.texture = images[1]
+	_player_name.text = name_
+	_score.text = str(score)
