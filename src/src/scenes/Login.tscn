@@ -785,7 +785,7 @@ position = Vector2(360, 640)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_l83lq")
 autoplay = "default"
-frame_progress = 0.282674
+frame_progress = 0.993824
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
@@ -817,7 +817,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Header" type="Label" parent="Box/VBoxContainer"]
@@ -830,7 +830,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="Username" type="LineEdit" parent="Box/VBoxContainer/Input"]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(350, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("5_2pjuo")
@@ -838,7 +838,7 @@ theme_override_font_sizes/font_size = 32
 placeholder_text = "Username"
 
 [node name="Password" type="LineEdit" parent="Box/VBoxContainer/Input"]
-custom_minimum_size = Vector2(300, 50)
+custom_minimum_size = Vector2(350, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("5_2pjuo")
