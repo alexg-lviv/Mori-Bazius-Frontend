@@ -14,7 +14,7 @@ shader = ExtResource("1_5sqio")
 shader_parameter/radius = 2.0
 shader_parameter/modulate = Color(0.219608, 0, 0.192157, 0.862745)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cdm3"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tcuvw"]
 resource_local_to_scene = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_oalyw"]
@@ -34,7 +34,7 @@ script = ExtResource("2_mfgya")
 _name = "arenaria"
 
 [node name="Item" parent="." instance=ExtResource("4_myaf2")]
-material = SubResource("ShaderMaterial_3cdm3")
+material = SubResource("ShaderMaterial_tcuvw")
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
