@@ -13,7 +13,7 @@ config_version=5
 config/name="WithcerClicker"
 run/main_scene="res://src/scenes/Login.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://art/mini_logo.png"
 
 [autoload]
 
