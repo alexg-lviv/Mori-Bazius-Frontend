@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cmqhm60gmfj0g"]
 
 [ext_resource type="Script" path="res://src/scenes/UI/ErrorPopup.gd" id="1_ktbx3"]
-[ext_resource type="Texture2D" uid="uid://cn6s1tt3qtsau" path="res://art/blank.png" id="2_0ebv8"]
+[ext_resource type="Texture2D" uid="uid://bxb3epre0o1ga" path="res://art/blank.png" id="2_0ebv8"]
 [ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="3_tmjmm"]
 [ext_resource type="Texture2D" uid="uid://d4lcs8mnfq6dt" path="res://art/UI/rects/clouds_crop.png" id="4_2k60f"]
 

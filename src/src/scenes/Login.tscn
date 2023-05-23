@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b76a3pqgpeg1c"]
 
 [ext_resource type="Script" path="res://src/scenes/Login.gd" id="1_ihx80"]
-[ext_resource type="Texture2D" uid="uid://dx3fx2sejq5ha" path="res://art/login.png" id="2_dh101"]
-[ext_resource type="Texture2D" uid="uid://dggap0ca36675" path="res://art/box_login.png" id="3_mtn7h"]
+[ext_resource type="Texture2D" uid="uid://d2o1y27c8wm6k" path="res://art/login.png" id="2_dh101"]
+[ext_resource type="Texture2D" uid="uid://bwgck6uqtlx64" path="res://art/box_login.png" id="3_mtn7h"]
 [ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="4_2dbwj"]
-[ext_resource type="Texture2D" uid="uid://dx466748cdfg2" path="res://art/button.png" id="5_o5oq6"]
+[ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="5_o5oq6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48rdw"]
 font = ExtResource("4_2dbwj")
