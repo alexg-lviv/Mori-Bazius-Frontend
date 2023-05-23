@@ -1,5 +1,12 @@
 <h1 align="center">Mori Bazius (front-end)</h1>
 
+<img align="center" src="https://github.com/alexg-lviv/hunter_clicker_front/assets/73172589/d514fd23-86c1-4afe-9c40-d7e3c6017489">
+
+---
+
+<img align="left" src="https://github.com/alexg-lviv/hunter_clicker_front/assets/73172589/0ea238fd-788a-4e8e-8fe6-96646e041add" width=256>
+
+
 **Mori Bazius** is a _2D fantasy clicker game_ for mobile devices. It was developed as a project for Software Architecture and Big Data courses. This repository contains front-end part of the project. Back-end repository can be found [here](https://github.com/Adeon18/Mori-Bazius-Backend).
 
 The main idea of the game is to farm resources and reach rank 1 in the leaderboard. Player should click on basic resources, craft them with each other and upgrade. Use the new items to equip hunters and fight monsters.
