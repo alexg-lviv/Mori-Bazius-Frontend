@@ -17,8 +17,8 @@ var _err_tween
 
 @onready var _error_label = get_node("Box/VBoxContainer/Error") as Label
 
-@onready var _register_button = get_node("Box/VBoxContainer/Buttons/Register") as Button
-@onready var _login_button = get_node("Box/VBoxContainer/Buttons/Login") as Button
+@onready var _register_button = get_node("Box/VBoxContainer/Buttons/Register") as TextureButton
+@onready var _login_button = get_node("Box/VBoxContainer/Buttons/Login") as TextureButton
 
 @onready var _register_post = get_node("RegisterPOST") as HTTPRequest
 @onready var _login_post = get_node("LoginPOST") as HTTPRequest
