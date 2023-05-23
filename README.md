@@ -6,6 +6,7 @@ The main idea of the game is to farm resources and reach rank 1 in the leaderboa
 
 <h2 align="center">Overview</h2>
 There are _2 metrics_ to estimate the player _progress_ in the game:
+
 1. **Power**: each item and hunter has its own power. The total power of the player is a sum of individual powers of all items he has.
 2. **Level**: the only way to gain experience points is to kill monsters. For that, player should equip or upgrade his hunters. During a fight, hunters can die, and the total power is thus reduces, so the player should find a balance of the optimal level and power gaining strategies.
 
@@ -33,6 +34,22 @@ Also there are different monsters available:
 - [x] Wyvern: the most dangerous one, hard to kill and gives many experience points
 
 Players can compare their game progress using the **Leaderboard**: a ranking system providing top-most players and their stats.
+
+<h2 align="center">Mechanics</h2>
+**Main mechanics** intended:
+
+- [x] Registration and login pages
+- [x] Clickable resources
+- [x] Craftable resources
+- [x] Saving system of the game progress
+- [x] Hunters recruitment
+- [x] Fighting monsters
+- [x] Leaderboard
+- [ ] Different schools of hunters to be chosen on account creation
+- [ ] Guilds for the same schools of players
+- [ ] Guild wars between different kinds of hunters
+- [ ] Trading system between players
+- [ ] Dynamic content based on the player's progress (new resources, monsters)
 
 <h2 align="center">Contributors</h2>
 
