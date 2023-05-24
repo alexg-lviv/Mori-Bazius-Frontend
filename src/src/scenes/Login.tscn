@@ -734,7 +734,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 14.0
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48rdw"]
@@ -785,7 +785,8 @@ position = Vector2(360, 640)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_l83lq")
 autoplay = "default"
-frame_progress = 0.993824
+frame = 104
+frame_progress = 0.959155
 
 [node name="Back" type="TextureRect" parent="."]
 visible = false
