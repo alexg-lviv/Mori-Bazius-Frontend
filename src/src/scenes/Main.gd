@@ -31,7 +31,7 @@ func _physics_process(_delta):
 	
 	Events.emit_signal("set_qty")
 	
-	get_tree().set_auto_accept_quit(false)
+	get_tree().set_auto_accept_quit(true)
 
 	
 func _on_save_timer_timeout():

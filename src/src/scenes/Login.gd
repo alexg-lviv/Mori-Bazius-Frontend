@@ -25,6 +25,8 @@ var _err_tween
 
 
 func _ready():
+	# if second and more time redicterected here, disable saving on game exit during login
+	get_tree().set_auto_accept_quit(false)
 	_error_label.visible_ratio = 0
 
 
