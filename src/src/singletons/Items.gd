@@ -171,8 +171,8 @@ const data: Dictionary = {
 		"requirements": {
 			"hunter": 1,
 			"swallow_potion": 10,
-			"silver_sword": 1,
-			"steel_sword": 1,
+			"kingslayers_silver_sword": 1,
+			"kingslayers_steel_sword": 1,
 			"armor": 1,
 		},
 	},
