@@ -88,10 +88,10 @@ func _parse_response(response_code, body):
 	elif "user already exists" in res:
 		_show_error("This username is already taken.")
 		return false
-	elif "Internal Server Error" in res:
+	elif "Internal Server Error" in res or res.is_empty():
 		_show_error("Error occured. Try later.")
 		return false
-#
+
 	res = JSON.parse_string(JSON.parse_string(res)) # kek
 	
 	Items.credentials["player_id"] = int(res["uid"])

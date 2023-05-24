@@ -222,3 +222,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_b5qts")
+
+[node name="Craftable" parent="." instance=ExtResource("2_tl1tu")]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 743.0
+offset_right = 356.0
+offset_bottom = 923.0
+_name = "hunter"
+
+[node name="Craftable2" parent="." instance=ExtResource("2_tl1tu")]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 747.0
+offset_right = 552.0
+offset_bottom = 927.0
+_name = "master"
