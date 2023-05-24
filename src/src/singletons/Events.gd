@@ -259,6 +259,25 @@ func _display_error():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		emit_signal("save")
-		await get_tree().create_timer(0.05).timeout
+		var err_resources = _POST_resources.request(
+			_url % ["resources", Items.credentials["player_id"]],
+			["Content-Type: application/json"],
+			HTTPClient.METHOD_POST,
+			JSON.stringify(_combine_dict_with_credentials(Items.qty))
+		)
+		print("Sent POST to resources with code ", err_resources)
+		if err_resources == Error.OK:
+			await _POST_resources.request_completed
+		
+		var err_stats = _POST_stats.request(
+			_url % ["stats", Items.credentials["player_id"]],
+			["Content-Type: application/json"],
+			HTTPClient.METHOD_POST,
+			JSON.stringify(_combine_dict_with_credentials(Items.stats))
+		)
+		print("Sent POST to stats with code ", err_stats)
+		if err_resources == Error.OK:
+			await _POST_stats.request_completed
+		
+#		await get_tree().create_timer(0.05).timeout
 		get_tree().quit() # default behavior

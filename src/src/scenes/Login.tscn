@@ -799,6 +799,7 @@ texture = ExtResource("2_x30hv")
 stretch_mode = 6
 
 [node name="Box" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.823529)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.15
