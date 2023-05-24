@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmqhm60gmfj0g"]
+[gd_scene load_steps=9 format=3 uid="uid://cmqhm60gmfj0g"]
 
-[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="1_0w6vr"]
 [ext_resource type="Script" path="res://src/scenes/UI/ErrorPopup.gd" id="1_ktbx3"]
+[ext_resource type="Texture2D" uid="uid://bwgck6uqtlx64" path="res://art/box_login.png" id="2_ie14f"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="3_hhlhc"]
+[ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="4_yalcf"]
+
+[sub_resource type="Gradient" id="Gradient_qia2w"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.387097, 0.787097, 1)
+colors = PackedColorArray(0.368627, 0.368627, 0.368627, 0, 0.486275, 0.294118, 0.4, 0.290196, 0.247059, 0.192157, 0.4, 0.129412, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rlt7f"]
+gradient = SubResource("Gradient_qia2w")
+width = 720
+height = 1280
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xwqbm"]
+font = ExtResource("3_hhlhc")
+font_size = 52
+
+[sub_resource type="LabelSettings" id="LabelSettings_1rv4g"]
+font = ExtResource("3_hhlhc")
+font_size = 42
 
 [node name="ErrorPopup" type="Control"]
 layout_mode = 3
@@ -21,19 +42,30 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Back" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rlt7f")
+
 [node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.584314, 0.780392, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -208.0
-offset_top = -422.0
-offset_right = 155.0
-offset_bottom = 20.0
+offset_left = -264.0
+offset_top = -221.0
+offset_right = 255.0
+offset_bottom = 221.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_ie14f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect"]
 layout_mode = 1
@@ -45,16 +77,23 @@ grow_vertical = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(275, 200)
 layout_mode = 2
-text = "Срай"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Server error
+Please come back later"
+label_settings = SubResource("LabelSettings_xwqbm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TextureButton" type="TextureButton" parent="TextureRect/VBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(250, 125)
 layout_mode = 2
-texture_normal = ExtResource("1_0w6vr")
-stretch_mode = 6
+size_flags_horizontal = 4
+size_flags_vertical = 2
+texture_normal = ExtResource("4_yalcf")
+stretch_mode = 0
 
 [node name="Label" type="Label" parent="TextureRect/VBoxContainer/TextureButton"]
 layout_mode = 1
@@ -63,7 +102,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Back to Main Menu"
+text = "Back to
+Main Menu"
+label_settings = SubResource("LabelSettings_1rv4g")
 horizontal_alignment = 1
 vertical_alignment = 1
 

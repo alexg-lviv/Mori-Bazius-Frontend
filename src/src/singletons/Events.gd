@@ -94,7 +94,7 @@ func _send_POST_to_resources():
 	var attempts = 5
 	while attempts >= 0:
 		var err_resources = _POST_resources.request(
-			_url % ["resources", Items.credentials["player_id"]],
+			_url % ["resources", Items.credentials["player_id"]] + "REMOVETHIS",
 			["Content-Type: application/json"],
 			HTTPClient.METHOD_POST,
 			JSON.stringify(_combine_dict_with_credentials(Items.qty))
@@ -254,7 +254,7 @@ func _on_get_resources_request_completed(_result, response_code, _headers, body)
 func _display_error():
 	var popup = _error_popup.instantiate()
 	get_tree().get_root().add_child(popup)
-	popup.error = "Server error. Please come back later."
+#	popup.error = "Server error.\nPlease come back later."
 
 
 func _notification(what):
