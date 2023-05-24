@@ -40,7 +40,8 @@ func _save_credentials():
 
 
 func _load_game_scene():
-	get_tree().get_root().add_child(_game_scene)
+	await ScenesTrans.change_scene(_game_scene, ScenesTrans.TransitionType.LEAVES)
+#	get_tree().get_root().add_child(_game_scene)
 
 
 func _on_register_pressed():
@@ -113,7 +114,7 @@ func _on_register_post_request_completed(_result, response_code, _headers, body)
 	Items.stats["power"] += Items.stats["masters"] * Items.data["master"]["power"]
 		
 	Events.emit_signal("save")
-	_load_game_scene()
+	await _load_game_scene()
 	queue_free()
 
 
@@ -123,5 +124,5 @@ func _on_login_post_request_completed(_result, response_code, _headers, body):
 		return
 	
 	Events.emit_signal("pull")
-	_load_game_scene()
+	await _load_game_scene()
 	queue_free()
