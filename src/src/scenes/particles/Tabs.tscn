@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://rq4ueopo3cq3"]
+
+[ext_resource type="PackedScene" uid="uid://3q1xe1hwk7il" path="res://src/scenes/particles/Leaves.tscn" id="1_mdlfe"]
+[ext_resource type="Texture2D" uid="uid://dvfjmd5ejyfe3" path="res://art/items/clickable/herbs/arenaria.png" id="2_dv4dn"]
+
+[sub_resource type="Gradient" id="Gradient_gu2sk"]
+offsets = PackedFloat32Array(0, 0.503704, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.686275, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eejim"]
+gradient = SubResource("Gradient_gu2sk")
+
+[sub_resource type="Curve" id="Curve_4qenf"]
+_data = [Vector2(0.0240964, 1), 0.0, 0.0, 0, 0, Vector2(0.686747, 0.345455), -4.31169, -4.31169, 0, 0, Vector2(0.825301, 0.145455), -1.11196, -1.11196, 0, 0, Vector2(1, 0), -0.359307, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_jqowg"]
+curve = SubResource("Curve_4qenf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wt83b"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 360.0
+emission_ring_inner_radius = 0.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1000, 0)
+spread = 90.0
+gravity = Vector3(0, -3000, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+angular_velocity_min = 20.0
+angular_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 35.0
+damping_max = 100.0
+scale_min = 10.0
+scale_max = 15.0
+scale_curve = SubResource("CurveTexture_jqowg")
+color_ramp = SubResource("GradientTexture1D_eejim")
+
+[node name="Tabs" instance=ExtResource("1_mdlfe")]
+position = Vector2(360, 1350)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_wt83b")
+texture = ExtResource("2_dv4dn")
+lifetime = 0.5
