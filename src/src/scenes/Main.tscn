@@ -94,6 +94,10 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 
+[node name="Stats" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
 [node name="SaveTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
