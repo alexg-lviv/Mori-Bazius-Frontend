@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://3q1xe1hwk7il"]
+
+[ext_resource type="Texture2D" uid="uid://c08y7wwd4u3ab" path="res://art/particles/leaf.png" id="1_xq1m4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bmmqr"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 360.0
+emission_ring_inner_radius = 0.0
+particle_flag_disable_z = true
+direction = Vector3(0, 1000, 0)
+spread = 50.0
+gravity = Vector3(0, 3000, 0)
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+angular_velocity_min = 20.0
+angular_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 35.0
+damping_max = 100.0
+scale_min = 0.1
+scale_max = 0.3
+
+[node name="Leaves" type="GPUParticles2D"]
+position = Vector2(360, 0)
+emitting = false
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_bmmqr")
+texture = ExtResource("1_xq1m4")
+lifetime = 1.25
+one_shot = true
+explosiveness = 1.0
+randomness = 0.26

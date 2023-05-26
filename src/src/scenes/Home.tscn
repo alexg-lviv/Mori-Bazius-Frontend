@@ -53,3 +53,8 @@ layout_mode = 2
 [node name="Utility" parent="TabContainer" instance=ExtResource("8_soics")]
 visible = false
 layout_mode = 2
+
+[connection signal="visibility_changed" from="TabContainer/Herbs" to="." method="_on_herbs_visibility_changed"]
+[connection signal="visibility_changed" from="TabContainer/Metals" to="." method="_on_metals_visibility_changed"]
+[connection signal="visibility_changed" from="TabContainer/Equipment" to="." method="_on_equipment_visibility_changed"]
+[connection signal="visibility_changed" from="TabContainer/Utility" to="." method="_on_utility_visibility_changed"]
