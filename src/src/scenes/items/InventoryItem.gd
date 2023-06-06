@@ -19,4 +19,4 @@ func _show_stat():
 	if s > 0:
 		$Stat.text = str(s)
 	else:
-		$Stat.text = ""
+		$Stat.text = "---"
