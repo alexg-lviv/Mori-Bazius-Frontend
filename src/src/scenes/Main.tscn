@@ -125,4 +125,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [connection signal="tab_selected" from="TabContainer" to="." method="_on_tab_container_tab_selected"]
+[connection signal="visibility_changed" from="TabContainer/Inventory" to="." method="_on_inventory_visibility_changed"]
 [connection signal="timeout" from="SaveTimer" to="." method="_on_save_timer_timeout"]

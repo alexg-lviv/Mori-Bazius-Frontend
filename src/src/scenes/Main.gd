@@ -19,6 +19,7 @@ var num_tabs = 4
 
 var active = 0
 
+
 @onready var TabsContainer = get_node("TabContainer")
 
 func _physics_process(_delta):
@@ -41,3 +42,8 @@ func _on_save_timer_timeout():
 
 func _on_tab_container_tab_selected(tab):
 	active = tab
+
+
+func _on_inventory_visibility_changed():
+	if $TabContainer/Inventory.visible:
+		Events.emit_signal("pull_items_stats")
