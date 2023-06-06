@@ -28,10 +28,11 @@ func _physics_process(_delta):
 		else:
 			TabsContainer.set_tab_icon(i, icons[i])
 		TabsContainer.set_tab_title(i, "")
-	
+
+func _ready():
 	Events.emit_signal("set_qty")
 	
-	get_tree().set_auto_accept_quit(true)
+	get_tree().set_auto_accept_quit(false)  # Handle exit to emit save
 
 	
 func _on_save_timer_timeout():
