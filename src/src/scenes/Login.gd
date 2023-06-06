@@ -26,7 +26,7 @@ var _err_tween
 
 func _ready():
 	# if second and more time redicterected here, disable saving on game exit during login
-	get_tree().set_auto_accept_quit(false)
+	get_tree().set_auto_accept_quit(true)
 	_error_label.visible_ratio = 0
 
 
@@ -95,7 +95,7 @@ func _parse_response(response_code, body):
 		_show_error("Error occured. Try later.")
 		return false
 
-	res = JSON.parse_string(JSON.parse_string(res)) # kek
+	res = JSON.parse_string(res)
 	
 	Items.credentials["player_id"] = int(res["uid"])
 	Items.credentials["token"] = res["token"].substr(1, 40)

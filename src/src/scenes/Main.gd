@@ -19,6 +19,7 @@ var num_tabs = 4
 
 var active = 0
 
+
 @onready var TabsContainer = get_node("TabContainer")
 
 func _physics_process(_delta):
@@ -28,10 +29,11 @@ func _physics_process(_delta):
 		else:
 			TabsContainer.set_tab_icon(i, icons[i])
 		TabsContainer.set_tab_title(i, "")
-	
+
+func _ready():
 	Events.emit_signal("set_qty")
 	
-	get_tree().set_auto_accept_quit(true)
+	get_tree().set_auto_accept_quit(false)  # Handle exit to emit save
 
 	
 func _on_save_timer_timeout():
@@ -40,3 +42,8 @@ func _on_save_timer_timeout():
 
 func _on_tab_container_tab_selected(tab):
 	active = tab
+
+
+func _on_inventory_visibility_changed():
+	if $TabContainer/Inventory.visible:
+		Events.emit_signal("pull_items_stats")

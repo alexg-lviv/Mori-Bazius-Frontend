@@ -1,7 +1,7 @@
 extends Control
 
 # TODO URL
-var _url := "http://localhost:8000/leaderboard?limit=%d"
+var _url := "http://localhost:9000/game_data/leaderboard?limit=%d"
 var _num := 100
 var _err_counter := 0
 
