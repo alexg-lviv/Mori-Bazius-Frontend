@@ -215,18 +215,14 @@ func _notification(what):
 		)
 		print("Sent POST to resources with code ", err_resources)
 		if err_resources == Error.OK:
-			print("Awaiting")
 			await _POST_resources.request_completed
-			print("Resumed")
 
-		print(_POST_stats)
 		var err_stats = _POST_stats.request(
 			_url % ["stats", Items.credentials["player_id"]],
 			["Content-Type: application/json"],
 			HTTPClient.METHOD_POST,
 			JSON.stringify(_combine_dict_with_credentials(Items.stats))
 		)
-		print(err_stats)
 		print("Sent POST to stats with code ", err_stats)
 		if err_stats == Error.OK:
 			await _POST_stats.request_completed
