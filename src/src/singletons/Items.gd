@@ -245,34 +245,6 @@ var credentials: Dictionary = {
 	"player_name": null,
 }
 
-var items_stats: Dictionary = {
-	"arenaria": 0,
-	"nostrix": 0,
-	"wolfsbane": 0,
-	
-	"swallow_potion": 0,
-	
-	"meteorite_silver_ore": 0,
-	"dark_steel_ore": 0,
-	"green_gold_ore": 0,
-	
-	"meteorite_silver_ingot": 0,
-	"dark_steel_ingot": 0,
-	"green_gold_ingot": 0,
-	
-	"diamond_dust": 0,
-	"diamond": 0,
-	
-	"monster_bone": 0,
-	"leather_scraps": 0,
-	"oil": 0,
-	
-	"armor": 0,
-	"mastercrafted_armor": 0,
-	
-	"steel_sword": 0,
-	"kingslayers_steel_sword": 0,
-	
-	"silver_sword": 0,
-	"kingslayers_silver_sword": 0,
-}
+var items_stats := {}
+
+var curr_guild := {}

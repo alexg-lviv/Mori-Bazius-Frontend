@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8o0sg2n6dbu4"]
+
+[ext_resource type="Texture2D" uid="uid://bcnq4qjfbn8dd" path="res://art/UI/guilds/member.png" id="1_qsy58"]
+[ext_resource type="Script" path="res://src/scenes/guilds/Member.gd" id="1_xheq8"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="3_p4hbi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yynkd"]
+font = ExtResource("3_p4hbi")
+font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_dv7gu"]
+font = ExtResource("3_p4hbi")
+font_size = 51
+
+[node name="Member" type="TextureRect"]
+custom_minimum_size = Vector2(620, 80)
+offset_bottom = 80.0
+texture = ExtResource("1_qsy58")
+script = ExtResource("1_xheq8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+
+[node name="Num" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_yynkd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(455, 0)
+layout_mode = 2
+text = "alorthius"
+label_settings = SubResource("LabelSettings_dv7gu")
