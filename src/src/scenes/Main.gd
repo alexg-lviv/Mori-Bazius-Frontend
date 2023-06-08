@@ -69,6 +69,7 @@ func _on_inventory_visibility_changed():
 		Events.emit_signal("pull_items_stats")
 		
 		TabsContainer.set_tab_icon(1, active_icons[1])
+		await ScenesTrans.change_main_tab($TabContainer/Inventory/Shelf, Items.data["arenaria"]["sprite"], Vector2(308.5, -400))
 	else:
 		TabsContainer.set_tab_icon(1, icons[1])
 
