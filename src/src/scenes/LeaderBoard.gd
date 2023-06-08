@@ -1,16 +1,15 @@
 extends Control
 
-# TODO URL
 var _url := "http://localhost:9000/game_data/leaderboard?limit=%d"
 var _num := 100
 var _err_counter := 0
 
 @onready var row = preload("res://src/scenes/ScorePanel.tscn")
-@onready var container = get_node("ScrollContainer/VBoxContainer")
+@onready var container = get_node("Control/ScrollContainer/VBoxContainer")
 
 @onready var _GET = get_node('GET')
 
-@onready var _curr_player = get_node("CurrPlayer") as ScorePanel
+@onready var _curr_player = get_node("Control/CurrPlayer") as ScorePanel
 
 
 func _ready():

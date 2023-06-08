@@ -99,6 +99,8 @@ func _on_leader_board_visibility_changed():
 		return
 	if $TabContainer/LeaderBoard.visible:
 		TabsContainer.set_tab_icon(3, active_icons[3])
+		ScenesTrans.change_main_tab($TabContainer/LeaderBoard/Control, Items.data["arenaria"]["sprite"], $TabContainer/LeaderBoard/Control.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($TabContainer/LeaderBoard/TextureRect, Items.data["arenaria"]["sprite"], $TabContainer/LeaderBoard/TextureRect.position + Vector2(0, -400))
 	else:
 		TabsContainer.set_tab_icon(3, icons[3])
 
