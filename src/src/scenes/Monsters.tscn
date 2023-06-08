@@ -137,21 +137,29 @@ grow_horizontal = 2
 texture = ExtResource("7_jdipq")
 expand_mode = 1
 
-[node name="Bruxa" parent="." instance=ExtResource("1_cuh5e")]
+[node name="Monsters" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bruxa" parent="Monsters" instance=ExtResource("1_cuh5e")]
 offset_left = 136.0
 offset_top = 444.0
 offset_right = 136.0
 offset_bottom = 444.0
 monster_name = "bruxa"
 
-[node name="Kikimora" parent="." instance=ExtResource("1_cuh5e")]
+[node name="Kikimora" parent="Monsters" instance=ExtResource("1_cuh5e")]
 offset_left = 426.0
 offset_top = 591.0
 offset_right = 426.0
 offset_bottom = 591.0
 monster_name = "kikimora"
 
-[node name="Wyvern" parent="." instance=ExtResource("6_5ixp1")]
+[node name="Wyvern" parent="Monsters" instance=ExtResource("6_5ixp1")]
 offset_left = 127.0
 offset_top = 820.0
 offset_right = 127.0

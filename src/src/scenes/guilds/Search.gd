@@ -12,19 +12,19 @@ signal show_view(dict)
 
 func show_guilds_list():
 	if Items.curr_guild:
-		$VBoxContainer/CreateOrReturn/Label.text = "Return"
+		$CreateOrReturn/Label.text = "Return"
 	else:
-		$VBoxContainer/CreateOrReturn/Label.text = "Create"
+		$CreateOrReturn/Label.text = "Create"
 	_send_GET_to_guilds()
 	
-	for old_entry in $VBoxContainer/List/VBoxContainer.get_children():
-		$VBoxContainer/List/VBoxContainer.remove_child(old_entry)
+	for old_entry in $List/VBoxContainer.get_children():
+		$List/VBoxContainer.remove_child(old_entry)
 		old_entry.queue_free()
 
 
 func _add_entry(dict):
 	var scene = _entry_scene.instantiate()
-	$VBoxContainer/List/VBoxContainer.add_child(scene)
+	$List/VBoxContainer.add_child(scene)
 	scene._dict = dict
 	scene.show_view.connect(_show_view)
 

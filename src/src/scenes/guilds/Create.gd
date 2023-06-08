@@ -37,8 +37,8 @@ func _send_POST_to_guilds_new():
 
 
 func _save_info():
-	_sending_dict["name"] = $VBoxContainer/Input/Title.text
-	_sending_dict["description"] = $VBoxContainer/Input/Description.text
+	_sending_dict["name"] = $Input/Title.text
+	_sending_dict["description"] = $Input/Description.text
 	_sending_dict["player_id"] = Items.credentials["player_id"]
 	_sending_dict["player_name"] = Items.credentials["player_name"]
 	return _sending_dict

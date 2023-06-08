@@ -33,7 +33,6 @@ func _get_current_guild():
 func _on_get_curr_guild_request_completed(_result, response_code, _headers, body):
 	print("GET request to guild completed with code ", response_code)
 	var res = JSON.parse_string(body.get_string_from_utf8())
-	print(res)
 	if res:
 		Items.curr_guild = res
 		_show_my_guild()
@@ -91,6 +90,28 @@ func _on_view_show_search():
 	$Create.visible = false
 
 
-func _on_item_rect_changed():
+func _on_visibility_changed():
 	if visible:
 		_manage_guilds()
+
+
+func _on_search_visibility_changed():
+	if $Search.visible:
+		ScenesTrans.change_main_tab($Search/List, Items.data["arenaria"]["sprite"], $Search/List.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($Search/CreateOrReturn, null, $Search/CreateOrReturn.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($Search/TextureRect, null, $Search/TextureRect.position + Vector2(0, -400))
+
+
+func _on_create_visibility_changed():
+	if $Create.visible:
+		ScenesTrans.change_main_tab($Create/Input, Items.data["arenaria"]["sprite"], $Create/Input.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($Create/HBoxContainer, null, $Create/HBoxContainer.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($Create/TextureRect, null, $Create/TextureRect.position + Vector2(0, -400))
+
+
+func _on_view_visibility_changed():
+	if $View.visible:
+		ScenesTrans.change_main_tab($View/VBoxContainer, Items.data["arenaria"]["sprite"], $View/VBoxContainer.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($View/ScrollContainer, null, $View/ScrollContainer.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($View/HBoxContainer, null, $View/HBoxContainer.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($View/TextureRect, null, $View/TextureRect.position + Vector2(0, -400))
