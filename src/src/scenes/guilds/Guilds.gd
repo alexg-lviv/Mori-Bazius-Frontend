@@ -91,6 +91,6 @@ func _on_view_show_search():
 	$Create.visible = false
 
 
-func _on_item_rect_changed():
+func _on_visibility_changed():
 	if visible:
 		_manage_guilds()
