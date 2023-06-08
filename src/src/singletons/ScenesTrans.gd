@@ -50,13 +50,17 @@ func change_tab(target, texture):
 
 
 func change_main_tab(target, texture, from_vec):
-	var p = _tabs.instantiate()
-	$CanvasLayer.add_child(p)
-	p.texture = texture
-	p.emitting = true
+	var p
+	if texture:
+		p = _tabs.instantiate()
+		$CanvasLayer.add_child(p)
+		p.texture = texture
+		p.emitting = true
 	
 	var tween = create_tween().set_parallel()
 	tween.tween_property(target, "position", target.position, 0.5).from(from_vec).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 
 	await get_tree().create_timer(0.5).timeout
-	p.queue_free()
+	
+	if texture:
+		p.queue_free()

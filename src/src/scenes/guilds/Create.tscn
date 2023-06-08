@@ -26,37 +26,23 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = 200.0
-offset_right = -100.0
-offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i0oco")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-modulate = Color(0.87451, 1, 0.788235, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(0.501961, 1, 0.776471, 1)
 custom_minimum_size = Vector2(600, 100)
 layout_mode = 2
+offset_left = 60.0
+offset_right = 660.0
+offset_bottom = 100.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_mn3yl")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TextureRect"]
+[node name="Label" type="Label" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -69,7 +55,7 @@ label_settings = SubResource("LabelSettings_x65j7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,35 +65,42 @@ grow_vertical = 2
 texture = ExtResource("4_1t6tl")
 expand_mode = 1
 
-[node name="Input" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Input" type="VBoxContainer" parent="."]
 layout_mode = 2
+offset_left = 110.0
+offset_top = 160.0
+offset_right = 610.0
+offset_bottom = 670.0
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Title" type="LineEdit" parent="VBoxContainer/Input"]
+[node name="Title" type="LineEdit" parent="Input"]
 custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0hidy")
 theme_override_font_sizes/font_size = 51
 placeholder_text = "Title"
 
-[node name="Description" type="TextEdit" parent="VBoxContainer/Input"]
+[node name="Description" type="TextEdit" parent="Input"]
 custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_0hidy")
 theme_override_font_sizes/font_size = 51
 placeholder_text = "Description"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(720, 150)
 layout_mode = 2
+offset_top = 720.0
+offset_right = 720.0
+offset_bottom = 870.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Back" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Back" type="TextureButton" parent="HBoxContainer"]
 modulate = Color(0.65, 0.784167, 1, 0.776471)
 custom_minimum_size = Vector2(160, 80)
 layout_mode = 2
@@ -116,7 +109,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_tsr41")
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Back"]
+[node name="Label2" type="Label" parent="HBoxContainer/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,7 +121,7 @@ label_settings = SubResource("LabelSettings_y2uxx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Create" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+[node name="Create" type="TextureButton" parent="HBoxContainer"]
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -136,7 +129,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("6_tsr41")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Create"]
+[node name="Label" type="Label" parent="HBoxContainer/Create"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -150,6 +143,6 @@ vertical_alignment = 1
 
 [node name="POST" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Create" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="HBoxContainer/Create" to="." method="_on_create_pressed"]
 [connection signal="request_completed" from="POST" to="." method="_on_post_request_completed"]

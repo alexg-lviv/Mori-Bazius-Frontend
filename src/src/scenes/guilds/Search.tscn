@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cgjx1pxshcry7"]
+[gd_scene load_steps=8 format=3 uid="uid://cgjx1pxshcry7"]
 
 [ext_resource type="Script" path="res://src/scenes/guilds/Search.gd" id="1_2sola"]
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="2_b4lyp"]
 [ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="3_ykn2m"]
-[ext_resource type="PackedScene" uid="uid://biukm5pyklk2p" path="res://src/scenes/guilds/SearchEntry.tscn" id="4_c3gg7"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="4_uwkrj"]
 [ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="6_5b513"]
 
@@ -28,7 +27,83 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_2sola")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.831373, 0.929412, 1)
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+offset_left = 60.0
+offset_top = 100.0
+offset_right = 660.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_b4lyp")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 89.0
+offset_right = -92.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Browse guilds"
+label_settings = SubResource("LabelSettings_erg0f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_uwkrj")
+expand_mode = 1
+
+[node name="List" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(620, 585)
+layout_mode = 2
+offset_left = 46.0
+offset_top = 230.0
+offset_right = 674.0
+offset_bottom = 815.0
+mouse_filter = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="List"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="CreateOrReturn" type="TextureButton" parent="."]
+self_modulate = Color(0.835294, 0.682353, 1, 1)
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+offset_left = 260.0
+offset_top = 850.0
+offset_right = 460.0
+offset_bottom = 950.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_5b513")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="CreateOrReturn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_ymida")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -42,103 +117,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 30
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-modulate = Color(1, 0.831373, 0.929412, 1)
-custom_minimum_size = Vector2(600, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_b4lyp")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="VBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 89.0
-offset_right = -92.0
-offset_bottom = 100.0
-grow_horizontal = 2
-text = "Browse guilds"
-label_settings = SubResource("LabelSettings_erg0f")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_uwkrj")
-expand_mode = 1
-
-[node name="List" type="ScrollContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(620, 585)
-layout_mode = 2
-mouse_filter = 2
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/List"]
-layout_mode = 2
-mouse_filter = 2
-alignment = 1
-
-[node name="SearchEntry" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry2" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry3" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry4" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry5" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry6" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry7" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry8" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry9" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry10" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="SearchEntry11" parent="VBoxContainer/List/VBoxContainer" instance=ExtResource("4_c3gg7")]
-layout_mode = 2
-
-[node name="CreateOrReturn" type="TextureButton" parent="VBoxContainer"]
-self_modulate = Color(0.835294, 0.682353, 1, 1)
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("6_5b513")
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/CreateOrReturn"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Create"
-label_settings = SubResource("LabelSettings_ymida")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="GetList" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="VBoxContainer/CreateOrReturn" to="." method="_on_create_pressed"]
+[connection signal="pressed" from="CreateOrReturn" to="." method="_on_create_pressed"]
 [connection signal="request_completed" from="GetList" to="." method="_on_get_list_request_completed"]
