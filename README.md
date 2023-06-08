@@ -1,10 +1,10 @@
 <h1 align="center">Mori Bazius (front-end)</h1>
 
-<img align="center" src="https://github.com/alexg-lviv/hunter_clicker_front/assets/73172589/d514fd23-86c1-4afe-9c40-d7e3c6017489">
+<img align="center" src="src/art/logos/name.png">
 
 ---
 
-<img align="left" src="https://github.com/alexg-lviv/hunter_clicker_front/assets/73172589/0ea238fd-788a-4e8e-8fe6-96646e041add" width=256>
+<img align="left" src="src/art/logos/full_logo.png" width=256>
 
 
 **Mori Bazius** is a _2D fantasy clicker game_ for mobile devices. It was developed as a project for Software Architecture and Big Data courses. This repository contains front-end part of the project. Back-end repository can be found [here](https://github.com/Adeon18/Mori-Bazius-Backend).
@@ -65,7 +65,7 @@ Players can compare their game progress using the **Leaderboard** <img src="src/
 - [x] Fighting monsters
 - [x] Leaderboard
 - [ ] Different schools of hunters to be chosen on account creation
-- [ ] Guilds for the same schools of players
+- [x] Guilds for the same schools of players
 - [ ] Guild wars between different kinds of hunters
 - [ ] Trading system between players
 - [ ] Dynamic content based on the player's progress (new resources, monsters)
