@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://biuatccwj4dps"]
+
+[ext_resource type="Script" path="res://src/scenes/guilds/Guilds.gd" id="1_mkgck"]
+[ext_resource type="Texture2D" uid="uid://doabnfyf3t2xc" path="res://art/backgrounds/house/Bilbos_House_Phone_0000.png" id="2_ro6tg"]
+[ext_resource type="PackedScene" uid="uid://cgjx1pxshcry7" path="res://src/scenes/guilds/Search.tscn" id="3_1kup0"]
+[ext_resource type="PackedScene" uid="uid://djehfqq6xak8y" path="res://src/scenes/guilds/Create.tscn" id="4_4fm0c"]
+[ext_resource type="PackedScene" uid="uid://7cofox06cmk6" path="res://src/scenes/guilds/View.tscn" id="5_e3kc6"]
+
+[node name="Guilds" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkgck")
+
+[node name="Back" type="TextureRect" parent="."]
+self_modulate = Color(0.780392, 0.513726, 0.752941, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 120.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ro6tg")
+expand_mode = 5
+
+[node name="Search" parent="." instance=ExtResource("3_1kup0")]
+visible = false
+layout_mode = 1
+offset_top = 120.0
+offset_bottom = 120.0
+
+[node name="Create" parent="." instance=ExtResource("4_4fm0c")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_left = 0.0
+offset_top = 100.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="View" parent="." instance=ExtResource("5_e3kc6")]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 100.0
+
+[node name="GetCurrGuild" type="HTTPRequest" parent="."]
+
+[connection signal="item_rect_changed" from="." to="." method="_on_item_rect_changed"]
+[connection signal="show_creation" from="Search" to="." method="_on_search_show_creation"]
+[connection signal="show_view" from="Search" to="." method="_on_search_show_view"]
+[connection signal="show_search" from="Create" to="." method="_on_create_show_search"]
+[connection signal="show_view" from="Create" to="." method="_on_create_show_view"]
+[connection signal="show_search" from="View" to="." method="_on_view_show_search"]
+[connection signal="request_completed" from="GetCurrGuild" to="." method="_on_get_curr_guild_request_completed"]

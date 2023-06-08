@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=3 uid="uid://djehfqq6xak8y"]
+
+[ext_resource type="Script" path="res://src/scenes/guilds/Create.gd" id="1_i0oco"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="2_0hidy"]
+[ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="2_mn3yl"]
+[ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="4_1t6tl"]
+[ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="6_tsr41"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x65j7"]
+font = ExtResource("2_0hidy")
+font_size = 72
+shadow_size = 10
+shadow_color = Color(0.266667, 0, 0.278431, 0.603922)
+shadow_offset = Vector2(10, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y2uxx"]
+font = ExtResource("2_0hidy")
+font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_yea75"]
+font = ExtResource("2_0hidy")
+font_size = 66
+
+[node name="Create" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 200.0
+offset_right = -100.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i0oco")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color(0.87451, 1, 0.788235, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+self_modulate = Color(0.501961, 1, 0.776471, 1)
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_mn3yl")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 89.0
+offset_right = -92.0
+offset_bottom = 100.0
+grow_horizontal = 2
+text = "Create guild"
+label_settings = SubResource("LabelSettings_x65j7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1t6tl")
+expand_mode = 1
+
+[node name="Input" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Title" type="LineEdit" parent="VBoxContainer/Input"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0hidy")
+theme_override_font_sizes/font_size = 51
+placeholder_text = "Title"
+
+[node name="Description" type="TextEdit" parent="VBoxContainer/Input"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_0hidy")
+theme_override_font_sizes/font_size = 51
+placeholder_text = "Description"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(720, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Back" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(0.65, 0.784167, 1, 0.776471)
+custom_minimum_size = Vector2(160, 80)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource("6_tsr41")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back"
+label_settings = SubResource("LabelSettings_y2uxx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Create" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_tsr41")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/Create"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Create"
+label_settings = SubResource("LabelSettings_yea75")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="POST" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Create" to="." method="_on_create_pressed"]
+[connection signal="request_completed" from="POST" to="." method="_on_post_request_completed"]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://biukm5pyklk2p"]
+
+[ext_resource type="Script" path="res://src/scenes/guilds/SearchEntry.gd" id="1_475tb"]
+[ext_resource type="Texture2D" uid="uid://cdsqek8mb1e3l" path="res://art/UI/guilds/search_entry.png" id="1_ttnsf"]
+[ext_resource type="Texture2D" uid="uid://cgjg612lll5jo" path="res://art/UI/guilds/hovered_search_entry.png" id="2_3o8oh"]
+[ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="3_x3k53"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_54r8n"]
+font = ExtResource("3_x3k53")
+font_size = 51
+
+[sub_resource type="LabelSettings" id="LabelSettings_mm40f"]
+font = ExtResource("3_x3k53")
+font_size = 51
+
+[node name="SearchEntry" type="TextureButton"]
+custom_minimum_size = Vector2(620, 80)
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = -100.0
+offset_bottom = 80.0
+grow_horizontal = 2
+pivot_offset = Vector2(310, 40)
+texture_normal = ExtResource("1_ttnsf")
+texture_hover = ExtResource("2_3o8oh")
+stretch_mode = 0
+script = ExtResource("1_475tb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+text = "My Guild"
+label_settings = SubResource("LabelSettings_54r8n")
+clip_text = true
+
+[node name="Members" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "10 / 20"
+label_settings = SubResource("LabelSettings_mm40f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

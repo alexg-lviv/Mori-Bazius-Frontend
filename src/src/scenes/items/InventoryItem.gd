@@ -15,8 +15,9 @@ func _set_label():
 	_label.text = str(Items.qty[item_name])
 
 func _show_stat():
-	var s = Items.items_stats[item_name]
-	if s > 0:
-		$Stat.text = str(s)
-	else:
-		$Stat.text = "---"
+	if Items.items_stats.has("avg_growth_" + item_name):
+		var s = Items.items_stats["avg_growth_" + item_name]
+		if s != 0:
+			$Stat.text = str(snapped(s, 0.1))
+			return
+	$Stat.text = "---"
