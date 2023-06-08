@@ -69,7 +69,7 @@ func _on_inventory_visibility_changed():
 		Events.emit_signal("pull_items_stats")
 		
 		TabsContainer.set_tab_icon(1, active_icons[1])
-		await ScenesTrans.change_main_tab($TabContainer/Inventory/Shelf, Items.data["arenaria"]["sprite"], Vector2(308.5, -400))
+		await ScenesTrans.change_main_tab($TabContainer/Inventory/Shelf, Items.data["arenaria"]["sprite"], $TabContainer/Inventory/Shelf.position + Vector2(0, 400))
 	else:
 		TabsContainer.set_tab_icon(1, icons[1])
 
@@ -88,6 +88,8 @@ func _on_monsters_visibility_changed():
 		return
 	if $TabContainer/Monsters.visible:
 		TabsContainer.set_tab_icon(2, active_icons[2])
+		ScenesTrans.change_main_tab($TabContainer/Monsters/Monsters, Items.data["arenaria"]["sprite"], $TabContainer/Monsters/Monsters.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($TabContainer/Monsters/TextureRect, Items.data["arenaria"]["sprite"], $TabContainer/Monsters/TextureRect.position + Vector2(0, -400))
 	else:
 		TabsContainer.set_tab_icon(2, icons[2])
 
