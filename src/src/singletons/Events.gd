@@ -239,6 +239,7 @@ func _display_error():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_POST_resources.cancel_request()
 		var err_resources = _POST_resources.request(
 			_url % ["resources", Items.credentials["player_id"]],
 			["Content-Type: application/json"],
@@ -249,6 +250,7 @@ func _notification(what):
 		if err_resources == Error.OK:
 			await _POST_resources.request_completed
 
+		_POST_stats.cancel_request()
 		var err_stats = _POST_stats.request(
 			_url % ["stats", Items.credentials["player_id"]],
 			["Content-Type: application/json"],
