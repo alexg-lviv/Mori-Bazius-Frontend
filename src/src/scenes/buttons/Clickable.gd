@@ -52,6 +52,7 @@ func _on_mouse_exited():
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
+
 func _rotate():
 	if _rot_tween and _rot_tween.is_running():
 		return

@@ -814,22 +814,25 @@ stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Box"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
+theme_override_constants/separation = 0
 
 [node name="Header" type="Label" parent="Box/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "Please login or register"
 label_settings = SubResource("LabelSettings_48rdw")
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Input" type="VBoxContainer" parent="Box/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
+alignment = 2
 
 [node name="Username" type="LineEdit" parent="Box/VBoxContainer/Input"]
 custom_minimum_size = Vector2(350, 50)
@@ -849,24 +852,24 @@ placeholder_text = "Password"
 secret = true
 
 [node name="Error" type="Label" parent="Box/VBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_4h7uq")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" type="HBoxContainer" parent="Box/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Login" type="TextureButton" parent="Box/VBoxContainer/Buttons"]
+[node name="Login" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+offset_left = 185.0
+offset_top = 728.0
+offset_right = 335.0
+offset_bottom = 828.0
+pivot_offset = Vector2(75, 50)
 texture_normal = ExtResource("4_0o4ki")
 
-[node name="Label" type="Label" parent="Box/VBoxContainer/Buttons/Login"]
+[node name="Label" type="Label" parent="Login"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -878,12 +881,17 @@ label_settings = ExtResource("5_72ebm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Register" type="TextureButton" parent="Box/VBoxContainer/Buttons"]
+[node name="Register" type="TextureButton" parent="."]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+offset_left = 385.0
+offset_top = 728.0
+offset_right = 535.0
+offset_bottom = 828.0
+pivot_offset = Vector2(75, 50)
 texture_normal = ExtResource("4_0o4ki")
 
-[node name="Label" type="Label" parent="Box/VBoxContainer/Buttons/Register"]
+[node name="Label" type="Label" parent="Register"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -935,7 +943,11 @@ label_settings = SubResource("LabelSettings_us823")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Box/VBoxContainer/Buttons/Login" to="." method="_on_login_pressed"]
-[connection signal="pressed" from="Box/VBoxContainer/Buttons/Register" to="." method="_on_register_pressed"]
+[connection signal="mouse_entered" from="Login" to="." method="_on_login_mouse_entered"]
+[connection signal="mouse_exited" from="Login" to="." method="_on_login_mouse_exited"]
+[connection signal="pressed" from="Login" to="." method="_on_login_pressed"]
+[connection signal="mouse_entered" from="Register" to="." method="_on_register_mouse_entered"]
+[connection signal="mouse_exited" from="Register" to="." method="_on_register_mouse_exited"]
+[connection signal="pressed" from="Register" to="." method="_on_register_pressed"]
 [connection signal="request_completed" from="RegisterPOST" to="." method="_on_register_post_request_completed"]
 [connection signal="request_completed" from="LoginPOST" to="." method="_on_login_post_request_completed"]
