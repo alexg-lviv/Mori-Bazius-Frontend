@@ -17,7 +17,7 @@ func _set_label():
 func _show_stat():
 	if Items.items_stats.has("avg_growth_" + item_name):
 		var s = Items.items_stats["avg_growth_" + item_name]
-		if s != 0:
+		if (typeof(s) == TYPE_FLOAT or typeof(s) == TYPE_INT) and s != 0:
 			$Stat.text = str(snapped(s, 0.1))
 			return
 	$Stat.text = "---"
