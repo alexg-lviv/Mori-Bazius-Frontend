@@ -11,8 +11,6 @@
 
 The main idea of the game is to farm resources and reach rank 1 in the leaderboard. Player should click on basic resources, craft them with each other and upgrade. Use the new items to equip hunters and fight monsters.
 
----
-
 **Check out game video [demo on YT](https://youtu.be/VGBXOL042xI)**
 
 <h2 align="center">Overview</h2>
