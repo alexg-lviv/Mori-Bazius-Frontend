@@ -169,9 +169,10 @@ func _on_pull():
 
 func _on_get_average_request_completed(_result, response_code, _headers, body):
 	print("GET request to average completed with code ", response_code)
-	Items.items_stats = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
-	
-	emit_signal("display_items_stats")
+	if response_code == 200:
+		Items.items_stats = remove_credentials_from_dict(JSON.parse_string(body.get_string_from_utf8()))
+		
+		emit_signal("display_items_stats")
 
 
 func _on_post_stats_request_completed(_result, response_code, _headers, _body):

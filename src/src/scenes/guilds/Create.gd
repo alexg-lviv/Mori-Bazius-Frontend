@@ -37,8 +37,8 @@ func _send_POST_to_guilds_new():
 
 
 func _save_info():
-	_sending_dict["name"] = $Input/Title.text
-	_sending_dict["description"] = $Input/Description.text
+	_sending_dict["name"] = $Control/Input/Title.text
+	_sending_dict["description"] = $Control/Input/Description.text
 	_sending_dict["player_id"] = Items.credentials["player_id"]
 	_sending_dict["player_name"] = Items.credentials["player_name"]
 	return _sending_dict
@@ -69,3 +69,23 @@ func _on_create_pressed():
 
 func _on_back_pressed():
 	emit_signal("show_search")
+
+
+func _on_back_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Back, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_back_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Back, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_create_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Create, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_create_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Create, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)

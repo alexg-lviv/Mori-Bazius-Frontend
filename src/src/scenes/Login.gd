@@ -17,8 +17,8 @@ var _err_tween
 
 @onready var _error_label = get_node("Box/VBoxContainer/Error") as Label
 
-@onready var _register_button = get_node("Box/VBoxContainer/Buttons/Register") as TextureButton
-@onready var _login_button = get_node("Box/VBoxContainer/Buttons/Login") as TextureButton
+@onready var _register_button = get_node("Register") as TextureButton
+@onready var _login_button = get_node("Login") as TextureButton
 
 @onready var _register_post = get_node("RegisterPOST") as HTTPRequest
 @onready var _login_post = get_node("LoginPOST") as HTTPRequest
@@ -126,3 +126,23 @@ func _on_login_post_request_completed(_result, response_code, _headers, body):
 	Events.emit_signal("pull")
 	await _load_game_scene()
 	queue_free()
+
+
+func _on_login_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Login, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_login_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Login, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_register_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Register, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_register_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Register, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)

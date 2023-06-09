@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://7cofox06cmk6"]
+[gd_scene load_steps=12 format=3 uid="uid://7cofox06cmk6"]
 
 [ext_resource type="Script" path="res://src/scenes/guilds/View.gd" id="1_hvsmh"]
 [ext_resource type="PackedScene" uid="uid://c8o0sg2n6dbu4" path="res://src/scenes/guilds/Member.tscn" id="1_q0wqy"]
 [ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="2_2ei52"]
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="2_hhqvy"]
-[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="3_og5qu"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="4_0ocod"]
 [ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="7_57sxy"]
 
@@ -17,11 +16,11 @@ shadow_offset = Vector2(10, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_upys1"]
 font = ExtResource("2_2ei52")
-font_size = 33
+font_size = 51
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0e1j"]
-font = ExtResource("3_og5qu")
-font_size = 22
+font = ExtResource("2_2ei52")
+font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_k34c0"]
 font = ExtResource("2_2ei52")
@@ -40,7 +39,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hvsmh")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Upper" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Upper"]
 modulate = Color(0.760784, 1, 0.976471, 1)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -50,7 +57,7 @@ offset_bottom = 150.0
 size_flags_horizontal = 4
 texture = ExtResource("2_hhqvy")
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="Upper/TextureRect"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 10
@@ -62,7 +69,7 @@ label_settings = SubResource("LabelSettings_gfqi3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+[node name="TextureRect" type="TextureRect" parent="Upper/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,33 +78,37 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_0ocod")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 242.0
-offset_top = 200.0
-offset_right = 478.0
-offset_bottom = 366.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Upper"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 165.0
+offset_right = 162.0
+offset_bottom = 376.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="Mem" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Mem" type="HBoxContainer" parent="Upper/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/Mem"]
+[node name="Label" type="Label" parent="Upper/VBoxContainer/Mem"]
 layout_mode = 2
 text = "Members: "
 label_settings = SubResource("LabelSettings_upys1")
 horizontal_alignment = 1
 
-[node name="Members" type="Label" parent="VBoxContainer/Mem"]
+[node name="Members" type="Label" parent="Upper/VBoxContainer/Mem"]
 self_modulate = Color(0.815686, 1, 1, 1)
 layout_mode = 2
 text = "10 / 20"
 label_settings = SubResource("LabelSettings_upys1")
 horizontal_alignment = 1
 
-[node name="Description" type="Label" parent="VBoxContainer"]
+[node name="Description" type="Label" parent="Upper/VBoxContainer"]
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -109,7 +120,15 @@ label_settings = SubResource("LabelSettings_q0e1j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
 custom_minimum_size = Vector2(520, 400)
 layout_mode = 2
 offset_left = 46.0
@@ -120,37 +139,31 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="Member" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_q0wqy")]
+[node name="Member" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_q0wqy")]
 layout_mode = 2
 
-[node name="Member2" parent="ScrollContainer/VBoxContainer" instance=ExtResource("1_q0wqy")]
+[node name="Member2" parent="Control/ScrollContainer/VBoxContainer" instance=ExtResource("1_q0wqy")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(720, 150)
-layout_mode = 2
-offset_top = 850.0
-offset_right = 720.0
-offset_bottom = 1000.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 50
-alignment = 1
-
-[node name="Back" type="TextureButton" parent="HBoxContainer"]
+[node name="Back" type="TextureButton" parent="Control"]
 modulate = Color(0.65, 0.784167, 1, 0.776471)
 custom_minimum_size = Vector2(160, 80)
 layout_mode = 2
+offset_left = 130.0
+offset_top = 875.0
+offset_right = 290.0
+offset_bottom = 975.0
+pivot_offset = Vector2(80, 50)
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture_normal = ExtResource("7_57sxy")
 stretch_mode = 5
 
-[node name="Label2" type="Label" parent="HBoxContainer/Back"]
+[node name="Label2" type="Label" parent="Control/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,16 +175,21 @@ label_settings = SubResource("LabelSettings_k34c0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="JoinButt" type="TextureButton" parent="HBoxContainer"]
+[node name="JoinButt" type="TextureButton" parent="Control"]
 visible = false
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
+offset_left = 340.0
+offset_top = 850.0
+offset_right = 590.0
+offset_bottom = 1000.0
+pivot_offset = Vector2(125, 75)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("7_57sxy")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/JoinButt"]
+[node name="Label" type="Label" parent="Control/JoinButt"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -183,15 +201,20 @@ label_settings = SubResource("LabelSettings_yc7ro")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LeaveButt" type="TextureButton" parent="HBoxContainer"]
+[node name="LeaveButt" type="TextureButton" parent="Control"]
 custom_minimum_size = Vector2(250, 150)
 layout_mode = 2
+offset_left = 340.0
+offset_top = 850.0
+offset_right = 590.0
+offset_bottom = 1000.0
+pivot_offset = Vector2(125, 75)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("7_57sxy")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/LeaveButt"]
+[node name="Label" type="Label" parent="Control/LeaveButt"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -210,9 +233,15 @@ vertical_alignment = 1
 
 [node name="DeleteLeave" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="HBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="HBoxContainer/JoinButt" to="." method="_on_join_butt_pressed"]
-[connection signal="pressed" from="HBoxContainer/LeaveButt" to="." method="_on_leave_butt_pressed"]
+[connection signal="mouse_entered" from="Control/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Control/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Control/JoinButt" to="." method="_on_join_butt_mouse_entered"]
+[connection signal="mouse_exited" from="Control/JoinButt" to="." method="_on_join_butt_mouse_exited"]
+[connection signal="pressed" from="Control/JoinButt" to="." method="_on_join_butt_pressed"]
+[connection signal="mouse_entered" from="Control/LeaveButt" to="." method="_on_leave_butt_mouse_entered"]
+[connection signal="mouse_exited" from="Control/LeaveButt" to="." method="_on_leave_butt_mouse_exited"]
+[connection signal="pressed" from="Control/LeaveButt" to="." method="_on_leave_butt_pressed"]
 [connection signal="request_completed" from="GetMembers" to="." method="_on_get_members_request_completed"]
 [connection signal="request_completed" from="PostJoin" to="." method="_on_post_join_request_completed"]
 [connection signal="request_completed" from="DeleteLeave" to="." method="_on_delete_leave_request_completed"]

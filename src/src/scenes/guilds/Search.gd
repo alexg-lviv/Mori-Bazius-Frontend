@@ -10,7 +10,7 @@ signal show_creation()
 signal show_view(dict)
 
 
-func show_guilds_list():
+func show_guilds_list():	
 	if Items.curr_guild:
 		$CreateOrReturn/Label.text = "Return"
 	else:
@@ -65,3 +65,11 @@ func _on_create_pressed():
 		emit_signal("show_creation")
 
 
+func _on_create_or_return_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($CreateOrReturn, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_create_or_return_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($CreateOrReturn, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
