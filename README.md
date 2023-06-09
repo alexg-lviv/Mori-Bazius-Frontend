@@ -11,6 +11,10 @@
 
 The main idea of the game is to farm resources and reach rank 1 in the leaderboard. Player should click on basic resources, craft them with each other and upgrade. Use the new items to equip hunters and fight monsters.
 
+---
+
+**Check out game video [demo on YT](https://youtu.be/VGBXOL042xI)**
+
 <h2 align="center">Overview</h2>
 
 There are _2 metrics_ to estimate the player _progress_ in the game:
@@ -51,8 +55,6 @@ Also there are different monsters available:
 
 ---
 
-Players can compare their game progress using the **Leaderboard** <img src="src/art/UI/tabs_icons/active/leader.png" width=32> : a ranking system providing top-most players and their stats.
-
 <h2 align="center">Mechanics</h2>
 
 **Main mechanics** intended:
@@ -69,6 +71,7 @@ Players can compare their game progress using the **Leaderboard** <img src="src/
 - [ ] Guild wars between different kinds of hunters
 - [ ] Trading system between players
 - [ ] Dynamic content based on the player's progress (new resources, monsters)
+- [x] Statistics for player's progress
 
 <h2 align="center">Contributors</h2>
 
