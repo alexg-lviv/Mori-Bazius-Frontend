@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://7cofox06cmk6"]
+[gd_scene load_steps=12 format=3 uid="uid://7cofox06cmk6"]
 
 [ext_resource type="Script" path="res://src/scenes/guilds/View.gd" id="1_hvsmh"]
 [ext_resource type="PackedScene" uid="uid://c8o0sg2n6dbu4" path="res://src/scenes/guilds/Member.tscn" id="1_q0wqy"]
 [ext_resource type="FontFile" uid="uid://jx5vc8i6vlpd" path="res://fonts/DungeonFont.ttf" id="2_2ei52"]
 [ext_resource type="Texture2D" uid="uid://bffx465c76wek" path="res://art/UI/rects/clouds.png" id="2_hhqvy"]
-[ext_resource type="FontFile" uid="uid://dimqo0mn8r0p0" path="res://fonts/Retro Gaming.ttf" id="3_og5qu"]
 [ext_resource type="Texture2D" uid="uid://rh1pxwgcldce" path="res://art/UI/rects/720x100.png" id="4_0ocod"]
 [ext_resource type="Texture2D" uid="uid://b8eiyfk34naym" path="res://art/button.png" id="7_57sxy"]
 
@@ -17,11 +16,11 @@ shadow_offset = Vector2(10, 5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_upys1"]
 font = ExtResource("2_2ei52")
-font_size = 33
+font_size = 51
 
 [sub_resource type="LabelSettings" id="LabelSettings_q0e1j"]
-font = ExtResource("3_og5qu")
-font_size = 22
+font = ExtResource("2_2ei52")
+font_size = 34
 
 [sub_resource type="LabelSettings" id="LabelSettings_k34c0"]
 font = ExtResource("2_2ei52")
@@ -72,11 +71,15 @@ grow_vertical = 2
 texture = ExtResource("4_0ocod")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 242.0
-offset_top = 200.0
-offset_right = 478.0
-offset_bottom = 366.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 165.0
+offset_right = 162.0
+offset_bottom = 349.0
+grow_horizontal = 2
 size_flags_horizontal = 4
 alignment = 1
 
