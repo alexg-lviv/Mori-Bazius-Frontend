@@ -86,6 +86,7 @@ offset_left = 260.0
 offset_top = 850.0
 offset_right = 460.0
 offset_bottom = 950.0
+pivot_offset = Vector2(100, 50)
 size_flags_horizontal = 4
 texture_normal = ExtResource("6_5b513")
 stretch_mode = 0
@@ -119,5 +120,7 @@ theme_override_constants/separation = 30
 
 [node name="GetList" type="HTTPRequest" parent="."]
 
+[connection signal="mouse_entered" from="CreateOrReturn" to="." method="_on_create_or_return_mouse_entered"]
+[connection signal="mouse_exited" from="CreateOrReturn" to="." method="_on_create_or_return_mouse_exited"]
 [connection signal="pressed" from="CreateOrReturn" to="." method="_on_create_pressed"]
 [connection signal="request_completed" from="GetList" to="." method="_on_get_list_request_completed"]

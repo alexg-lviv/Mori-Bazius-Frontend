@@ -100,18 +100,25 @@ func _on_search_visibility_changed():
 		ScenesTrans.change_main_tab($Search/List, Items.data["arenaria"]["sprite"], $Search/List.position + Vector2(0, 400))
 		ScenesTrans.change_main_tab($Search/CreateOrReturn, null, $Search/CreateOrReturn.position + Vector2(0, 400))
 		ScenesTrans.change_main_tab($Search/TextureRect, null, $Search/TextureRect.position + Vector2(0, -400))
+		
+		$Search/CreateOrReturn.scale = Vector2.ONE
 
 
 func _on_create_visibility_changed():
 	if $Create.visible:
-		ScenesTrans.change_main_tab($Create/Input, Items.data["arenaria"]["sprite"], $Create/Input.position + Vector2(0, 400))
-		ScenesTrans.change_main_tab($Create/HBoxContainer, null, $Create/HBoxContainer.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($Create/Control, Items.data["arenaria"]["sprite"], $Create/Control.position + Vector2(0, 400))
 		ScenesTrans.change_main_tab($Create/TextureRect, null, $Create/TextureRect.position + Vector2(0, -400))
+		
+		$Create/Control/Back.scale = Vector2.ONE
+		$Create/Control/Create.scale = Vector2.ONE
 
 
 func _on_view_visibility_changed():
 	if $View.visible:
-		ScenesTrans.change_main_tab($View/VBoxContainer, Items.data["arenaria"]["sprite"], $View/VBoxContainer.position + Vector2(0, 400))
-		ScenesTrans.change_main_tab($View/ScrollContainer, null, $View/ScrollContainer.position + Vector2(0, 400))
-		ScenesTrans.change_main_tab($View/HBoxContainer, null, $View/HBoxContainer.position + Vector2(0, 400))
-		ScenesTrans.change_main_tab($View/TextureRect, null, $View/TextureRect.position + Vector2(0, -400))
+		ScenesTrans.change_main_tab($View/Control, Items.data["arenaria"]["sprite"], $View/Control.position + Vector2(0, 400))
+		ScenesTrans.change_main_tab($View/Upper, null, $View/Upper.position + Vector2(0, -400))
+		
+		$View/Control/Back.scale = Vector2.ONE
+		$View/Control/JoinButt.scale = Vector2.ONE
+		$View/Control/LeaveButt.scale = Vector2.ONE
+

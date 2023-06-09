@@ -18,9 +18,9 @@ var _members_list: Array
 signal show_search()
 
 
-func show_guild(dict: Dictionary):
-	for child in $ScrollContainer/VBoxContainer.get_children():
-		$ScrollContainer/VBoxContainer.remove_child(child)
+func show_guild(dict: Dictionary):	
+	for child in $Control/ScrollContainer/VBoxContainer.get_children():
+		$Control/ScrollContainer/VBoxContainer.remove_child(child)
 		child.queue_free()
 	
 	_dict = dict
@@ -29,21 +29,21 @@ func show_guild(dict: Dictionary):
 	if Items.curr_guild:
 		_is_joined = _dict["_id"] == Items.curr_guild["_id"]
 	
-	$TextureRect/Label.text = dict["name"]
-	$VBoxContainer/Description.text = dict["description"]
-	$VBoxContainer/Mem/Members.text = str(dict["num_members"]) + " / " + str(dict["limit_members"])
+	$Upper/TextureRect/Label.text = dict["name"]
+	$Upper/VBoxContainer/Description.text = dict["description"]
+	$Upper/VBoxContainer/Mem/Members.text = str(dict["num_members"]) + " / " + str(dict["limit_members"])
 
 	_send_GET_to_members()
 	
 	if _is_joined:
-		$HBoxContainer/LeaveButt.visible = true
-		$HBoxContainer/JoinButt.visible = false
+		$Control/LeaveButt.visible = true
+		$Control/JoinButt.visible = false
 	else:
-		$HBoxContainer/LeaveButt.visible = false
+		$Control/LeaveButt.visible = false
 		if not Items.curr_guild.is_empty() or _is_full:
-			$HBoxContainer/JoinButt.visible = false
+			$Control/JoinButt.visible = false
 		else:
-			$HBoxContainer/JoinButt.visible = true
+			$Control/JoinButt.visible = true
 
 
 func _send_GET_to_members():
@@ -69,7 +69,7 @@ func _on_get_members_request_completed(result, response_code, headers, body):
 			var i = 1
 			for dict in res:
 				var entry = _member_entry_scene.instantiate()
-				$ScrollContainer/VBoxContainer.add_child(entry)
+				$Control/ScrollContainer/VBoxContainer.add_child(entry)
 				entry.set_player_data(i, dict["player_name"])
 				i += 1
 
@@ -137,3 +137,30 @@ func _on_delete_leave_request_completed(result, response_code, headers, body):
 	if response_code == 200:
 		Items.curr_guild = {}
 		emit_signal("show_search")
+
+
+func _on_back_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Back, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _on_back_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/Back, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_join_butt_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/JoinButt, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _on_join_butt_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/JoinButt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+
+func _on_leave_butt_mouse_entered():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/LeaveButt, "scale", 1.2 * Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+
+func _on_leave_butt_mouse_exited():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/LeaveButt, "scale", Vector2.ONE, 0.05).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
